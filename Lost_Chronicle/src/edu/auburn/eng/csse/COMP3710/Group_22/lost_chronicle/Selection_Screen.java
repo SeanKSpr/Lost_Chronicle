@@ -3,6 +3,9 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -52,6 +55,26 @@ public class Selection_Screen extends Activity {
 		});
 	}
 	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.action_bar, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.home_button:
+				//go home - launch intent to selection screen
+				return true;
+			case R.id.store_button:
+				//go to store - launch store fragment for your activity
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+	}
 	private void launchActivity(Intent intent) {
 		startActivity(intent);
 	}

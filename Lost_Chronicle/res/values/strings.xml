@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Serithras\'s Lair</string>
+    <string name="app_name">Lost Chronicle</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-	<string name="scheduler_activity_button_name">Schedule Experience</string>
+	<string name="scheduler_activity_button_name">Chronicle</string>
 	<string name="rpg_battle_activity_button_name">Serithras\'s Lair</string>
 	<string name="companion_activity_button_name">Kanojo</string>
 	<string name="scheduler_activity_label">Scheduler</string>
 	<string name="rpg_battle_activity_label">RPG Battle</string>
 	<string name="companion_activity_label">Kanojo</string>
+	<string name="home_action_item">Home</string>
+	<string name="store_action_item">Store</string>
 </resources>
