@@ -24,24 +24,28 @@ public final class R {
         public static final int dungeon_entrance=0x7f020000;
         public static final int grea_the_dragonborn=0x7f020001;
         public static final int grea_the_dragonborn_button=0x7f020002;
-        public static final int home=0x7f020003;
-        public static final int ic_launcher_web=0x7f020004;
-        public static final int scroll=0x7f020005;
-        public static final int store=0x7f020006;
+        public static final int grea_the_dragonborn_thumb=0x7f020003;
+        public static final int home=0x7f020004;
+        public static final int ic_launcher_web=0x7f020005;
+        public static final int scroll=0x7f020006;
+        public static final int store=0x7f020007;
     }
     public static final class id {
-        public static final int companion_activity_button=0x7f080003;
-        public static final int home_button=0x7f080004;
-        public static final int rpg_battle_activity_button=0x7f080002;
-        public static final int scheduler_activity_button=0x7f080001;
-        public static final int store_button=0x7f080005;
-        public static final int textView1=0x7f080000;
+        public static final int companion_activity_button=0x7f080004;
+        public static final int home_button=0x7f080006;
+        public static final int kanojo_store=0x7f080005;
+        public static final int rpg_battle_activity_button=0x7f080003;
+        public static final int scheduler_activity_button=0x7f080002;
+        public static final int store_button=0x7f080007;
+        public static final int store_fragment_container=0x7f080000;
+        public static final int textView1=0x7f080001;
     }
     public static final class layout {
         public static final int activity_companion_activity_screen=0x7f030000;
         public static final int activity_rpg_battle_screen=0x7f030001;
         public static final int activity_scheduler_screen=0x7f030002;
         public static final int activity_selection__screen=0x7f030003;
+        public static final int fragment_kanojo_store_screen=0x7f030004;
     }
     public static final class menu {
         public static final int action_bar=0x7f070000;
