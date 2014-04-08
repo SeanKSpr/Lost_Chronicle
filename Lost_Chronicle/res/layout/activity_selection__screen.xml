@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:orientation="vertical" >
+	<Button
+	    android:id="@+id/scheduler_activity_button"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" 
+	    android:layout_weight=".33"
+	    android:text="@string/scheduler_activity_button_name"
+	    />
+	<Button
+	    android:id="@+id/rpg_battle_activity_button"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" 
+	    android:layout_weight=".33"
+	    android:text="@string/rpg_battle_activity_button_name"
+	    />
+	<Button
+	    android:id="@+id/companion_activity_button"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_weight=".33" 
+	    android:text="@string/companion_activity_button_name"
+	    />
+</LinearLayout>
