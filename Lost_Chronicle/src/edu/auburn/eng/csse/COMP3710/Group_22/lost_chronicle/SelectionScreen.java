@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.view.Menu;
 import android.util.Log;
 public class SelectionScreen extends Activity {
-final String TAG = "FUCK";
+public static final String TAG = "SELECTION_SCREEN";
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ final String TAG = "FUCK";
    public boolean onCreateOptionsMenu(Menu menu) {
    	// Inflate the menu; this adds items to the action bar if it is present.
       getMenuInflater().inflate(R.menu.selection_screen, menu);
-      Log.e(TAG, "Git is too hard.  Should have taken a fucking class on it")
+      Log.e(TAG, "Git is too hard.  Should have taken a fucking class on it");
       return true;
    }
 
