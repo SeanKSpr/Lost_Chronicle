@@ -7,8 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.GridView;
+import android.widget.Toast;
 
 public class KanojoStore extends Fragment {
 	@Override
@@ -25,21 +27,16 @@ public class KanojoStore extends Fragment {
 		GridView gridView = (GridView) v.findViewById(R.id.kanojo_store);
 		ImageAdapter imageAdapter = new ImageAdapter(this);
 		gridView.setAdapter(imageAdapter);
-		gridView.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View v,
-					int position, long id) {
-				// TODO if kanojo hasn't been bought then display purchase dialog
-				// TODO if kanojo is already selected then deselect
-				// TODO if kanojo isn't selected then set kanojo as active
-				
-			}
+		gridView.setOnItemClickListener(new OnItemClickListener(){
 
 			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Nothing
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
+				Toast.makeText(getActivity(), "Test", Toast.LENGTH_SHORT).show();
+				
 			}
-		    });
+			
+		});
 		return v;
 		
 	}

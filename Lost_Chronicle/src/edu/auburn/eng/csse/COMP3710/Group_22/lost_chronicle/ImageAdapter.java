@@ -9,7 +9,8 @@ import android.widget.ImageView;
 
 public class ImageAdapter extends BaseAdapter {
 	private Fragment mFragment;
-	private Integer[] mImageIds = {R.drawable.grea_the_dragonborn_thumb};
+	private Integer[] mImageIds = {R.drawable.grea_the_dragonborn_thumbnail1, R.drawable.grea_the_dragonborn_thumbnail2,
+			R.drawable.grea_the_dragonborn_thumbnail3, R.drawable.grea_the_dragonborn_thumbnail4};
 	public ImageAdapter(Fragment f) {
 		mFragment = f;
 	}

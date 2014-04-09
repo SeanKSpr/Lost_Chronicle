@@ -8,15 +8,13 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent" 
 	    android:layout_weight=".33"
-	    android:text="@string/scheduler_activity_button_name"
-	    android:background="@drawable/scroll"
+	    android:background="@drawable/tome"
 	    />
 	<Button
 	    android:id="@+id/rpg_battle_activity_button"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent" 
 	    android:layout_weight=".33"
-	    android:text="@string/rpg_battle_activity_button_name"
 	    android:background="@drawable/dungeon_entrance"
 	    />
 	<Button
@@ -24,7 +22,6 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
 	    android:layout_weight=".33" 
-	    android:text="@string/companion_activity_button_name"
-	    android:background="@drawable/grea_the_dragonborn_button"
+	    android:background="@drawable/grea_the_dragonborn_button1"
 	    />
 </LinearLayout>

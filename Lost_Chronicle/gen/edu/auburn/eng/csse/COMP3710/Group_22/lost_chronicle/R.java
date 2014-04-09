@@ -23,12 +23,17 @@ public final class R {
     public static final class drawable {
         public static final int dungeon_entrance=0x7f020000;
         public static final int grea_the_dragonborn=0x7f020001;
-        public static final int grea_the_dragonborn_button=0x7f020002;
+        public static final int grea_the_dragonborn_button1=0x7f020002;
         public static final int grea_the_dragonborn_thumb=0x7f020003;
-        public static final int home=0x7f020004;
-        public static final int ic_launcher_web=0x7f020005;
-        public static final int scroll=0x7f020006;
-        public static final int store=0x7f020007;
+        public static final int grea_the_dragonborn_thumbnail1=0x7f020004;
+        public static final int grea_the_dragonborn_thumbnail2=0x7f020005;
+        public static final int grea_the_dragonborn_thumbnail3=0x7f020006;
+        public static final int grea_the_dragonborn_thumbnail4=0x7f020007;
+        public static final int home=0x7f020008;
+        public static final int ic_launcher_web=0x7f020009;
+        public static final int scroll=0x7f02000a;
+        public static final int store=0x7f02000b;
+        public static final int tome=0x7f02000c;
     }
     public static final class id {
         public static final int companion_activity_button=0x7f080004;
