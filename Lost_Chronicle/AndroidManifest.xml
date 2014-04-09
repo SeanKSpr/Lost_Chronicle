@@ -22,6 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity 
+            android:name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Companion_Activity"
+            android:label="@string/companion_activity_label">
+        </activity>
+        <activity 
+            android:name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Scheduler_Activity"
+            android:label="@string/scheduler_activity_label">
+        </activity>
+        <activity 
+            android:name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.RPG_Battle"
+            android:label="@string/rpg_battle_activity_label">
+        </activity>
     </application>
 
 </manifest>
