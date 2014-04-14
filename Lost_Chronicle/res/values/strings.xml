@@ -12,4 +12,5 @@
 	<string name="companion_activity_label">Kanojo</string>
 	<string name="home_action_item">Home</string>
 	<string name="store_action_item">Store</string>
+	<string name="google_play_dialog">Please tap \"Continue\" to add a payment method and complete your purchase.</string>
 </resources>
