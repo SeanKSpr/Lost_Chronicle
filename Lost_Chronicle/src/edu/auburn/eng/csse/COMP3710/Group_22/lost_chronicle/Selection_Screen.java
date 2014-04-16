@@ -9,6 +9,7 @@ import android.widget.Button;
 public class Selection_Screen extends Activity {
 
 	private Button mSchedulerButton, mRPGButton, mKanojoButton;
+	public static final String PURCHASE_KEY = "edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle_PURCHASABLE";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

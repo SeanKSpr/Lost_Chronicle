@@ -25,7 +25,7 @@ public class MicrotransactionDialog extends DialogFragment {
 	//Needs the Purchasable object that was clicked
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		Bundle args = this.getArguments();
-		String itemName = args.getString(KanojoStore.KANOJO_NAME_KEY);
+		Purchasable item = args.getParcelable(Selection_Screen.PURCHASE_KEY);
 		final Dialog dialog = new Dialog(getActivity());
 		dialog.setContentView(R.layout.fragment_microtransaction_dialog);
 		dialog.setTitle("Mobage Ltd.");
@@ -35,13 +35,13 @@ public class MicrotransactionDialog extends DialogFragment {
 		rand.setSeed(System.currentTimeMillis() * 127);
 		int randomCost = Math.abs(rand.nextInt() % 19 + 1);
 		mPrice.setText("$" + randomCost + ".00");
-		mItemName.setText(itemName);
+		mItemName.setText(item.getPurchaseName());
 		mContinueButton = (Button) dialog.findViewById(R.id.continue_microtransaction_button);
 		mContinueButton.setOnClickListener(new View.OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				// TODO unlock the kanojo, close dialog
+				//At this point you can either send the purchasable to the hosting activity 
 				dialog.dismiss();
 			}
 		});
