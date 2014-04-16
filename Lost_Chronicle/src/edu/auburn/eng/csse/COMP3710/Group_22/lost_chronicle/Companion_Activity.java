@@ -37,16 +37,16 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 		Companion grea4 = new Companion();
 		
 		grea1.setId(1);
-		grea1.setmImageResource(R.drawable.grea_the_dragonborn_thumbnail1);
+		grea1.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail1);
 		grea1.setmName("Grea the Dragonborn");
 		grea2.setId(2);
-		grea2.setmImageResource(R.drawable.grea_the_dragonborn_thumbnail2);
+		grea2.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail2);
 		grea2.setmName("Grea the Dragonborn");
 		grea3.setId(3);
-		grea3.setmImageResource(R.drawable.grea_the_dragonborn_thumbnail3);
+		grea3.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail3);
 		grea3.setmName("Grea the Dragonborn");
 		grea4.setId(4);
-		grea4.setmImageResource(R.drawable.grea_the_dragonborn_thumbnail4);
+		grea4.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail4);
 		grea4.setmName("Grea the Dragonborn");
 		ArrayList<Purchasable> purchasableArray = new ArrayList<Purchasable>();
 		purchasableArray.add(grea1);

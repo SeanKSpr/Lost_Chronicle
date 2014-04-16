@@ -20,6 +20,7 @@ public class MicrotransactionDialog extends DialogFragment {
 	}
 	
 	public void onAttach(Activity activity) {
+		super.onAttach(activity);
 		mCommunicator = (StoreCommunicator) activity;
 	}
 	//Needs the Purchasable object that was clicked

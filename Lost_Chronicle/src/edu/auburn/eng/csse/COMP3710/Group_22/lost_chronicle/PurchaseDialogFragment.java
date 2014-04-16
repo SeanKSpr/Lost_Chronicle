@@ -37,6 +37,11 @@ public class PurchaseDialogFragment extends DialogFragment {
 			public void onClick(DialogInterface dialog, int which) {
 				FragmentTransaction transaction = mDialog.getActivity().getFragmentManager().beginTransaction();
 				MicrotransactionDialog microDialog = new MicrotransactionDialog();
+				
+				Bundle args = new Bundle();
+				args.putParcelable(Selection_Screen.PURCHASE_KEY, mDialog.getArguments().getParcelable(Selection_Screen.PURCHASE_KEY));
+				microDialog.setArguments(args);
+				
 				transaction.add(microDialog, "key").addToBackStack(null).commit();
 				mDialog.dismiss();
 			}
