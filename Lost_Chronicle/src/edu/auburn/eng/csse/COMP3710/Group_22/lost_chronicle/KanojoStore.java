@@ -26,7 +26,7 @@ public class KanojoStore extends Fragment {
 	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_kanojo_store_screen, container, false);
 		GridView gridView = (GridView) v.findViewById(R.id.kanojo_store);
-		ImageAdapter imageAdapter = new ImageAdapter(this);
+		PurchasableAdapter imageAdapter = new PurchasableAdapter(this);
 		gridView.setAdapter(imageAdapter);
 		gridView.setOnItemClickListener(new OnItemClickListener(){
 			

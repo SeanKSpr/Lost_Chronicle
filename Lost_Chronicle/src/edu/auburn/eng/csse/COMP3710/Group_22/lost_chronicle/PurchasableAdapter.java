@@ -7,11 +7,11 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-public class ImageAdapter extends BaseAdapter {
+public class PurchasableAdapter extends BaseAdapter {
 	private Fragment mFragment;
 	private Integer[] mImageIds = {R.drawable.grea_the_dragonborn_thumbnail1, R.drawable.grea_the_dragonborn_thumbnail2,
 			R.drawable.grea_the_dragonborn_thumbnail3, R.drawable.grea_the_dragonborn_thumbnail4};
-	public ImageAdapter(Fragment f) {
+	public PurchasableAdapter(Fragment f) {
 		mFragment = f;
 	}
 
