@@ -1,7 +1,10 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
-public class Avatar extends RPGActor {
-	public Avatar() {
+import android.app.Fragment;
+
+public class StoreFragment extends Fragment {
+
+	public StoreFragment() {
 		// TODO Auto-generated constructor stub
 	}
 

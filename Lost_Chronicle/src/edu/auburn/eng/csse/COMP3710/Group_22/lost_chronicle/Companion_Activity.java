@@ -1,6 +1,8 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
 
+import java.util.ArrayList;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 public class Companion_Activity extends FragmentActivity implements StoreCommunicator {
 	TextView mView;
 	String mCurrentCompanionName;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,6 +27,33 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	protected void onStart() {
 		super.onStart();
 		mView.setText(this.getIntent().getStringExtra("test"));
+	}
+	
+	@Override
+	public ArrayList<Purchasable> getPurchasables() {
+		Companion grea1 = new Companion();
+		Companion grea2 = new Companion();
+		Companion grea3 = new Companion();
+		Companion grea4 = new Companion();
+		
+		grea1.setId(1);
+		grea1.setmImageResource(R.drawable.grea_the_dragonborn_thumbnail1);
+		grea1.setmName("Grea the Dragonborn");
+		grea2.setId(2);
+		grea2.setmImageResource(R.drawable.grea_the_dragonborn_thumbnail2);
+		grea2.setmName("Grea the Dragonborn");
+		grea3.setId(3);
+		grea3.setmImageResource(R.drawable.grea_the_dragonborn_thumbnail3);
+		grea3.setmName("Grea the Dragonborn");
+		grea4.setId(4);
+		grea4.setmImageResource(R.drawable.grea_the_dragonborn_thumbnail4);
+		grea4.setmName("Grea the Dragonborn");
+		ArrayList<Purchasable> purchasableArray = new ArrayList<Purchasable>();
+		purchasableArray.add(grea1);
+		purchasableArray.add(grea2);
+		purchasableArray.add(grea3);
+		purchasableArray.add(grea4);
+		return purchasableArray;
 	}
 	
 	@Override
@@ -47,6 +77,7 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 				return super.onOptionsItemSelected(item);
 		}
 	}
+	
 	@Override
 	public void onBackPressed() {
 		FragmentManager fm = getFragmentManager();
@@ -57,6 +88,7 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 			super.onBackPressed();
 		}
 	}
+	
 	private void launchKanojoStore() {
 		FragmentManager fm = getFragmentManager();
 		Fragment kanojoStoreFragment = fm.findFragmentById(R.id.store_fragment_container);
@@ -66,12 +98,9 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 			transaction.add(R.id.store_fragment_container, kanojoStoreFragment).addToBackStack(null).commit();
 		}
 	}
+	
 	private void launchActivity(Intent intent) {
 		startActivity(intent);
-	}
-	@Override
-	public String getKanojoName(KanojoStore store) {
-		return null;
 	}
 	
 }

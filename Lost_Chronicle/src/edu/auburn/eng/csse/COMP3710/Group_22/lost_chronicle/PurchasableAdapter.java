@@ -1,5 +1,7 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
+import java.util.ArrayList;
+
 import android.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,25 +11,30 @@ import android.widget.ImageView;
 
 public class PurchasableAdapter extends BaseAdapter {
 	private Fragment mFragment;
-	private Integer[] mImageIds = {R.drawable.grea_the_dragonborn_thumbnail1, R.drawable.grea_the_dragonborn_thumbnail2,
-			R.drawable.grea_the_dragonborn_thumbnail3, R.drawable.grea_the_dragonborn_thumbnail4};
-	public PurchasableAdapter(Fragment f) {
+	private ArrayList<Purchasable> purchasableArray;
+	//Needs to be generated from database. Companion_Activity will create an ArrayList of Companions and pass them to this class.
+	//The Adapter will assign the list of companions to it's list of Purchasables and then populate the gridview.
+	private void setList(ArrayList<Purchasable> list) {
+		purchasableArray = list;
+	}
+	public PurchasableAdapter(Fragment f, ArrayList<Purchasable> list) {
 		mFragment = f;
+		setList(list);
 	}
 
 	@Override
 	public int getCount() {
-		return mImageIds.length;
+		return purchasableArray.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return mImageIds[position];
+		return purchasableArray.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		return 0;
+		return purchasableArray.get(position).getThumbnailResource();
 	}
 
 	@Override
@@ -41,7 +48,7 @@ public class PurchasableAdapter extends BaseAdapter {
 		} else {
 			iview = (ImageView) view;	
 		}
-		iview.setImageResource(mImageIds[position]);
+		iview.setImageResource((int) getItemId(position));
 		return iview;
 	}
 
