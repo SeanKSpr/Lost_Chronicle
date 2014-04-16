@@ -40,7 +40,7 @@ public class MicrotransactionDialog extends DialogFragment {
 		mContinueButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO unlock the kanojo, close dialog
+				// TODO unlock the purchasable, close dialog
 				//At this point you can either send the purchasable to the hosting activity 
 				dialog.dismiss();
 			}

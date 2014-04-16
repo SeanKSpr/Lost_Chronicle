@@ -14,7 +14,6 @@ import android.widget.GridView;
 public class KanojoStore extends StoreFragment {
 	StoreCommunicator mStoreCommunicator;
 	Purchasable chosenKanojo;
-	public static final String KANOJO_KEY = "edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle_KANOJO";
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,7 +39,7 @@ public class KanojoStore extends StoreFragment {
 				chosenKanojo = (Purchasable) parent.getItemAtPosition(position);
 				PurchaseDialogFragment purchaseDialog = new PurchaseDialogFragment();
 				Bundle args = new Bundle();
-				args.putParcelable(KANOJO_KEY, chosenKanojo);
+				args.putParcelable(Selection_Screen.PURCHASE_KEY, chosenKanojo);
 				purchaseDialog.setArguments(args);
 				getActivity().getFragmentManager().beginTransaction().add(purchaseDialog, "temp").commit();
 				//needs to launch DialogFragment which displays the money type selection thing and price for unlock

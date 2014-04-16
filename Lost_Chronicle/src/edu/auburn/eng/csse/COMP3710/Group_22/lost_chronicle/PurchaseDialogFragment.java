@@ -19,7 +19,7 @@ public class PurchaseDialogFragment extends DialogFragment {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Proceed to next Dialog to confirm payment using gold
-				
+				mDialog.dismiss();
 			}
 		});
 		
@@ -27,7 +27,7 @@ public class PurchaseDialogFragment extends DialogFragment {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				//Do nothing (window automatically closes)
+				mDialog.dismiss();
 			}
 		});
 		
@@ -38,6 +38,7 @@ public class PurchaseDialogFragment extends DialogFragment {
 				FragmentTransaction transaction = mDialog.getActivity().getFragmentManager().beginTransaction();
 				MicrotransactionDialog microDialog = new MicrotransactionDialog();
 				transaction.add(microDialog, "key").addToBackStack(null).commit();
+				mDialog.dismiss();
 			}
 		});
 		
