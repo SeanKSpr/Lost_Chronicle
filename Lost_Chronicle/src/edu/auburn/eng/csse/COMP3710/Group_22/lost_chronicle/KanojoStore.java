@@ -3,6 +3,7 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
-public class KanojoStore extends StoreFragment {
+public class KanojoStore extends Fragment {
 	StoreCommunicator mStoreCommunicator;
 	Purchasable chosenKanojo;
 	@Override
@@ -41,10 +42,10 @@ public class KanojoStore extends StoreFragment {
 				Bundle args = new Bundle();
 				args.putParcelable(Selection_Screen.PURCHASE_KEY, chosenKanojo);
 				purchaseDialog.setArguments(args);
-				getActivity().getFragmentManager().beginTransaction().add(purchaseDialog, "temp").commit();
+				getActivity().getFragmentManager().beginTransaction()
+				.add(purchaseDialog, PurchaseDialogFragment.PURCHASE_DIALOG_KEY).commit();
 				//needs to launch DialogFragment which displays the money type selection thing and price for unlock
 				//if the previous tier hasn't been unlocked then it doesn't display the choice to pay in gold
-				
 			}
 			
 		});

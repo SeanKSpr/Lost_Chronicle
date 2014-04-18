@@ -13,22 +13,22 @@ public class RPGActor {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getmName() {
+	public String getName() {
 		return mName;
 	}
-	public void setmName(String mName) {
+	public void setName(String mName) {
 		this.mName = mName;
 	}
-	public int getmLevel() {
+	public int getLevel() {
 		return mLevel;
 	}
-	public void setmLevel(int mLevel) {
+	public void setLevel(int mLevel) {
 		this.mLevel = mLevel;
 	}
-	public int getmImageResource() {
+	public int getImageResource() {
 		return mImageResource;
 	}
-	public void setmImageResource(int mImageResource) {
+	public void setImageResource(int mImageResource) {
 		this.mImageResource = mImageResource;
 	}
 	public Stat getStatStruct() {

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MicrotransactionDialog extends DialogFragment {
+	public static final String MICROTRANSACTION_KEY = "edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.MICROTRANSACTION_KEY";
 	private StoreCommunicator mCommunicator;
 	private Button mContinueButton;
 	private TextView mPrice, mItemName;
@@ -26,7 +27,7 @@ public class MicrotransactionDialog extends DialogFragment {
 	//Needs the Purchasable object that was clicked
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		Bundle args = this.getArguments();
-		Purchasable item = args.getParcelable(Selection_Screen.PURCHASE_KEY);
+		final Purchasable item = args.getParcelable(Selection_Screen.PURCHASE_KEY);
 		final Dialog dialog = new Dialog(getActivity());
 		dialog.setContentView(R.layout.fragment_microtransaction_dialog);
 		dialog.setTitle("Mobage Ltd.");
@@ -42,8 +43,10 @@ public class MicrotransactionDialog extends DialogFragment {
 			@Override
 			public void onClick(View v) {
 				// TODO unlock the purchasable, close dialog
-				//At this point you can either send the purchasable to the hosting activity 
+				//At this point you should request a database update by passing the purchasable to the activity in a database update method
+				mCommunicator.updatePurchasable(item);
 				dialog.dismiss();
+				
 			}
 		});
 	return dialog;

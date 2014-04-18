@@ -8,7 +8,8 @@ public class Companion extends Avatar implements Purchasable {
 	private int mRank;
 	private int mPurchasableResource, mFullViewResource;
 	private int mPrice;
-	CompanionCreator creator;
+	private CompanionCreator creator;
+	private boolean mPurchased;
 	public Companion() {
 		
 	}
@@ -75,7 +76,7 @@ public class Companion extends Avatar implements Purchasable {
 
 	@Override
 	public String getPurchaseName() {
-		return super.getmName();
+		return super.getName();
 	}
 
 
@@ -111,5 +112,20 @@ public class Companion extends Avatar implements Purchasable {
 			return new Companion[size];
 		}
 		
+	}
+
+	@Override
+	public void setAsPurchased() {
+		mPurchased = true;
+		
+	}
+	@Override
+	public void setAsNotPurchased() {
+		mPurchased = false;
+		
+	}
+	@Override
+	public boolean hasBeenPurchased() {
+		return mPurchased;
 	}
 }

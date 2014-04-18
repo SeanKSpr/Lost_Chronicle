@@ -4,4 +4,5 @@ import java.util.ArrayList;
 
 public interface StoreCommunicator {
 	public ArrayList<Purchasable> getPurchasables();
+	public void updatePurchasable(Purchasable purchasable);
 }

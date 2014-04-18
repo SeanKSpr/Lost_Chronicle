@@ -13,4 +13,18 @@
 	<string name="home_action_item">Home</string>
 	<string name="store_action_item">Store</string>
 	<string name="google_play_dialog">Please tap \"Continue\" to add a payment method and complete your purchase.</string>
+	<string name="strength_text_title">Strength</string>
+	<string name="dexterity_text_title">Dexterity</string>
+	<string name="constitution_text_title">Constitution</string>
+	<string name="intelligence_text_title">Intelligence</string>
+	<string name="wisdom_text_title">Wisdom</string>
+	<string name="charisma_text_title">Charisma</string>
+	<string name="level_text_title">Level</string>
+	<string name="health_text_title">Health</string>
+	<string name="attack_text_title">Attack</string>
+	<string name="defence_text_title">Defence</string>
+	<string name="dodge_text_title">Dodge%</string>
+	<string name="hit_text_title">Hit%</string>
+	<string name="magic_defence_text_title">Magic Defence</string>
+	<string name="crit__text_title">Critical%</string>
 </resources>

@@ -33,4 +33,18 @@ public interface Purchasable extends Parcelable{
 	 * @return int : price of purchasable object
 	 */
 	int getPrice();
+	
+	/**
+	 * Sets the purchase status of the Purchasable to "true"
+	 */
+	void setAsPurchased();
+	/**
+	 * Sets the purchase status of the Purchasable to "false"
+	 */
+	void setAsNotPurchased();
+	/**
+	 * Returns the purchase status of the Purchasable: true if purchased; false otherwise
+	 * @return boolean - Purchase status of the Purchasable.
+	 */
+	boolean hasBeenPurchased();
 }

@@ -27,28 +27,58 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	protected void onStart() {
 		super.onStart();
 		mView.setText(this.getIntent().getStringExtra("test"));
+		launchInformationFragment();
 	}
 	
+	private void launchInformationFragment() {
+		FragmentManager fm = getFragmentManager();
+		Fragment statFragment = fm.findFragmentById(R.id.store_fragment_container);
+		if (statFragment == null) {
+			statFragment = new KanojoInformationFragment();
+			FragmentTransaction transaction = fm.beginTransaction();
+			transaction.add(R.id.store_fragment_container, statFragment).commit();
+		}
+	}
+	//contacts database to get all the companions
+	//takes each element within that arraylist of companions and places it in an array of Purchasables
 	@Override
 	public ArrayList<Purchasable> getPurchasables() {
 		Companion grea1 = new Companion();
 		Companion grea2 = new Companion();
 		Companion grea3 = new Companion();
 		Companion grea4 = new Companion();
-		
+
 		grea1.setId(1);
 		grea1.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail1);
-		grea1.setmName("Grea the Dragonborn");
+		grea1.setName("Grea the Dragonborn");
+		grea1.setPrice(100);
 		grea2.setId(2);
 		grea2.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail2);
-		grea2.setmName("Grea the Dragonborn");
+		grea2.setName("Grea the Dragonborn");
 		grea3.setId(3);
 		grea3.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail3);
-		grea3.setmName("Grea the Dragonborn");
+		grea3.setName("Grea the Dragonborn");
 		grea4.setId(4);
 		grea4.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail4);
-		grea4.setmName("Grea the Dragonborn");
+		grea4.setName("Grea the Dragonborn");
+		
 		ArrayList<Purchasable> purchasableArray = new ArrayList<Purchasable>();
+		purchasableArray.add(grea1);
+		purchasableArray.add(grea2);
+		purchasableArray.add(grea3);
+		purchasableArray.add(grea4);
+		purchasableArray.add(grea1);
+		purchasableArray.add(grea2);
+		purchasableArray.add(grea3);
+		purchasableArray.add(grea4);
+		purchasableArray.add(grea1);
+		purchasableArray.add(grea2);
+		purchasableArray.add(grea3);
+		purchasableArray.add(grea4);
+		purchasableArray.add(grea1);
+		purchasableArray.add(grea2);
+		purchasableArray.add(grea3);
+		purchasableArray.add(grea4);
 		purchasableArray.add(grea1);
 		purchasableArray.add(grea2);
 		purchasableArray.add(grea3);
@@ -68,7 +98,7 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 		switch (item.getItemId()) {
 			case R.id.home_button:
 				Intent intent = new Intent(Companion_Activity.this, Selection_Screen.class);
-				Companion_Activity.this.launchActivity(intent);
+				Companion_Activity.this.startActivity(intent);
 				return true;
 			case R.id.store_button:
 				launchKanojoStore();
@@ -97,10 +127,18 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 			FragmentTransaction transaction = fm.beginTransaction();
 			transaction.add(R.id.store_fragment_container, kanojoStoreFragment).addToBackStack(null).commit();
 		}
+		else {
+			kanojoStoreFragment = new KanojoStore();
+			FragmentTransaction transaction = fm.beginTransaction();
+			transaction.replace(R.id.store_fragment_container, kanojoStoreFragment).addToBackStack(null).commit();
+		}
 	}
 	
-	private void launchActivity(Intent intent) {
-		startActivity(intent);
+	@Override
+	public void updatePurchasable(Purchasable purchasable) {
+		// TODO Contact the database manager and tell it to update a particular table based on the tableName of purchasable
+		//String tableName = purchasable.getTableName();
+		
 	}
 	
 }
