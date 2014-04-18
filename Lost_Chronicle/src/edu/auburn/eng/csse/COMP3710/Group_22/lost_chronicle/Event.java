@@ -9,6 +9,23 @@ public class Event {
 	private short onGoing, difficulty, eval;
 	private String title, type, start_time, end_time, description;
 
+
+	
+	public Event(){}
+	
+	public Event(String title, String type, String start_time, 
+			String end_time, short onGoing, short difficulty,
+			short eval, String description) {
+				super();
+				this.title = title;
+				this.type = type;
+				this.start_time = start_time;
+				this.end_time = end_time;
+				this.onGoing = onGoing;
+				this.difficulty = difficulty;
+				this.eval = eval;
+				this.description = description;
+	}
 	public int getId() {
 		return id;
 	}
@@ -82,25 +99,6 @@ public class Event {
 		this.eval = eval;
 	}
 
-	
-	public Event(){}
-	
-	public Event(String title, String type, String start_time, 
-			String end_time, short onGoing, short difficulty,
-			short eval, String description) {
-				super();
-				this.title = title;
-				this.type = type;
-				this.start_time = start_time;
-				this.end_time = end_time;
-				this.onGoing = onGoing;
-				this.difficulty = difficulty;
-				this.eval = eval;
-				this.description = description;
-	}
-	
-	//getters & setters
-	
 	
 	@Override
 	public String toString() {
