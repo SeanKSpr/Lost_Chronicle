@@ -11,10 +11,11 @@ import android.widget.TextView;
 public class KanojoInformationFragment extends Fragment {
 	TextView mStrength, mIntellect, mDexterity, mConstitution, mWisdom, mCharisma;
 	TextView  mHealth, mAttack, mDefence, mMagicalDefence, mDodge, mHit, mCrit;
+	KanojoInfoCommunicator mCommunicator;
 	@Override
 	public void onAttach(Activity activity) {
-		// TODO Auto-generated method stub
 		super.onAttach(activity);
+		mCommunicator = (KanojoInfoCommunicator) activity;
 	}
 
 	@Override

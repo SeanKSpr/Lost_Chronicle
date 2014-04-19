@@ -17,9 +17,9 @@ import android.util.Log;
 public class Event_Scheduler extends SQLiteOpenHelper{
 	
 	//Database version
-	private static final int DATABASE_VERSION = 1;
+	public static final int DATABASE_VERSION = 1;
 	//Database name
-	private static final String DATABASE_NAME = "Events.db";
+	public static final String DATABASE_NAME = "Events.db";
 	
 	//static constants for table and column names
 	private static final String DATABASE_EVENTS = "events";
@@ -55,13 +55,17 @@ public class Event_Scheduler extends SQLiteOpenHelper{
 	public void onCreate(SQLiteDatabase db) {
 		//create fresh event table
 		db.execSQL(DATABASE_CREATE);
+		db.execSQL(CompanionTable.COMPANION_CREATE);
+		
+		//populate companion table with all the companions
+		//populate hair table with all the hairs
 	}
 	
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		//Drop older event table if existed
 		db.execSQL("DROP TABLE IF EXISTS " + DATABASE_EVENTS);
-		
+		db.execSQL(CompanionTable.COMPANION_DROP);
 		//create fresh event table
 		this.onCreate(db);
 		

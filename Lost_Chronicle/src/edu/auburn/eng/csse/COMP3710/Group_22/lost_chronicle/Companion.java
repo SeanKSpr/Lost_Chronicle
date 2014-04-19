@@ -6,19 +6,24 @@ import android.os.Parcelable;
 public class Companion extends Avatar implements Purchasable {
 	//Used to determine statPool multiplier. mRank goes up to 4. Rank 1 gives .85*avatar.statPool, Rank 2 gives .90 * statPool and so on.
 	private int mRank;
-	private int mPurchasableResource, mFullViewResource;
+	private long mPurchasableResource, mMainMenuImage, mFullViewResource;
 	private int mPrice;
+	private String mType;
+	private boolean mPurchased, mActiveCompanion;
 	private CompanionCreator creator;
-	private boolean mPurchased;
 	public Companion() {
 		
 	}
 	public Companion(Parcel source) {
 		creator = new CompanionCreator();
 		mRank = source.readInt();
-		mPurchasableResource = source.readInt();
-		mFullViewResource = source.readInt();
+		mPurchasableResource = source.readLong();
+		mMainMenuImage = source.readLong();
+		mFullViewResource = source.readLong();
 		mPrice = source.readInt();
+		mType = source.readString();
+		mPurchased = source.readByte() != 0;
+		mActiveCompanion = source.readByte() != 0;
 	}
 
 	@Override
@@ -38,7 +43,7 @@ public class Companion extends Avatar implements Purchasable {
 		
 	}
 	@Override
-	public int getThumbnailResource() {
+	public long getThumbnailResource() {
 		return mPurchasableResource;
 	}
 
@@ -56,20 +61,20 @@ public class Companion extends Avatar implements Purchasable {
 
 
 
-	public int getFullViewResource() {
+	public long getFullViewResource() {
 		return mFullViewResource;
 	}
 
 
 
-	public void setFullViewResource(int mFullViewResource) {
-		this.mFullViewResource = mFullViewResource;
+	public void setFullViewResource(long fullViewResourceIn) {
+		this.mFullViewResource = fullViewResourceIn;
 	}
 
 
 	@Override
-	public void setThumbnailResource(int thumbResourceIn) {
-		mPurchasableResource = thumbResourceIn;
+	public void setThumbnailResource(long thumbnailResourceIn) {
+		mPurchasableResource = thumbnailResourceIn;
 		
 	}
 
@@ -95,9 +100,13 @@ public class Companion extends Avatar implements Purchasable {
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeInt(mRank);
-		dest.writeInt(mPurchasableResource);
-		dest.writeInt(mFullViewResource);
+		dest.writeLong(mPurchasableResource);
+		dest.writeLong(mMainMenuImage);
+		dest.writeLong(mFullViewResource);
 		dest.writeInt(mPrice);
+		dest.writeString(mType);
+		dest.writeByte( (byte) (mPurchased ? 1 : 0));
+		dest.writeByte((byte) (mActiveCompanion ? 1 : 0));
 	}
 	
 	public class CompanionCreator implements Parcelable.Creator<Companion> {
@@ -113,19 +122,33 @@ public class Companion extends Avatar implements Purchasable {
 		}
 		
 	}
-
+	
 	@Override
-	public void setAsPurchased() {
-		mPurchased = true;
-		
-	}
-	@Override
-	public void setAsNotPurchased() {
-		mPurchased = false;
-		
+	public void setPurchased(boolean beenPurchased) {
+		mPurchased = beenPurchased;
 	}
 	@Override
 	public boolean hasBeenPurchased() {
 		return mPurchased;
+	}
+	public long getMainMenuImage() {
+		return mMainMenuImage;
+	}
+	public void setMainMenuImage(long mainMenuImageIn) {
+		this.mMainMenuImage = mainMenuImageIn;
+	}
+	public String getType() {
+		return mType;
+	}
+	public void setType(String mType) {
+		this.mType = mType;
+	}
+	
+	public boolean isActiveCompanion() {
+		return mActiveCompanion;
+	}
+	
+	public void setActiveCompanion(boolean mActiveCompanion) {
+		this.mActiveCompanion = mActiveCompanion;
 	}
 }

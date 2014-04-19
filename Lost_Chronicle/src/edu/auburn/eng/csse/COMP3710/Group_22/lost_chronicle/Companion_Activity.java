@@ -9,12 +9,14 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class Companion_Activity extends FragmentActivity implements StoreCommunicator {
+public class Companion_Activity extends FragmentActivity implements StoreCommunicator, KanojoInfoCommunicator {
 	TextView mView;
 	String mCurrentCompanionName;
 	
@@ -22,12 +24,41 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_companion_activity_screen);
-		mView = (TextView) this.findViewById(R.id.item_name_text);
+		this.deleteDatabase("Events.db");
+		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
+		Companion aCompanion = companionDBHelper.getCompanion(1);
+		if (aCompanion == null) {
+			companionDBHelper.initializeTable();
+		}
+		setUpBackground();
 	}
+	private void setUpBackground() {
+		Companion currentCompanion = getCurrentCompanion();
+		LayoutInflater inflater;
+		LinearLayout layout;
+		if (currentCompanion != null) {
+			inflater = getLayoutInflater();
+			layout = (LinearLayout) inflater.inflate(R.layout.activity_companion_activity_screen, null);
+			layout.setBackgroundResource((int) currentCompanion.getFullViewResource());
+		}
+		else {
+			inflater = getLayoutInflater();
+			layout = (LinearLayout) inflater.inflate(R.layout.activity_companion_activity_screen, null);
+			layout.setBackgroundResource(R.drawable.no_companion);
+		}
+		this.setContentView(layout);
+		launchInformationFragment();
+	}
+	
+	@Override
 	protected void onStart() {
 		super.onStart();
-		mView.setText(this.getIntent().getStringExtra("test"));
 		launchInformationFragment();
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
 	}
 	
 	private void launchInformationFragment() {
@@ -38,52 +69,23 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 			FragmentTransaction transaction = fm.beginTransaction();
 			transaction.add(R.id.store_fragment_container, statFragment).commit();
 		}
+		else {
+			statFragment = new KanojoInformationFragment();
+			FragmentTransaction transaction = fm.beginTransaction();
+			transaction.replace(R.id.store_fragment_container, statFragment).commit();
+		}
 	}
 	//contacts database to get all the companions
 	//takes each element within that arraylist of companions and places it in an array of Purchasables
 	@Override
 	public ArrayList<Purchasable> getPurchasables() {
-		Companion grea1 = new Companion();
-		Companion grea2 = new Companion();
-		Companion grea3 = new Companion();
-		Companion grea4 = new Companion();
-
-		grea1.setId(1);
-		grea1.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail1);
-		grea1.setName("Grea the Dragonborn");
-		grea1.setPrice(100);
-		grea2.setId(2);
-		grea2.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail2);
-		grea2.setName("Grea the Dragonborn");
-		grea3.setId(3);
-		grea3.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail3);
-		grea3.setName("Grea the Dragonborn");
-		grea4.setId(4);
-		grea4.setThumbnailResource(R.drawable.grea_the_dragonborn_thumbnail4);
-		grea4.setName("Grea the Dragonborn");
-		
-		ArrayList<Purchasable> purchasableArray = new ArrayList<Purchasable>();
-		purchasableArray.add(grea1);
-		purchasableArray.add(grea2);
-		purchasableArray.add(grea3);
-		purchasableArray.add(grea4);
-		purchasableArray.add(grea1);
-		purchasableArray.add(grea2);
-		purchasableArray.add(grea3);
-		purchasableArray.add(grea4);
-		purchasableArray.add(grea1);
-		purchasableArray.add(grea2);
-		purchasableArray.add(grea3);
-		purchasableArray.add(grea4);
-		purchasableArray.add(grea1);
-		purchasableArray.add(grea2);
-		purchasableArray.add(grea3);
-		purchasableArray.add(grea4);
-		purchasableArray.add(grea1);
-		purchasableArray.add(grea2);
-		purchasableArray.add(grea3);
-		purchasableArray.add(grea4);
-		return purchasableArray;
+		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
+		ArrayList<Companion> companionList = companionDBHelper.getAllCompanions();
+		ArrayList<Purchasable> purchasableList = new ArrayList<Purchasable>();
+		for (Companion companion : companionList) {
+			purchasableList.add(companion);
+		}
+		return purchasableList;
 	}
 	
 	@Override
@@ -122,23 +124,42 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	private void launchKanojoStore() {
 		FragmentManager fm = getFragmentManager();
 		Fragment kanojoStoreFragment = fm.findFragmentById(R.id.store_fragment_container);
-		if (kanojoStoreFragment == null) {
-			kanojoStoreFragment = new KanojoStore();
-			FragmentTransaction transaction = fm.beginTransaction();
-			transaction.add(R.id.store_fragment_container, kanojoStoreFragment).addToBackStack(null).commit();
+		kanojoStoreFragment = new KanojoStore();
+		FragmentTransaction transaction = fm.beginTransaction();
+		if (fm.getBackStackEntryCount() > 0) {
+			fm.popBackStack();
 		}
-		else {
-			kanojoStoreFragment = new KanojoStore();
-			FragmentTransaction transaction = fm.beginTransaction();
-			transaction.replace(R.id.store_fragment_container, kanojoStoreFragment).addToBackStack(null).commit();
-		}
+		transaction.replace(R.id.store_fragment_container, kanojoStoreFragment).addToBackStack(null).commit();
 	}
 	
 	@Override
 	public void updatePurchasable(Purchasable purchasable) {
-		// TODO Contact the database manager and tell it to update a particular table based on the tableName of purchasable
-		//String tableName = purchasable.getTableName();
-		
+		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
+		Companion companion = (Companion) purchasable;
+		companion.setPurchased(true);
+		Companion oldCurrentCompanion = getCurrentCompanion();
+
+		if (oldCurrentCompanion != null) {
+			oldCurrentCompanion.setActiveCompanion(false);
+			companionDBHelper.updateCompanion(oldCurrentCompanion);
+		}
+		if (oldCurrentCompanion.getId() != companion.getId()) {
+			companion.setActiveCompanion(true);
+			companionDBHelper.updateCompanion(companion);
+		}
+		setUpBackground();
 	}
 	
+	@Override
+	public Companion getCurrentCompanion() {
+		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
+		ArrayList<Companion> companionList = companionDBHelper.getAllCompanions();
+		Companion currentCompanion = null;
+		for (Companion companion : companionList) {
+			if (companion.isActiveCompanion()) {
+				return companion;
+			}
+		}
+		return currentCompanion;
+	}	
 }

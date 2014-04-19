@@ -7,11 +7,11 @@ public interface Purchasable extends Parcelable{
 	 * Returns the id of the icon image resource associated with the purchasable object
 	 * @return int : id of image resource
 	 */
-	int getThumbnailResource();
+	long getThumbnailResource();
 	/**
 	 * Assigns thumbResourceIn to an integer class variable in implementing classes.
 	 */
-	void setThumbnailResource(int thumbResourceIn);
+	void setThumbnailResource(long thumbResourceIn);
 	/**
 	 * Returns the name associated with the purchasable object
 	 * @return String : name of purchasable object
@@ -34,14 +34,7 @@ public interface Purchasable extends Parcelable{
 	 */
 	int getPrice();
 	
-	/**
-	 * Sets the purchase status of the Purchasable to "true"
-	 */
-	void setAsPurchased();
-	/**
-	 * Sets the purchase status of the Purchasable to "false"
-	 */
-	void setAsNotPurchased();
+	void setPurchased(boolean beenPurchased);
 	/**
 	 * Returns the purchase status of the Purchasable: true if purchased; false otherwise
 	 * @return boolean - Purchase status of the Purchasable.
