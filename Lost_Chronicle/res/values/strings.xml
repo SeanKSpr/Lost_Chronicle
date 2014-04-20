@@ -27,4 +27,13 @@
 	<string name="hit_text_title">Hit%</string>
 	<string name="magic_defence_text_title">Magic Defence</string>
 	<string name="crit__text_title">Critical%</string>
+	<string name="create_activity_item">New Event</string>
+	<string-array name="stats">
+		<item>Strength</item>
+		<item>Intellect</item>
+		<item>Dexterity</item>
+		<item>Wisdom</item>
+		<item>Charisma</item>
+		<item>Constitution</item>
+	</string-array>
 </resources>

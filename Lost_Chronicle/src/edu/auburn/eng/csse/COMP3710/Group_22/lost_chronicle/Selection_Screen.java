@@ -1,10 +1,14 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class Selection_Screen extends Activity {
 
@@ -16,12 +20,12 @@ public class Selection_Screen extends Activity {
 		setContentView(R.layout.activity_selection__screen);
 		mSchedulerButton = (Button) this.findViewById(R.id.scheduler_activity_button);
 		mRPGButton = (Button) this.findViewById(R.id.rpg_battle_activity_button);
-		mKanojoButton = (Button) this.findViewById(R.id.companion_activity_button);
 	}
 	
 	@Override
 	protected void onStart() {
 		super.onStart();
+		createButton((LinearLayout) this.findViewById(R.id.selection_screen_layout));
 		mSchedulerButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -71,5 +75,33 @@ public class Selection_Screen extends Activity {
 	@Override
 	protected void onSaveInstanceState(Bundle saveInstanceState) {
 		super.onSaveInstanceState(saveInstanceState);
+	}
+	
+	private void createButton(LinearLayout layout) {	
+		if (layout.findViewById(24) == null) {
+			LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(
+					LinearLayout.LayoutParams.MATCH_PARENT,
+					LinearLayout.LayoutParams.MATCH_PARENT);
+			buttonParams.weight = (float) 0.33;
+			mKanojoButton = new Button(this);
+			mKanojoButton.setId(24);
+			layout.addView(mKanojoButton, buttonParams);
+		}
+		setButtonBackground(mKanojoButton);
+	}
+	
+	private void setButtonBackground(Button button) {
+		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
+		ArrayList<Companion> list = companionDBHelper.getAllCompanions();
+		Companion currentCompanion = null;
+		for (int i = 0; i < list.size() - 1 && currentCompanion == null; i++) {
+			if (list.get(i).isActiveCompanion()) {
+				currentCompanion = list.get(i);
+				button.setBackgroundResource((int) currentCompanion.getMainMenuImage());
+			}
+		}
+		if (currentCompanion == null) {
+			button.setBackgroundResource(R.drawable.no_companion_banner);
+		}
 	}
 }

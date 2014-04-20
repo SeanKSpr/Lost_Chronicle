@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class PurchaseDialogFragment extends DialogFragment {
 	public static final String PURCHASE_DIALOG_KEY = "edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.PURCHASE_DIALOG_KEY";
@@ -21,14 +23,30 @@ public class PurchaseDialogFragment extends DialogFragment {
 		final Purchasable item = this.getArguments().getParcelable(Selection_Screen.PURCHASE_KEY);
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		builder.setMessage("Select a purchase type");
-		
+		builder.setCancelable(true);
 		builder.setPositiveButton("Pay in gold: " + item.getPrice() + "G", new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// TODO unlock purchasable and update database with new purchasable information
-				// TODO if not affordable, then display error but do not dismiss OR you could not setPositive button because you can't afford it.
-				mCommunicator.updatePurchasable(item);
+				int amountOfMoney = mCommunicator.getWallet();
+				boolean prereqSatisfied = true;
+				if (item instanceof Companion) {
+					Companion previousTier = (Companion) mCommunicator.getPurchasable((int) (item.getId() - 1));
+					
+					if (previousTier != null && previousTier.getName().equals(item.getPurchaseName()) && !previousTier.hasBeenPurchased()) {
+						prereqSatisfied = false;
+						Toast.makeText(mDialog.getActivity(), "You must unlock the previous tier first", Toast.LENGTH_SHORT).show();
+					}
+				}
+				if (prereqSatisfied) {
+					if (amountOfMoney < item.getPrice()) {
+						Toast.makeText(mDialog.getActivity(), "You do not have enough gold", Toast.LENGTH_SHORT).show();
+					}
+					else {
+						mCommunicator.performTransaction(item.getPrice());
+						mCommunicator.updatePurchasable(item);
+					}
+				}
 				mDialog.dismiss();
 			}
 		});
@@ -54,10 +72,19 @@ public class PurchaseDialogFragment extends DialogFragment {
 				
 				transaction.add(microDialog, MicrotransactionDialog.MICROTRANSACTION_KEY)
 				.addToBackStack(MicrotransactionDialog.MICROTRANSACTION_KEY).commit();
-				mDialog.dismiss();
 			}
 		});
-		
-		return builder.create();
+		Dialog dialog = builder.create();
+		dialog.setCanceledOnTouchOutside(true);
+		return dialog;
+	}
+	
+	@Override
+	public void dismiss() {
+		super.dismiss();
+		FragmentManager fm = this.getActivity().getFragmentManager();
+		while (fm.getBackStackEntryCount() != 0) {
+			fm.popBackStackImmediate();
+		}
 	}
 }

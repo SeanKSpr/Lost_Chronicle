@@ -253,8 +253,7 @@ public class CompanionTable {
 		aurelia2.setPrice(RANK_2_COST);
 		aurelia2.setName("Aurelia");
 		aurelia2.setPurchased(false);
-		//CHANGE TO FALSE
-		aurelia2.setActiveCompanion(true);
+		aurelia2.setActiveCompanion(false);
 		
 		aurelia3 = new Companion();
 		aurelia3.setFullViewResource(R.drawable.aurelia3);

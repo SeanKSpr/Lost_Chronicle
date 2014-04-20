@@ -34,6 +34,10 @@ public class PurchasableAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int position) {
+		Purchasable purchase = purchasableArray.get(position);
+		if (purchase instanceof Companion && !purchase.hasBeenPurchased()) {
+			return Purchasable.UNKNOWN_KANOJO;
+		}
 		return purchasableArray.get(position).getThumbnailResource();
 	}
 
@@ -45,7 +49,8 @@ public class PurchasableAdapter extends BaseAdapter {
 			iview.setLayoutParams(new GridView.LayoutParams(150,150));
 			iview.setScaleType(ImageView.ScaleType.CENTER_CROP);
 			iview.setPadding(2, 2, 2, 2);
-		} else {
+		} 
+		else {
 			iview = (ImageView) view;	
 		}
 		iview.setImageResource((int) getItemId(position));

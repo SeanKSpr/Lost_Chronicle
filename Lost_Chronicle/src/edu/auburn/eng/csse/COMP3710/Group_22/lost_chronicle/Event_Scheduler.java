@@ -80,8 +80,8 @@ public class Event_Scheduler extends SQLiteOpenHelper{
 		//create ContentValues to add key "column"/value
 		ContentValues values = new ContentValues();
 		values.put(COLUMN_TITLE, event.getTitle());
-		values.put(COLUMN_START_TIME, event.getStart_time());
-		values.put(COLUMN_END_TIME, event.getEnd_time());
+		values.put(COLUMN_START_TIME, event.getStart_time().toString());
+		values.put(COLUMN_END_TIME, event.getEnd_time().toString());
 		values.put(COLUMN_TYPE, event.getType());
 		values.put(COLUMN_ONGOING, event.isOnGoing());
 		values.put(COLUMN_DIFFICULTY, event.getDifficulty());
@@ -95,7 +95,7 @@ public class Event_Scheduler extends SQLiteOpenHelper{
 		db.close();				
 	}
 
-	
+	/*
 	public Event getEvent(int id) {
 		//get reference to readable DB
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -114,7 +114,7 @@ public class Event_Scheduler extends SQLiteOpenHelper{
 		Event event = new Event();
 		event.setId(Integer.parseInt(cursor.getString(0)));
 		event.setTitle(cursor.getString(1));
-		event.setStart_time(cursor.getString(2));
+		event.setStartDate(startDate)(cursor.getString(2));
 		event.setEnd_time(cursor.getString(3));
 		event.setType(cursor.getString(4));
 		event.setOnGoing((short) Integer.parseInt(cursor.getString(5)));
@@ -204,6 +204,5 @@ public class Event_Scheduler extends SQLiteOpenHelper{
 		
 		Log.d("deleteEvent", event.toString());
 		
-	}
+	}*/
 }
-

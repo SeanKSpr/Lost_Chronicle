@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/home_button"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/home_action_item"
+        android:icon="@drawable/home"/>
+    <item
+        android:id="@+id/add_event_button"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/create_activity_item"
+        android:icon="@drawable/ic_input_add"/>
+
+</menu>

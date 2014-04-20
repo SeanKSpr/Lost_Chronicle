@@ -3,6 +3,7 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 import android.os.Parcelable;
 
 public interface Purchasable extends Parcelable{
+	final int UNKNOWN_KANOJO = R.drawable.hidden_kanojo;
 	/**
 	 * Returns the id of the icon image resource associated with the purchasable object
 	 * @return int : id of image resource
@@ -40,4 +41,5 @@ public interface Purchasable extends Parcelable{
 	 * @return boolean - Purchase status of the Purchasable.
 	 */
 	boolean hasBeenPurchased();
+	
 }

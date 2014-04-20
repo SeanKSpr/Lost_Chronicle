@@ -1,22 +1,12 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
-//Author: Sean Walker
-//Build: 1.0
-//Date: 4/17/2014
+import java.util.Date;
 public class Event {
-	
-	private int id;
-	private short onGoing, difficulty, eval;
-	private String title, type, start_time, end_time, description;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	private Date start_time, end_time;
+	private String title, description, type;
+	private float eval;
+	private float difficulty;
 
 	public String getTitle() {
 		return title;
@@ -24,30 +14,6 @@ public class Event {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getStart_time() {
-		return start_time;
-	}
-
-	public void setStart_time(String start_time) {
-		this.start_time = start_time;
-	}
-
-	public String getEnd_time() {
-		return end_time;
-	}
-
-	public void setEnd_time(String end_time) {
-		this.end_time = end_time;
 	}
 
 	public String getDescription() {
@@ -58,56 +24,75 @@ public class Event {
 		this.description = description;
 	}
 
-	public short isOnGoing() {
-		return onGoing;
+	public String getType() {
+		return type;
 	}
 
-	public void setOnGoing(short onGoing) {
-		this.onGoing = onGoing;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	public short getDifficulty() {
+
+	
+	Event(Date startDateIn, Date endDateIn, String titleIn, String typeIn, String descriptionIn, float difficultyIn)
+	{
+		start_time = startDateIn;
+		end_time = endDateIn;
+		title = titleIn;
+		description = descriptionIn;
+		type = typeIn;
+		difficulty = difficultyIn;
+	}
+	
+	boolean timeConflicts(Event eventIn)
+	{
+		if(start_time.after(eventIn.getStart_time()) && end_time.before(eventIn.getEnd_time()))
+		{
+			return true;
+		}
+		return false;
+	}
+
+	public Date getStart_time() {
+		return start_time;
+	}
+
+	public void setStart_time(Date start_time) {
+		this.start_time = start_time;
+	}
+
+	public Date getEnd_time() {
+		return end_time;
+	}
+
+	public void setEnd_time(Date end_time) {
+		this.end_time = end_time;
+	}
+
+	public String isOnGoing() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public float getDifficulty() {
 		return difficulty;
 	}
 
-	public void setDifficulty(short difficulty) {
+	public void setDifficulty(float difficulty) {
 		this.difficulty = difficulty;
 	}
 
-	public short getEval() {
+	public float getEval() {
 		return eval;
 	}
 
-	public void setEval(short eval) {
+	public void setEval(float eval) {
 		this.eval = eval;
 	}
 
-	
-	public Event(){}
-	
-	public Event(String title, String type, String start_time, 
-			String end_time, short onGoing, short difficulty,
-			short eval, String description) {
-				super();
-				this.title = title;
-				this.type = type;
-				this.start_time = start_time;
-				this.end_time = end_time;
-				this.onGoing = onGoing;
-				this.difficulty = difficulty;
-				this.eval = eval;
-				this.description = description;
+	public void setId(int parseInt) {
+		// TODO Auto-generated method stub
+		
 	}
 	
-	//getters & setters
-	
-	
-	@Override
-	public String toString() {
-		return "Event [id=" +id + ", title=" + title + ", type=" + type
-				+ ", start time=" + start_time + ", end time=" + end_time 
-				+ ", is ongoing=" + ", difficulty=" + difficulty 
-				+ ", eval=" + eval + ", description=" + description + "]";
-	}
-
 }

@@ -56,7 +56,6 @@ public class CompanionDataSource {
 		values.put(CompanionTable.COLUMN_THUMBNAIL_IMAGE_RESOURCE, companion.getThumbnailResource());
 		values.put(CompanionTable.COLUMN_TYPE, companion.getType());
 		values.put(CompanionTable.COLUMN_CURRENT_COMPANION, companion.isActiveCompanion());
-		String[] test = new String[] {String.valueOf(companion.getId())};
 		int rowsModified = database.update(CompanionTable.TABLE_COMPANION, values, CompanionTable.COLUMN_ID + " = " + companion.getId(), null);
 		this.close();
 		return rowsModified;
@@ -95,7 +94,7 @@ public class CompanionDataSource {
 	
 	public Companion getCompanion(int companionID) {
 		this.open();
-		Cursor cursor = database.query(CompanionTable.TABLE_COMPANION, allColumns, " " + CompanionTable.COLUMN_ID + " = ?",
+		Cursor cursor = database.query(CompanionTable.TABLE_COMPANION, allColumns, " " + CompanionTable.COLUMN_ID + " = " + companionID,
 				null, null, null, null);
 		Companion companion = null;
 		if (cursor.getCount() > 0) {

@@ -28,26 +28,37 @@ public class KanojoInformationFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_kanojo_information, container, false);
-		TextView mStrength = (TextView) v.findViewById(R.id.strength_field);
-		TextView mIntellect = (TextView) v.findViewById(R.id.intellect_field);
-		TextView mDexterity = (TextView) v.findViewById(R.id.dexterity_field);
-		TextView mConstitution = (TextView) v.findViewById(R.id.constitution_field);
-		TextView mWisdom = (TextView) v.findViewById(R.id.wisdom_field);
-		TextView mCharisma = (TextView) v.findViewById(R.id.charisma_field);
-		TextView mHealth = (TextView) v.findViewById(R.id.health_field);
-		TextView mAttack = (TextView) v.findViewById(R.id.attack_field);
-		TextView mDefence = (TextView) v.findViewById(R.id.defence_field);
-		TextView mMagicalDefence = (TextView) v.findViewById(R.id.magic_defence_field);
-		TextView mDodge = (TextView) v.findViewById(R.id.dodge_field);
-		TextView mHit = (TextView) v.findViewById(R.id.hit_field);
-		TextView mCrit = (TextView) v.findViewById(R.id.crit_field);
+		mStrength = (TextView) v.findViewById(R.id.strength_field);
+		mIntellect = (TextView) v.findViewById(R.id.intellect_field);
+		mDexterity = (TextView) v.findViewById(R.id.dexterity_field);
+		mConstitution = (TextView) v.findViewById(R.id.constitution_field);
+		mWisdom = (TextView) v.findViewById(R.id.wisdom_field);
+		mCharisma = (TextView) v.findViewById(R.id.charisma_field);
+		mHealth = (TextView) v.findViewById(R.id.health_field);
+		mAttack = (TextView) v.findViewById(R.id.attack_field);
+		mDefence = (TextView) v.findViewById(R.id.defence_field);
+		mMagicalDefence = (TextView) v.findViewById(R.id.magic_defence_field);
+		mDodge = (TextView) v.findViewById(R.id.dodge_field);
+		mHit = (TextView) v.findViewById(R.id.hit_field);
+		mCrit = (TextView) v.findViewById(R.id.crit_field);
 		return v;
 	}
 
 	@Override
 	public void onStart() {
-		// TODO Auto-generated method stub
 		super.onStart();
+		Companion currentCompanion = mCommunicator.getCurrentCompanion();
+		if (currentCompanion != null) {
+			currentCompanion.setStatStruct(new Stat());
+			Stat statStruct = currentCompanion.getStatStruct();
+			mStrength.setText(String.valueOf(statStruct.getStrength()));
+			mIntellect.setText(String.valueOf(statStruct.getIntellect()));
+			mDexterity.setText(String.valueOf(statStruct.getDexterity()));
+			mConstitution.setText(String.valueOf(statStruct.getConstitution()));
+			mWisdom.setText(String.valueOf(statStruct.getWisdom()));
+			mCharisma.setText(String.valueOf(statStruct.getCharisma()));
+		}
+		
 	}
 	
 }

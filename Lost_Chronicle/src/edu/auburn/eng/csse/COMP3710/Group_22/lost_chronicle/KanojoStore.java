@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.GridView;
 public class KanojoStore extends Fragment {
 	StoreCommunicator mStoreCommunicator;
 	Purchasable chosenKanojo;
+	final KanojoStore kanojoStore = this;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,23 +40,30 @@ public class KanojoStore extends Fragment {
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
 				chosenKanojo = (Purchasable) parent.getItemAtPosition(position);
-				PurchaseDialogFragment purchaseDialog = new PurchaseDialogFragment();
-				Bundle args = new Bundle();
-				args.putParcelable(Selection_Screen.PURCHASE_KEY, chosenKanojo);
-				purchaseDialog.setArguments(args);
-				getActivity().getFragmentManager().beginTransaction()
-				.add(purchaseDialog, PurchaseDialogFragment.PURCHASE_DIALOG_KEY).commit();
-				//needs to launch DialogFragment which displays the money type selection thing and price for unlock
-				//if the previous tier hasn't been unlocked then it doesn't display the choice to pay in gold
+				if (chosenKanojo.hasBeenPurchased()) {
+					kanojoStore.popStore();
+					mStoreCommunicator.updatePurchasable(chosenKanojo);
+				}
+				else {
+					PurchaseDialogFragment purchaseDialog = new PurchaseDialogFragment();
+					Bundle args = new Bundle();
+					args.putParcelable(Selection_Screen.PURCHASE_KEY, chosenKanojo);
+					purchaseDialog.setArguments(args);
+					getActivity().getFragmentManager().beginTransaction()
+					.add(purchaseDialog, PurchaseDialogFragment.PURCHASE_DIALOG_KEY).commit();
+					//if the previous tier hasn't been unlocked then it doesn't display the choice to pay in gold
+				}
 			}
 			
 		});
 		return v;
 		
 	}
+	protected void popStore() {
+		this.getFragmentManager().popBackStackImmediate();	
+	}
 	@Override
 	public void onStart() {
 		super.onStart();
 	}
-	
 }

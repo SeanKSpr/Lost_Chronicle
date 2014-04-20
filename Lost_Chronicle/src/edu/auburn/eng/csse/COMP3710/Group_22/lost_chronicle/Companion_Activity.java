@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class Companion_Activity extends FragmentActivity implements StoreCommunicator, KanojoInfoCommunicator {
 	TextView mView;
 	String mCurrentCompanionName;
-	
+	private static final String KANOJO_STORE_KEY = "KanojoStore";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,7 +53,6 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	@Override
 	protected void onStart() {
 		super.onStart();
-		launchInformationFragment();
 	}
 	
 	@Override
@@ -70,10 +69,12 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 			transaction.add(R.id.store_fragment_container, statFragment).commit();
 		}
 		else {
+			fm.beginTransaction().remove(fm.findFragmentById(R.id.store_fragment_container)).commit();
 			statFragment = new KanojoInformationFragment();
 			FragmentTransaction transaction = fm.beginTransaction();
 			transaction.replace(R.id.store_fragment_container, statFragment).commit();
 		}
+		
 	}
 	//contacts database to get all the companions
 	//takes each element within that arraylist of companions and places it in an array of Purchasables
@@ -123,13 +124,17 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	
 	private void launchKanojoStore() {
 		FragmentManager fm = getFragmentManager();
-		Fragment kanojoStoreFragment = fm.findFragmentById(R.id.store_fragment_container);
-		kanojoStoreFragment = new KanojoStore();
-		FragmentTransaction transaction = fm.beginTransaction();
-		if (fm.getBackStackEntryCount() > 0) {
-			fm.popBackStack();
+		int topOfStack = fm.getBackStackEntryCount() - 1;
+		if (fm.getBackStackEntryCount() > 0 && !fm.getBackStackEntryAt(topOfStack).getName().equals(KANOJO_STORE_KEY)) {
+			KanojoStore kanojoStoreFragment = new KanojoStore();
+			FragmentTransaction transaction = fm.beginTransaction();
+			transaction.replace(R.id.store_fragment_container, kanojoStoreFragment).addToBackStack(KANOJO_STORE_KEY).commit();
 		}
-		transaction.replace(R.id.store_fragment_container, kanojoStoreFragment).addToBackStack(null).commit();
+		else if (fm.getBackStackEntryCount() == 0) {
+			KanojoStore kanojoStoreFragment = new KanojoStore();
+			FragmentTransaction transaction = fm.beginTransaction();
+			transaction.replace(R.id.store_fragment_container, kanojoStoreFragment).addToBackStack(KANOJO_STORE_KEY).commit();
+		}
 	}
 	
 	@Override
@@ -138,12 +143,17 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 		Companion companion = (Companion) purchasable;
 		companion.setPurchased(true);
 		Companion oldCurrentCompanion = getCurrentCompanion();
-
 		if (oldCurrentCompanion != null) {
 			oldCurrentCompanion.setActiveCompanion(false);
 			companionDBHelper.updateCompanion(oldCurrentCompanion);
+			int oldId = (int) oldCurrentCompanion.getId();
+			oldCurrentCompanion = companionDBHelper.getCompanion(oldId);
+			if (oldCurrentCompanion.getId() != companion.getId()) {
+				companion.setActiveCompanion(true);
+				companionDBHelper.updateCompanion(companion);
+			}
 		}
-		if (oldCurrentCompanion.getId() != companion.getId()) {
+		else {
 			companion.setActiveCompanion(true);
 			companionDBHelper.updateCompanion(companion);
 		}
@@ -161,5 +171,21 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 			}
 		}
 		return currentCompanion;
+	}
+	@Override
+	public void performTransaction(int cost) {
+		//TODO get Avatar object, subtract cost from his current gold, update Avatar in database
+		
+	}
+	@Override
+	public int getWallet() {
+		// TODO get Avatar object, return the amount of gold he has.
+		return 0;
+	}
+	@Override
+	public Purchasable getPurchasable(int Id) {
+		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
+		Companion companion = companionDBHelper.getCompanion(Id);
+		return companion;
 	}	
 }
