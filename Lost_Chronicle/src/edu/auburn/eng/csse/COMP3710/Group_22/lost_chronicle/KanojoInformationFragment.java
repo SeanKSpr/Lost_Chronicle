@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class KanojoInformationFragment extends Fragment {
@@ -57,6 +58,16 @@ public class KanojoInformationFragment extends Fragment {
 			mConstitution.setText(String.valueOf(statStruct.getConstitution()));
 			mWisdom.setText(String.valueOf(statStruct.getWisdom()));
 			mCharisma.setText(String.valueOf(statStruct.getCharisma()));
+		}
+		else {
+			TextView textView;
+			RelativeLayout layout = (RelativeLayout) this.getActivity().findViewById(R.id.kanojo_info_layout);
+			for (int i = 0; i < layout.getChildCount(); i++) {
+				if (layout.getChildAt(i) instanceof TextView) {
+					textView = (TextView) layout.getChildAt(i);
+					textView.setText("");
+				}
+			}
 		}
 		
 	}

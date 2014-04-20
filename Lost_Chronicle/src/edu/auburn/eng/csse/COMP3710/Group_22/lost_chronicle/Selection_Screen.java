@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -94,7 +93,7 @@ public class Selection_Screen extends Activity {
 		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
 		ArrayList<Companion> list = companionDBHelper.getAllCompanions();
 		Companion currentCompanion = null;
-		for (int i = 0; i < list.size() - 1 && currentCompanion == null; i++) {
+		for (int i = 0; i < list.size() && currentCompanion == null; i++) {
 			if (list.get(i).isActiveCompanion()) {
 				currentCompanion = list.get(i);
 				button.setBackgroundResource((int) currentCompanion.getMainMenuImage());
