@@ -40,7 +40,7 @@ public class Event_Scheduler extends SQLiteOpenHelper{
 	
 	//static constant to create the db
 	private static final String DATABASE_CREATE = "CREATE TABLE " 
-			+ DATABASE_EVENTS + "(" + COLUMN_ID + "," + COLUMN_TITLE 
+			+ DATABASE_EVENTS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_TITLE 
 			+ "," + COLUMN_START_TIME + "," + COLUMN_END_TIME + "," 
 			+ COLUMN_TYPE + "," + COLUMN_ONGOING + "," + COLUMN_DIFFICULTY 
 			+ "," + COLUMN_EVAL + "," + COLUMN_DESCRIPTION + ")";

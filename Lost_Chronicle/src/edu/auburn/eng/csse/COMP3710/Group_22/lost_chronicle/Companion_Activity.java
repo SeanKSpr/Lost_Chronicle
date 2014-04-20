@@ -24,7 +24,6 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_companion_activity_screen);
-		this.deleteDatabase("Events.db");
 		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
 		Companion aCompanion = companionDBHelper.getCompanion(1);
 		if (aCompanion == null) {
