@@ -7,6 +7,12 @@ TODO:
 
 -Finish merging everyone's projects. This mostly consists of resolving issues relating to events (mostly a naming issue)
 
+-Complete a lot of classes - Attribute, Class, Avatar, RPGActor, Enemy, RPG_Battle, Companion (rpg related methods/fields).
+
+
+
+General Class Descriptions:
+------------------------------------------------------------------------------------------------------------------
 -Attributes Class : This class will have methods which will take in particular stats as parameters and produce a resulting
 integer/float which will correspond to Attack, Health, Defence, etc. 
   ex. public int calculateAttack(int strength, int dexterity) {
