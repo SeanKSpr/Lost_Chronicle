@@ -19,8 +19,8 @@ integer/float which will correspond to Attack, Health, Defence, etc.
             return 300 + (strength * 70 + dexterity * 25);
         }
     One of these methods will be produced for each of the 7 attribute types.
--Avatar Class : This class will have methods for producing special attacks based on particular stats and other methods
-    and attributes needed in the RPG Battle. (Like making money and leveling up perhaps)
+    
+-Avatar Class : This class will have methods for producing special attacks based on particular stats and other methods and attributes needed in the RPG Battle. (Like making money and leveling up perhaps)
     
 -Companion_Activity : COMPLETED* - This is the hosting activity for the "Kanojo" portion of the game. This includes the
     kanojo store and kanojo character screen. It talks with the database managers to fulfill requests from its fragments.
