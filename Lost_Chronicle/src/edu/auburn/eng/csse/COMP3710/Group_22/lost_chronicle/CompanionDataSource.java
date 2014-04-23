@@ -11,11 +11,11 @@ import android.database.sqlite.SQLiteDatabase;
 public class CompanionDataSource {
 	
 	private SQLiteDatabase database;
-	private Event_Scheduler dbHelper;
+	private Database_Helper dbHelper;
 	private String[] allColumns = CompanionTable.allColumns;
 	
 	public CompanionDataSource(Context context) {
-		dbHelper = new Event_Scheduler(context);
+		dbHelper = new Database_Helper(context);
 	}
 	
 	public void open() throws SQLException {

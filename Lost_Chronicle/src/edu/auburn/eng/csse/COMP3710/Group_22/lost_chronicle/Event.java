@@ -5,6 +5,7 @@ public class Event {
 
 	private Date start_time, end_time;
 	private String title, description, type;
+	private short on_going = 0, id;
 	private float eval;
 	private float difficulty;
 
@@ -33,8 +34,9 @@ public class Event {
 	}
 
 
+	public Event(){}
 	
-	Event(Date startDateIn, Date endDateIn, String titleIn, String typeIn, String descriptionIn, float difficultyIn)
+	public Event(Date startDateIn, Date endDateIn, String titleIn, String typeIn, String descriptionIn, float difficultyIn)
 	{
 		start_time = startDateIn;
 		end_time = endDateIn;
@@ -69,9 +71,8 @@ public class Event {
 		this.end_time = end_time;
 	}
 
-	public String isOnGoing() {
-		// TODO Auto-generated method stub
-		return null;
+	public short isOnGoing() {
+		return on_going;
 	}
 
 	public float getDifficulty() {
@@ -90,9 +91,17 @@ public class Event {
 		this.eval = eval;
 	}
 
-	public void setId(int parseInt) {
-		// TODO Auto-generated method stub
+	public void setId(short i) {
+		this.id = i;
 		
+	}
+
+	public short getId() {
+		return id;
+	}
+
+	public void setOnGoing(short i) {
+		this.on_going = i;		
 	}
 	
 }
