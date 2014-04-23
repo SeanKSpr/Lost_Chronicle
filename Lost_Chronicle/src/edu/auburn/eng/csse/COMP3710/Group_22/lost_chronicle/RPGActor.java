@@ -4,7 +4,7 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 public class RPGActor {
 	protected String mName;
 	protected int mLevel;
-	protected int mImageResource;
+	protected long mSpriteResource;
 	protected Stat statStruct;
 	protected Attribute attributeStruct;
 	protected long id;
@@ -25,11 +25,11 @@ public class RPGActor {
 	public void setLevel(int mLevel) {
 		this.mLevel = mLevel;
 	}
-	public int getImageResource() {
-		return mImageResource;
+	public long getSpriteReource() {
+		return mSpriteResource;
 	}
-	public void setImageResource(int mImageResource) {
-		this.mImageResource = mImageResource;
+	public void setSpriteResource(long mSpriteResource) {
+		this.mSpriteResource = mSpriteResource;
 	}
 	public Stat getStatStruct() {
 		return statStruct;

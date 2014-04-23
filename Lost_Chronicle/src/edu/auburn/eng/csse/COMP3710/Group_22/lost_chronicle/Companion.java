@@ -20,6 +20,7 @@ public class Companion extends Avatar implements Purchasable {
 		mPurchasableResource = source.readLong();
 		mMainMenuImage = source.readLong();
 		mFullViewResource = source.readLong();
+		mSpriteResource = source.readLong();
 		mPrice = source.readInt();
 		mType = source.readString();
 		mPurchased = source.readByte() != 0;
@@ -103,6 +104,7 @@ public class Companion extends Avatar implements Purchasable {
 		dest.writeLong(mPurchasableResource);
 		dest.writeLong(mMainMenuImage);
 		dest.writeLong(mFullViewResource);
+		dest.writeLong(mSpriteResource);
 		dest.writeInt(mPrice);
 		dest.writeString(mType);
 		dest.writeByte( (byte) (mPurchased ? 1 : 0));

@@ -56,7 +56,7 @@ public class Event_Scheduler extends SQLiteOpenHelper{
 		//create fresh event table
 		db.execSQL(DATABASE_CREATE);
 		db.execSQL(CompanionTable.COMPANION_CREATE);
-		
+		CompanionTable.intializeCompanionTable();
 		//populate companion table with all the companions
 		//populate hair table with all the hairs
 	}

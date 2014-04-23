@@ -37,6 +37,7 @@ public class CompanionDataSource {
 		values.put(CompanionTable.COLUMN_FULLVIEW_IMAGE_RESOURCE, companion.getFullViewResource());
 		values.put(CompanionTable.COLUMN_SELECTION_SCREEN_IMAGE, companion.getMainMenuImage());
 		values.put(CompanionTable.COLUMN_THUMBNAIL_IMAGE_RESOURCE, companion.getThumbnailResource());
+		values.put(CompanionTable.COLUMN_SPRITE_IMAGE_RESOURCE, companion.getSpriteReource());
 		values.put(CompanionTable.COLUMN_TYPE, companion.getType());
 		values.put(CompanionTable.COLUMN_CURRENT_COMPANION, companion.isActiveCompanion());
 		database.insert(CompanionTable.TABLE_COMPANION, null, values);
@@ -54,6 +55,7 @@ public class CompanionDataSource {
 		values.put(CompanionTable.COLUMN_FULLVIEW_IMAGE_RESOURCE, companion.getFullViewResource());
 		values.put(CompanionTable.COLUMN_SELECTION_SCREEN_IMAGE, companion.getMainMenuImage());
 		values.put(CompanionTable.COLUMN_THUMBNAIL_IMAGE_RESOURCE, companion.getThumbnailResource());
+		values.put(CompanionTable.COLUMN_SPRITE_IMAGE_RESOURCE,  companion.getSpriteReource());
 		values.put(CompanionTable.COLUMN_TYPE, companion.getType());
 		values.put(CompanionTable.COLUMN_CURRENT_COMPANION, companion.isActiveCompanion());
 		int rowsModified = database.update(CompanionTable.TABLE_COMPANION, values, CompanionTable.COLUMN_ID + " = " + companion.getId(), null);
@@ -80,11 +82,12 @@ public class CompanionDataSource {
 				companion.setThumbnailResource(cursor.getLong(2));
 				companion.setMainMenuImage(cursor.getLong(3));
 				companion.setFullViewResource(cursor.getLong(4));
-				companion.setPrice(cursor.getInt(5));
-				companion.setRank(cursor.getInt(6));
-				companion.setPurchased((byte)cursor.getShort(7) != 0);
-				companion.setType(cursor.getString(8));
-				companion.setActiveCompanion((byte) cursor.getShort(9) != 0);
+				companion.setSpriteResource(cursor.getLong(5));
+				companion.setPrice(cursor.getInt(6));
+				companion.setRank(cursor.getInt(7));
+				companion.setPurchased((byte)cursor.getShort(8) != 0);
+				companion.setType(cursor.getString(9));
+				companion.setActiveCompanion((byte) cursor.getShort(10) != 0);
 				list.add(companion);
 			} while(cursor.moveToNext());
 		}
@@ -105,11 +108,12 @@ public class CompanionDataSource {
 			companion.setThumbnailResource(cursor.getLong(2));
 			companion.setMainMenuImage(cursor.getLong(3));
 			companion.setFullViewResource(cursor.getLong(4));
-			companion.setPrice(cursor.getInt(5));
-			companion.setRank(cursor.getInt(6));
-			companion.setPurchased((byte)cursor.getShort(7) != 0);
-			companion.setType(cursor.getString(8));
-			companion.setActiveCompanion((byte) cursor.getShort(9) != 0);
+			companion.setSpriteResource(cursor.getLong(5));
+			companion.setPrice(cursor.getInt(6));
+			companion.setRank(cursor.getInt(7));
+			companion.setPurchased((byte)cursor.getShort(8) != 0);
+			companion.setType(cursor.getString(9));
+			companion.setActiveCompanion((byte) cursor.getShort(10) != 0);
 		}
 		this.close();
 		return companion;
