@@ -46,16 +46,6 @@
         android:textColor="#fff600" />
 
     <TextView
-        android:id="@+id/health_title_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/attack_title_view"
-        android:layout_alignParentLeft="true"
-        android:background="#55000000"
-        android:text="@string/health_text_title"
-        android:textColor="#fff600" />
-
-    <TextView
         android:id="@+id/crit_title_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -189,17 +179,6 @@
         android:textColor="#00ffa0" />
 
     <TextView
-        android:id="@+id/health_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/strength_title_view"
-        android:layout_alignBottom="@+id/strength_title_view"
-        android:layout_alignLeft="@+id/attack_field"
-        android:background="#55000000"
-        android:text="1"
-        android:textColor="#00ffa0" />
-
-    <TextView
         android:id="@+id/defence_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -207,16 +186,6 @@
         android:layout_alignLeft="@+id/magic_defence_field"
         android:background="#55000000"
         android:text="1"
-        android:textColor="#00ffa0" />
-
-    <TextView
-        android:id="@+id/intellect_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/dexterity_title_view"
-        android:layout_alignRight="@+id/strength_field"
-        android:background="#55000000"
-        android:text="23"
         android:textColor="#00ffa0" />
 
     <TextView
@@ -260,12 +229,63 @@
         android:textColor="#00ffa0" />
 
     <TextView
+        android:id="@+id/health_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/strength_title_view"
+        android:layout_alignLeft="@+id/attack_field"
+        android:background="#55000000"
+        android:text="1"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/magic_attack_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/attack_title_view"
+        android:layout_alignParentLeft="true"
+        android:background="#55000000"
+        android:text="@string/magic_attack_title"
+        android:textColor="#fff600"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/magic_attack_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/attack_field"
+        android:layout_alignLeft="@+id/attack_field"
+        android:background="#55000000"
+        android:text="1"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/health_title_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/magic_attack_title"
+        android:layout_alignParentLeft="true"
+        android:background="#55000000"
+        android:text="@string/health_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/intellect_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/strength_title_view"
+        android:layout_marginRight="49dp"
+        android:background="#55000000"
+        android:text="23"
+        android:textColor="#00ffa0" />
+
+    <TextView
         android:id="@+id/strength_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/intellect_field"
-        android:layout_marginLeft="26dp"
-        android:layout_toRightOf="@+id/intellect_title_view"
+        android:layout_alignLeft="@+id/intellect_field"
+        android:layout_alignTop="@+id/magic_attack_title"
         android:background="#55000000"
         android:text="100"
         android:textColor="#00ffa0" />

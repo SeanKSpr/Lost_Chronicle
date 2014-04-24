@@ -32,7 +32,7 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 		eventList = (ArrayList<Event>) eventDBHelper.getAllEvents();
 		setContentView(R.layout.activity_scheduler_screen);
 		m_adapter = new EventItemAdapter(this, R.layout.list_item, eventList);
-		setListAdapter(m_adapter);
+		//setListAdapter(m_adapter);
 		
 		}
 	
