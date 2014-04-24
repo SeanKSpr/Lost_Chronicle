@@ -1,16 +1,18 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 public class Companion extends Avatar implements Purchasable {
-	//Used to determine statPool multiplier. mRank goes up to 4. Rank 1 gives .85*avatar.statPool, Rank 2 gives .90 * statPool and so on.
 	private int mRank;
 	private long mPurchasableResource, mMainMenuImage, mFullViewResource;
 	private int mPrice;
 	private String mType;
 	private boolean mPurchased, mActiveCompanion;
 	private CompanionCreator creator;
+	
 	public Companion() {
 		
 	}
@@ -40,8 +42,53 @@ public class Companion extends Avatar implements Purchasable {
 	 *ex. if mRank = 1 and type = "CHARISMA" then you could set Companion statPool to avatar.statPool * .85. Then allocate 
 	 *35% of the stats to Charisma and the rest to other stats.  
 	 */
-	public void makeStatFromAvatar() {
-		
+	public void makeStatFromAvatar(Context context) {
+		AvatarDataSource avatarDBHelper = new AvatarDataSource(context);
+		Avatar avatar = avatarDBHelper.getAvatar();
+		Stat avatarStats = avatar.getStatStruct();
+		double statPoolPercentage = (100 - (4 - mRank) * 5.0) / 100;
+		int companionStatPool = (int) (statPoolPercentage * avatarStats.getStatPool());
+		int[] statDistribution = getStatDistributionByClass();
+		this.distributeStats(statDistribution, companionStatPool);
+	}
+	private void distributeStats(int[] statDistribution, int companionStatPool) {
+		Stat companionStats = this.getStatStruct();
+		companionStats.setStrength((int) (statDistribution[0] / 100.0 * companionStatPool));
+		companionStats.setDexterity((int) (statDistribution[1] / 100.0 * companionStatPool));
+		companionStats.setConstitution((int) (statDistribution[2] / 100.0 * companionStatPool));
+		companionStats.setWisdom((int) (statDistribution[3] / 100.0 * companionStatPool));
+		companionStats.setIntellect((int) (statDistribution[4] / 100.0 * companionStatPool));
+		companionStats.setCharisma((int) (statDistribution[5] / 100.0 * companionStatPool));
+	}
+	private int[] getStatDistributionByClass() {
+		if (mType.equals("Strength")) {
+			int[] statDistribution = {35, 17, 23, 10, 5, 10};
+			return statDistribution;
+		}
+		else if (mType.equals("Dexterity")) {
+			int[] statDistribution = {20, 35, 15, 7, 7, 16};
+			return statDistribution;
+		}
+		else if (mType.equals("Constitution")) {
+			int[] statDistribution = {15, 15, 40, 20, 5, 5};
+			return statDistribution;
+		}
+		else if (mType.equals("Wisdom")) {
+			int[] statDistribution = {5, 12, 12, 37, 25, 10};
+			return statDistribution;
+		}
+		else if (mType.equals("Intellect")) {
+			int[] statDistribution = {5, 20, 15, 15, 40, 5};
+			return statDistribution;
+		}
+		else if (mType.equals("Charisma")) {
+			int[] statDistribution = {32, 16, 15, 2, 5, 30};
+			return statDistribution;
+		}
+		else {
+			Log.e("UNKNOWN_CLASS", "Encountered an unknown class. Are you sure you spelled the class correctly?");
+		}
+		return null;
 	}
 	@Override
 	public long getThumbnailResource() {

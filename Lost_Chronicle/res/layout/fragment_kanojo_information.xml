@@ -213,42 +213,40 @@
         android:id="@+id/intellect_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/dexterity_field"
-        android:layout_alignLeft="@+id/dexterity_field"
+        android:layout_above="@+id/dexterity_title_view"
+        android:layout_alignRight="@+id/strength_field"
         android:background="#55000000"
         android:text="23"
         android:textColor="#00ffa0" />
 
     <TextView
-        android:id="@+id/strength_field"
+        android:id="@+id/dexterity_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/strength_title_view"
-        android:layout_alignBottom="@+id/strength_title_view"
+        android:layout_above="@+id/magic_defence_field"
         android:layout_alignLeft="@+id/intellect_field"
         android:background="#55000000"
-        android:text="100"
-        android:textColor="#00ffa0" />
-
-    <TextView
-        android:id="@+id/constitution_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/dexterity_field"
-        android:layout_below="@+id/charisma_field"
-        android:background="#55000000"
-        android:text="40"
+        android:text="56"
         android:textColor="#00ffa0" />
 
     <TextView
         android:id="@+id/charisma_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/dodge_field"
-        android:layout_alignBottom="@+id/dodge_field"
-        android:layout_alignLeft="@+id/constitution_field"
+        android:layout_alignLeft="@+id/dexterity_field"
+        android:layout_below="@+id/dodge_field"
         android:background="#55000000"
         android:text="19"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/constitution_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/dodge_field"
+        android:layout_alignLeft="@+id/dexterity_field"
+        android:background="#55000000"
+        android:text="40"
         android:textColor="#00ffa0" />
 
     <TextView
@@ -256,20 +254,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/charisma_field"
-        android:layout_marginLeft="35dp"
-        android:layout_toRightOf="@+id/intellect_title_view"
+        android:layout_alignLeft="@+id/charisma_field"
         android:background="#55000000"
         android:text="28"
         android:textColor="#00ffa0" />
 
     <TextView
-        android:id="@+id/dexterity_field"
+        android:id="@+id/strength_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/wisdom_field"
-        android:layout_alignLeft="@+id/wisdom_field"
+        android:layout_above="@+id/intellect_field"
+        android:layout_marginLeft="26dp"
+        android:layout_toRightOf="@+id/intellect_title_view"
         android:background="#55000000"
-        android:text="56"
+        android:text="100"
         android:textColor="#00ffa0" />
 
 </RelativeLayout>

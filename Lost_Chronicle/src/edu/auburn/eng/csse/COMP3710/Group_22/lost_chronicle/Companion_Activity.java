@@ -24,12 +24,6 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_companion_activity_screen);
-		
-		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
-		Companion aCompanion = companionDBHelper.getCompanion(1);
-		if (aCompanion == null) {
-			companionDBHelper.initializeTable();
-		}
 		setUpBackground();
 	}
 	private void setUpBackground() {
@@ -167,6 +161,7 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 		Companion currentCompanion = null;
 		for (Companion companion : companionList) {
 			if (companion.isActiveCompanion()) {
+				companion.makeStatFromAvatar(this);
 				return companion;
 			}
 		}

@@ -38,7 +38,7 @@ public class Database_Helper extends SQLiteOpenHelper{
 		//create fresh event table
 		db.execSQL(EventTable.DATABASE_CREATE);
 		db.execSQL(CompanionTable.COMPANION_CREATE);
-		
+		db.execSQL(AvatarTable.AVATAR_CREATE);
 		//populate companion table with all the companions
 		//populate hair table with all the hairs
 	}
@@ -48,6 +48,7 @@ public class Database_Helper extends SQLiteOpenHelper{
 		//Drop older event table if existed
 		db.execSQL(EventTable.EVENT_DROP);
 		db.execSQL(CompanionTable.COMPANION_DROP);
+		db.execSQL(AvatarTable.AVATAR_DROP);
 		//create fresh event table
 		this.onCreate(db);
 		

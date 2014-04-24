@@ -16,10 +16,23 @@ public class Selection_Screen extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.deleteDatabase("Events.db");
+		this.deleteDatabase("lost_chronicle_db.db");//----------------ONLY FOR TESTING--------------------------------------------------------
 		setContentView(R.layout.activity_selection__screen);
 		mSchedulerButton = (Button) this.findViewById(R.id.scheduler_activity_button);
 		mRPGButton = (Button) this.findViewById(R.id.rpg_battle_activity_button);
+		
+		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
+		Companion aCompanion = companionDBHelper.getCompanion(1);
+		if (aCompanion == null) {
+			companionDBHelper.initializeTable();
+		}
+		
+		AvatarDataSource avatarDBHelper = new AvatarDataSource(this);
+		Avatar theAvatar = avatarDBHelper.getAvatar();
+		if (theAvatar == null) {
+			avatarDBHelper.initializeTable();
+		}
+		theAvatar = avatarDBHelper.getAvatar();
 	}
 	
 	@Override

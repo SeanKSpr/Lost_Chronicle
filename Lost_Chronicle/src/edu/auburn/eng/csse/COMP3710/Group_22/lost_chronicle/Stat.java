@@ -8,7 +8,12 @@ public class Stat {
 	private int Wisdom;
 	private int Charisma;
 	public Stat() {
-		// TODO Auto-generated constructor stub
+		Strength = 0;
+		Intellect = 0;
+		Dexterity = 0;
+		Constitution = 0;
+		Wisdom = 0;
+		Charisma = 0;
 	}
 	public int getStrength() {
 		return Strength;
@@ -46,5 +51,25 @@ public class Stat {
 	public void setCharisma(int charisma) {
 		Charisma = charisma;
 	}
-
+	public int getStatPool() {
+		return Strength + Dexterity + Constitution + Wisdom + Intellect + Charisma;
+	}
+	public void addStrength(int amount) {
+		Strength += amount;
+	}
+	public void addDexterity(int amount) {
+		Dexterity += amount;
+	}
+	public void addConstitution(int amount) {
+		Constitution += amount;
+	}
+	public void addWisdom(int amount) {
+		Wisdom += amount;
+	}
+	public void addIntellect(int amount) {
+		Intellect += amount;
+	}
+	public void addCharisma(int amount) {
+		Charisma += amount;
+	}
 }

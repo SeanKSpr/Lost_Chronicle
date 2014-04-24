@@ -4,7 +4,7 @@ public class Avatar extends RPGActor {
 	private Wallet mWallet;
 	private int mBattlesWon;
 	public Avatar() {
-		// TODO Auto-generated constructor stub
+		mWallet = new Wallet();
 	}
 	
 	public Wallet getWallet() {

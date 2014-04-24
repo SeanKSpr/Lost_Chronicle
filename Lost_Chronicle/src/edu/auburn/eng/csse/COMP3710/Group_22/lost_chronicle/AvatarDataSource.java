@@ -73,7 +73,7 @@ public class AvatarDataSource {
 			avatar = new Avatar();
 			Stat statStruct = new Stat();
 			avatar.setName(cursor.getString(0));
-			avatar.setSpriteResource(cursor.getInt(1));
+			avatar.setSpriteResource(cursor.getLong(1));
 			avatar.getWallet().setGold(cursor.getInt(2));
 			avatar.setBatlesWon(cursor.getInt(3));
 			statStruct.setStrength(cursor.getInt(4));
@@ -90,5 +90,6 @@ public class AvatarDataSource {
 	
 	public void initializeTable() {
 		Avatar avatar = AvatarTable.initializeTableItem();
+		this.insertAvatar(avatar);
 	}
 }
