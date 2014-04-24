@@ -37,6 +37,7 @@ public class EventScheduler {
 		
 		//create ContentValues to add key "column"/value
 		ContentValues values = new ContentValues();
+		values.put(EventTable.COLUMN_ID, event.getId());
 		values.put(EventTable.COLUMN_TITLE, event.getTitle());
 		values.put(EventTable.COLUMN_START_TIME, event.getStart_time().toString());
 		values.put(EventTable.COLUMN_END_TIME, event.getEnd_time().toString());

@@ -137,6 +137,7 @@ public final class R {
         public static final int editText4=0x7f090012;
         public static final int editText5=0x7f090013;
         public static final int editText6=0x7f090015;
+        public static final int event_list_TextView=0x7f090003;
         public static final int google_play_image=0x7f090035;
         public static final int health_field=0x7f09002a;
         public static final int health_title_view=0x7f09001d;
@@ -149,7 +150,6 @@ public final class R {
         public static final int item_name_text=0x7f090001;
         public static final int kanojo_info_layout=0x7f090017;
         public static final int kanojo_store=0x7f090032;
-        public static final int listView1=0x7f090003;
         public static final int magic_defence_field=0x7f090026;
         public static final int magic_defence_title_view=0x7f09001a;
         public static final int microtransaction_text=0x7f090036;
