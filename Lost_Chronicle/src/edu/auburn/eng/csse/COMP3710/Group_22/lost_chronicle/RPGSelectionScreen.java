@@ -1,6 +1,5 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
@@ -9,7 +8,6 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 public class RPGSelectionScreen extends FragmentActivity implements AvatarInfoCommunicator{
 	Button mCharacterScreenButton, mRPGBattleButton;

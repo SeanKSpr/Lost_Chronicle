@@ -75,10 +75,14 @@ public class AddEventFragment extends Fragment {
 				String type = mEventType.getSelectedItem().toString();
 				float difficulty  = mDifficulty.getRating();
 				Date startingDate, endingDate;
+				startingDate = new Date();
+				endingDate = new Date();
 				startingDate = parseStringToDate(startDate, startTime);
 				endingDate = parseStringToDate(endDate, endTime);
 				Event newEvent = new Event(startingDate, endingDate, title, type, description, difficulty);
 				comm.respond(newEvent);
+				//getFragmentManager().popBackStackImmediate();
+				
 			}
 		});
 		super.onStart();
