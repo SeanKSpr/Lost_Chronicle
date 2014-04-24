@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/magic_attack_title"
+        android:id="@+id/magic_attack_title_viewA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Event"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/magic_attack_field"
+            android:id="@+id/magic_attack_fieldA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title:"

@@ -77,7 +77,7 @@ public class Companion extends Avatar implements Purchasable {
 			int[] statDistribution = {5, 12, 12, 37, 25, 10};
 			return statDistribution;
 		}
-		else if (mType.equals("Intellect")) {
+		else if (mType.equals("Intelligence")) {
 			int[] statDistribution = {5, 20, 15, 15, 40, 5};
 			return statDistribution;
 		}

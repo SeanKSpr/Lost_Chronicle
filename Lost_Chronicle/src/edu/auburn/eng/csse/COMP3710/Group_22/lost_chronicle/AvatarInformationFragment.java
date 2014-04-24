@@ -6,17 +6,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class KanojoInformationFragment extends Fragment {
+public class AvatarInformationFragment extends Fragment {
 	TextView mStrength, mIntellect, mDexterity, mConstitution, mWisdom, mCharisma;
 	TextView  mHealth, mAttack, mMagicAttack, mDefence, mMagicalDefence, mDodge, mHit, mCrit;
-	KanojoInfoCommunicator mCommunicator;
+	AvatarInfoCommunicator mCommunicator;
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		mCommunicator = (KanojoInfoCommunicator) activity;
+		mCommunicator = (AvatarInfoCommunicator) activity;
 	}
 
 	@Override
@@ -27,7 +26,7 @@ public class KanojoInformationFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_kanojo_information, container, false);
+		View v = inflater.inflate(R.layout.fragment_avatar_information, container, false);
 		mStrength = (TextView) v.findViewById(R.id.strength_fieldA);
 		mIntellect = (TextView) v.findViewById(R.id.intellect_fieldA);
 		mDexterity = (TextView) v.findViewById(R.id.dexterity_fieldA);
@@ -48,25 +47,15 @@ public class KanojoInformationFragment extends Fragment {
 	@Override
 	public void onStart() {
 		super.onStart();
-		Companion currentCompanion = mCommunicator.getCurrentCompanion();
-		if (currentCompanion != null) {
-			Stat statStruct = currentCompanion.getStatStruct();
+		Avatar avatar = mCommunicator.getAvatar();
+		if (avatar != null) {
+			Stat statStruct = avatar.getStatStruct();
 			mStrength.setText(String.valueOf(statStruct.getStrength()));
 			mIntellect.setText(String.valueOf(statStruct.getIntellect()));
 			mDexterity.setText(String.valueOf(statStruct.getDexterity()));
 			mConstitution.setText(String.valueOf(statStruct.getConstitution()));
 			mWisdom.setText(String.valueOf(statStruct.getWisdom()));
 			mCharisma.setText(String.valueOf(statStruct.getCharisma()));
-		}
-		else {
-			TextView textView;
-			RelativeLayout layout = (RelativeLayout) this.getActivity().findViewById(R.id.avatar_info_layout);
-			for (int i = 0; i < layout.getChildCount(); i++) {
-				if (layout.getChildAt(i) instanceof TextView) {
-					textView = (TextView) layout.getChildAt(i);
-					textView.setText("");
-				}
-			}
 		}
 	}
 	

@@ -53,7 +53,7 @@ public class Selection_Screen extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(Selection_Screen.this, RPG_Battle.class);
+				Intent intent = new Intent(Selection_Screen.this, RPGSelectionScreen.class);
 				intent.putExtra("test", "RPG");
 				Selection_Screen.this.launchActivity(intent);
 			}

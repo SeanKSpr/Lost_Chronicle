@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/avatar_info_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="left" >
+
+    <TextView
+        android:id="@+id/dexterity_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/constitution_fieldA"
+        android:layout_below="@+id/strength_fieldA"
+        android:background="#55000000"
+        android:text="56"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/stat_title_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/strength_fieldA"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="16dp"
+        android:background="#55000000"
+        android:text="@string/stat_text_title"
+        android:textColor="#0f0f5f"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/attribute_title_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/health_title_viewA"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="17dp"
+        android:background="#55000000"
+        android:text="@string/attribute_text_title"
+        android:textColor="#0f0f5f"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/magic_defence_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/defence_fieldA"
+        android:layout_marginLeft="29dp"
+        android:layout_toRightOf="@+id/magic_defence_title_viewA"
+        android:background="#55000000"
+        android:text="1"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/dodge_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/magic_defence_fieldA"
+        android:layout_below="@+id/magic_defence_fieldA"
+        android:background="#55000000"
+        android:text="1"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/hit_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dodge_fieldA"
+        android:layout_below="@+id/dodge_fieldA"
+        android:background="#55000000"
+        android:text="1"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/crit_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/hit_fieldA"
+        android:layout_below="@+id/hit_fieldA"
+        android:background="#55000000"
+        android:text="1"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/defence_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/magic_defence_fieldA"
+        android:layout_below="@+id/magic_attack_fieldA"
+        android:background="#55000000"
+        android:text="1"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/magic_attack_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/defence_fieldA"
+        android:layout_below="@+id/attack_title_viewA"
+        android:background="#55000000"
+        android:text="1"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/attack_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/magic_attack_fieldA"
+        android:layout_alignLeft="@+id/magic_attack_fieldA"
+        android:background="#55000000"
+        android:text="1"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/attack_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/charisma_fieldA"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="105dp"
+        android:background="#55000000"
+        android:text="@string/attack_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/charisma_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/attack_title_viewA"
+        android:layout_alignParentLeft="true"
+        android:background="#55000000"
+        android:text="@string/charisma_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/wisdom_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/charisma_title_viewA"
+        android:layout_alignParentLeft="true"
+        android:background="#55000000"
+        android:text="@string/wisdom_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/intellect_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/intellect_fieldA"
+        android:layout_alignBottom="@+id/intellect_fieldA"
+        android:layout_alignParentLeft="true"
+        android:background="#55000000"
+        android:text="@string/intelligence_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/charisma_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/attack_fieldA"
+        android:layout_below="@+id/wisdom_fieldA"
+        android:background="#55000000"
+        android:text="19"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/wisdom_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/charisma_fieldA"
+        android:layout_below="@+id/intellect_title_viewA"
+        android:background="#55000000"
+        android:text="28"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/intellect_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/wisdom_fieldA"
+        android:layout_below="@+id/strength_title_viewA"
+        android:layout_marginTop="35dp"
+        android:background="#55000000"
+        android:text="23"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/constitution_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/constitution_fieldA"
+        android:background="#55000000"
+        android:text="@string/constitution_text_title"
+        android:textColor="#fff600"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/constitution_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/intellect_title_viewA"
+        android:layout_alignLeft="@+id/intellect_fieldA"
+        android:background="#55000000"
+        android:text="40"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/dexterity_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/dexterity_fieldA"
+        android:layout_alignBottom="@+id/dexterity_fieldA"
+        android:layout_alignParentLeft="true"
+        android:background="#55000000"
+        android:text="@string/dexterity_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/strength_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="76dp"
+        android:background="#55000000"
+        android:text="@string/strength_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/strength_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/intellect_fieldA"
+        android:layout_alignLeft="@+id/dexterity_fieldA"
+        android:background="#55000000"
+        android:text="100"
+        android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/health_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/attack_fieldA"
+        android:layout_alignParentLeft="true"
+        android:background="#55000000"
+        android:text="@string/health_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/magic_attack_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/attack_title_viewA"
+        android:background="#55000000"
+        android:text="@string/magic_attack_title"
+        android:textColor="#fff600"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/defence_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/magic_attack_title_viewA"
+        android:background="#55000000"
+        android:text="@string/defence_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/magic_defence_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/defence_title_viewA"
+        android:background="#55000000"
+        android:text="@string/magic_defence_text_title"
+        android:textColor="#fff600"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/dodge_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/magic_defence_title_viewA"
+        android:background="#55000000"
+        android:text="@string/dodge_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/hit_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/dodge_title_viewA"
+        android:background="#55000000"
+        android:text="@string/hit_text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/crit_title_viewA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/hit_title_viewA"
+        android:background="#55000000"
+        android:text="@string/crit__text_title"
+        android:textColor="#fff600" />
+
+    <TextView
+        android:id="@+id/health_fieldA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/attack_fieldA"
+        android:layout_below="@+id/attribute_title_view"
+        android:background="#55000000"
+        android:text="1"
+        android:textColor="#00ffa0" />
+
+</RelativeLayout>
