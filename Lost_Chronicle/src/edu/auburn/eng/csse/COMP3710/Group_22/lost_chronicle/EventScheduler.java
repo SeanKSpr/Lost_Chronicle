@@ -2,6 +2,7 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -88,8 +89,8 @@ public class EventScheduler {
 		return event;		
 	}
 	
-	public List<Event> getAllEvents() {
-		List<Event> events = new LinkedList<Event>();
+	public ArrayList<Event> getAllEvents() {
+		ArrayList<Event> events = new ArrayList<Event>();
 		
 		//build query
 		
