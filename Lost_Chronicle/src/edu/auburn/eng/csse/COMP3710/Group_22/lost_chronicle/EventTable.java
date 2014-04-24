@@ -3,8 +3,8 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 public class EventTable {
 	//static constants for table and column names
 		public static final String TABLE_EVENTS = "events";
-		public static final String COLUMN_START_TIME ="start time";
-		public static final String COLUMN_END_TIME ="end time";
+		public static final String COLUMN_START_TIME ="start_time";
+		public static final String COLUMN_END_TIME ="end_time";
 		public static final String COLUMN_TITLE = "title";
 		public static final String COLUMN_ONGOING = "ongoing";
 		public static final String COLUMN_TYPE = "type";

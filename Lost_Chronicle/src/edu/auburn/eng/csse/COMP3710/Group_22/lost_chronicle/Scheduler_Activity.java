@@ -15,19 +15,14 @@ import android.view.MenuItem;
 
 
 public class Scheduler_Activity extends FragmentActivity implements EventCommunicator{
-	private ArrayList<Event> eventList = new ArrayList<Event>();
-	private EventScheduler  eventDBHelper;
+	//private ArrayList<Event> eventList = new ArrayList<Event>();
+	//private EventScheduler  eventDBHelper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		
-		Log.i("notjustatag", "made it here");
 		setContentView(R.layout.activity_scheduler_screen);
-		EventScheduler eventDBHelper = new EventScheduler(this);
-		eventList = (ArrayList<Event>) eventDBHelper.getAllEvents();
-		
 	}
 	
 	protected void onStart() 
@@ -39,46 +34,45 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 	
 	
 	@Override
+	protected void onResume() {
+		launchListView();
+		super.onResume();
+	}
+
+	@Override
 	public void respond(Event eventIn)
 	{
-		EventScheduler eventDBHelper = new EventScheduler(this);		
-
-		boolean addable = true;
-		if(eventList.isEmpty())
+		//EventScheduler eventDBHelper = new EventScheduler(this);		
+		this.onBackPressed();
+		FragmentManager fm = getFragmentManager();
+		Fragment fragmentHolder = fm.findFragmentById(R.id.schedulerScreen);
+		
+		if(fragmentHolder instanceof EventListFragment)
 		{
-			eventList.add(eventIn);
-			eventDBHelper.addEvent(eventIn);
-			
-		}
-		else
-		{
-			for(Event event : eventList)
-			{
-				if(eventIn.timeConflicts(event))
-				{
-					addable = false;
-				}
-			}
-			if(addable)
-			{
-				eventList.add(eventIn);
-				eventDBHelper.addEvent(eventIn);
-				FragmentManager fm = getFragmentManager();
-				Fragment fragmentHolder = fm.findFragmentById(R.id.schedulerScreen);
-				if(fragmentHolder instanceof EventListFragment)
-				{
-					EventListFragment frag = (EventListFragment) fragmentHolder;
-					frag.updateList(eventList);
-				}
-			}
+			Log.i("notjustatag", "made it here");
+			EventListFragment frag = (EventListFragment) fragmentHolder;
+			frag.updateList(eventIn);
 		}
 	}
 	
 	
 	
+	@Override
+	public void onBackPressed() {
+		FragmentManager fm = getFragmentManager();
+		int numOfFragments = fm.getBackStackEntryCount();
+		if(numOfFragments > 1)
+		{
+			fm.popBackStackImmediate();
+		}
+		else
+		{
+			super.onBackPressed();
+		}
+	}
+
 	private void launchListView()
 	{
-		Log.i("notjustatag", "made it here");
 		FragmentManager fm = getFragmentManager();
 		Fragment fragmentHolder = fm.findFragmentById(R.id.schedulerScreen);
 		if (fragmentHolder == null) {

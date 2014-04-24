@@ -19,6 +19,7 @@ public class EventScheduler {
 	private SQLiteDatabase database;
 	private Database_Helper dbHelper;
 	private String[] allColumns = EventTable.COLUMNS;
+	private Event eventgas;
 	
 	public EventScheduler(Context context) {
 		dbHelper = new Database_Helper(context);
@@ -50,7 +51,7 @@ public class EventScheduler {
 		
 		//insert into table
 		database.insert(EventTable.TABLE_EVENTS, null, values);
-		
+		eventgas = this.getEvent(0);
 		//close the db
 		this.close();				
 	}
@@ -62,7 +63,7 @@ public class EventScheduler {
 		
 		//build query
 		Cursor cursor =
-				database.query(EventTable.TABLE_EVENTS, EventTable.COLUMNS, " id = ?", new String[] {String.valueOf(id)},
+				database.query(EventTable.TABLE_EVENTS, EventTable.COLUMNS, " _id = ?", new String[] {String.valueOf(id)},
 						null, null, null, null);
 		
 		// if we got results get the first

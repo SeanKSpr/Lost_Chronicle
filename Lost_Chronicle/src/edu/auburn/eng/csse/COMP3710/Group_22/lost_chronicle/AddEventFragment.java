@@ -23,6 +23,7 @@ public class AddEventFragment extends Fragment {
 	Spinner mEventType;
 	RatingBar mDifficulty;
 	EventCommunicator comm;
+	final AddEventFragment addEventFragment = this;
 	
 
 	@Override
@@ -81,7 +82,7 @@ public class AddEventFragment extends Fragment {
 				endingDate = parseStringToDate(endDate, endTime);
 				Event newEvent = new Event(startingDate, endingDate, title, type, description, difficulty);
 				comm.respond(newEvent);
-				//getFragmentManager().popBackStackImmediate();
+				
 				
 			}
 		});
