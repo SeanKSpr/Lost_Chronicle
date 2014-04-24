@@ -53,4 +53,7 @@ public class RPGActor {
 	public void calculateLevel() {
 		mLevel = (int) Math.ceil(statStruct.getStatPool() / 10);
 	}
+	public void calculateHealth() {
+		attributeStruct.setHealth(mLevel * 100 + statStruct.getConstitution() * 17);
+	}
 }

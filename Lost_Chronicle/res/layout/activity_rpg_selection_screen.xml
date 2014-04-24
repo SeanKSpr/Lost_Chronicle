@@ -4,12 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/character_screen_button"
+    <LinearLayout
+        android:id="@+id/avatar_info_fragment_container"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/profile_mc" />
+        android:orientation="vertical" >
+    </LinearLayout>
 
     <Button
         android:id="@+id/battle_screen_button"
@@ -17,12 +18,5 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@drawable/battle_new" />
-
-    <LinearLayout
-        android:id="@+id/avatar_info_fragment_container"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-    </LinearLayout>
 
 </LinearLayout>

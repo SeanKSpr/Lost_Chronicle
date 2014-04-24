@@ -12,10 +12,13 @@ public class CompanionDataSource {
 	
 	private SQLiteDatabase database;
 	private Database_Helper dbHelper;
+	private AvatarDataSource avatarDBHelper;
 	private String[] allColumns = CompanionTable.allColumns;
 	
 	public CompanionDataSource(Context context) {
 		dbHelper = new Database_Helper(context);
+		avatarDBHelper = new AvatarDataSource(context);
+		
 	}
 	
 	public void open() throws SQLException {
@@ -74,6 +77,7 @@ public class CompanionDataSource {
 		ArrayList<Companion> list = new ArrayList<Companion>();
 		Cursor cursor = database.query(CompanionTable.TABLE_COMPANION, allColumns, null, null, null, null, CompanionTable.COLUMN_ID + " DESC");
 		Companion companion;
+		Avatar avatar = avatarDBHelper.getAvatar();
 		if (cursor.moveToFirst()) {
 			do {
 				companion = new Companion();
@@ -88,6 +92,10 @@ public class CompanionDataSource {
 				companion.setPurchased((byte)cursor.getShort(8) != 0);
 				companion.setType(cursor.getString(9));
 				companion.setActiveCompanion((byte) cursor.getShort(10) != 0);
+				companion.makeStatFromAvatar(avatar);
+				companion.getAttributeStruct().generateAttributes(companion.getStatStruct());
+				companion.calculateLevel();
+				companion.calculateHealth();
 				list.add(companion);
 			} while(cursor.moveToNext());
 		}
@@ -100,6 +108,7 @@ public class CompanionDataSource {
 		Cursor cursor = database.query(CompanionTable.TABLE_COMPANION, allColumns, " " + CompanionTable.COLUMN_ID + " = " + companionID,
 				null, null, null, null);
 		Companion companion = null;
+		Avatar avatar = avatarDBHelper.getAvatar();
 		if (cursor.getCount() > 0) {
 			cursor.moveToFirst();
 			companion = new Companion();
@@ -114,6 +123,10 @@ public class CompanionDataSource {
 			companion.setPurchased((byte)cursor.getShort(8) != 0);
 			companion.setType(cursor.getString(9));
 			companion.setActiveCompanion((byte) cursor.getShort(10) != 0);
+			companion.makeStatFromAvatar(avatar);
+			companion.getAttributeStruct().generateAttributes(companion.getStatStruct());
+			companion.calculateLevel();
+			companion.calculateHealth();
 		}
 		this.close();
 		return companion;

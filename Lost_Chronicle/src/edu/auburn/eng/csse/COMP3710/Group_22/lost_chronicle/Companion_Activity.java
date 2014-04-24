@@ -161,7 +161,6 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 		Companion currentCompanion = null;
 		for (Companion companion : companionList) {
 			if (companion.isActiveCompanion()) {
-				companion.makeStatFromAvatar(this);
 				return companion;
 			}
 		}

@@ -6,11 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
-import android.view.ViewManager;
 import android.widget.Button;
 
 public class RPGSelectionScreen extends FragmentActivity implements AvatarInfoCommunicator{
-	Button mCharacterScreenButton, mRPGBattleButton;
+	Button  mRPGBattleButton;
 	final RPGSelectionScreen activity = this;
 	public RPGSelectionScreen() {
 		// TODO Auto-generated constructor stub
@@ -20,26 +19,13 @@ public class RPGSelectionScreen extends FragmentActivity implements AvatarInfoCo
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rpg_selection_screen);
-		mCharacterScreenButton = (Button) this.findViewById(R.id.character_screen_button);
 		mRPGBattleButton = (Button) findViewById(R.id.battle_screen_button);
 	}
 
 	@Override
 	protected void onStart() {
 		super.onStart();
-		mCharacterScreenButton.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				//LinearLayout layout = (LinearLayout) activity.findViewById(R.layout.activity_rpg_selection_screen);
-				//layout.removeView(mRPGBattleButton);
-				View buttonToBeRemoved = (View) activity.findViewById(R.id.character_screen_button);
-				ViewManager parent = (ViewManager) v.getParent();
-				parent.removeView(buttonToBeRemoved);
-				launchAvatarInformationFragment();
-			}
-		});
-		
+		launchAvatarInformationFragment();
 		mRPGBattleButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -62,6 +48,7 @@ public class RPGSelectionScreen extends FragmentActivity implements AvatarInfoCo
 	@Override
 	public Avatar getAvatar() {
 		AvatarDataSource avatarDBHelper = new AvatarDataSource(this);
-		return avatarDBHelper.getAvatar();
+		Avatar avatar = avatarDBHelper.getAvatar();
+		return avatar;
 	}
 }

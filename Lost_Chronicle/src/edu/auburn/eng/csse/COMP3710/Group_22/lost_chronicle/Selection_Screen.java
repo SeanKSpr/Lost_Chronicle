@@ -32,7 +32,6 @@ public class Selection_Screen extends Activity {
 		if (theAvatar == null) {
 			avatarDBHelper.initializeTable();
 		}
-		theAvatar = avatarDBHelper.getAvatar();
 	}
 	
 	@Override

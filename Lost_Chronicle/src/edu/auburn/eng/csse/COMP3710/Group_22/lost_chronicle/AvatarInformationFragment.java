@@ -50,12 +50,21 @@ public class AvatarInformationFragment extends Fragment {
 		Avatar avatar = mCommunicator.getAvatar();
 		if (avatar != null) {
 			Stat statStruct = avatar.getStatStruct();
+			Attribute attrStruct = avatar.getAttributeStruct();
 			mStrength.setText(String.valueOf(statStruct.getStrength()));
 			mIntellect.setText(String.valueOf(statStruct.getIntellect()));
 			mDexterity.setText(String.valueOf(statStruct.getDexterity()));
 			mConstitution.setText(String.valueOf(statStruct.getConstitution()));
 			mWisdom.setText(String.valueOf(statStruct.getWisdom()));
 			mCharisma.setText(String.valueOf(statStruct.getCharisma()));
+			mAttack.setText(String.valueOf(attrStruct.getAttack()));
+			mMagicAttack.setText(String.valueOf(attrStruct.getMagicAttack()));
+			mDefence.setText(String.valueOf(attrStruct.getDefence()));
+			mMagicalDefence.setText(String.valueOf(attrStruct.getMagicDefence()));
+			mDodge.setText(String.valueOf(attrStruct.getDodge()));
+			mHit.setText(String.valueOf(attrStruct.getHit()));
+			mCrit.setText(String.valueOf(attrStruct.getCrit()));
+			mHealth.setText(String.valueOf(attrStruct.getHealth()));
 		}
 	}
 	

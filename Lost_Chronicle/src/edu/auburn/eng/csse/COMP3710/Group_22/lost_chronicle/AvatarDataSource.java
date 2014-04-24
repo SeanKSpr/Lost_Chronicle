@@ -72,6 +72,7 @@ public class AvatarDataSource {
 			cursor.moveToFirst();
 			avatar = new Avatar();
 			Stat statStruct = new Stat();
+			Attribute attrStruct = new Attribute();
 			avatar.setName(cursor.getString(0));
 			avatar.setSpriteResource(cursor.getLong(1));
 			avatar.getWallet().setGold(cursor.getInt(2));
@@ -83,6 +84,11 @@ public class AvatarDataSource {
 			statStruct.setCharisma(cursor.getInt(8));
 			statStruct.setIntellect(cursor.getInt(9));
 			avatar.setStatStruct(statStruct);
+			attrStruct.generateAttributes(statStruct);
+			avatar.setAttributeStruct(attrStruct);
+			avatar.calculateLevel();
+			avatar.calculateHealth();
+			
 		}
 		this.close();
 		return avatar;

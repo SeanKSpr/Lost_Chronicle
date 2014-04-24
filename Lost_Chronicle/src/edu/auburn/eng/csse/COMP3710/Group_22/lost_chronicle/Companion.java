@@ -42,9 +42,7 @@ public class Companion extends Avatar implements Purchasable {
 	 *ex. if mRank = 1 and type = "CHARISMA" then you could set Companion statPool to avatar.statPool * .85. Then allocate 
 	 *35% of the stats to Charisma and the rest to other stats.  
 	 */
-	public void makeStatFromAvatar(Context context) {
-		AvatarDataSource avatarDBHelper = new AvatarDataSource(context);
-		Avatar avatar = avatarDBHelper.getAvatar();
+	public void makeStatFromAvatar(Avatar avatar) {
 		Stat avatarStats = avatar.getStatStruct();
 		double statPoolPercentage = (100 - (4 - mRank) * 5.0) / 100;
 		int companionStatPool = (int) (statPoolPercentage * avatarStats.getStatPool());
