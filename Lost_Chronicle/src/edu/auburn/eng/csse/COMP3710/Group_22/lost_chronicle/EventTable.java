@@ -20,7 +20,7 @@ public class EventTable {
 		
 		//static constant to create the db
 		public static final String DATABASE_CREATE = "CREATE TABLE " 
-				+ TABLE_EVENTS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," + COLUMN_TITLE 
+				+ TABLE_EVENTS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TITLE 
 				+ "," + COLUMN_START_TIME + "," + COLUMN_END_TIME + "," 
 				+ COLUMN_TYPE + "," + COLUMN_ONGOING + "," + COLUMN_DIFFICULTY 
 				+ "," + COLUMN_EVAL + "," + COLUMN_DESCRIPTION + ")";
