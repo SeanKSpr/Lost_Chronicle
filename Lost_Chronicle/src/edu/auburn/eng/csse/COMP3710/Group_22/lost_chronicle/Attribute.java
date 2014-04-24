@@ -7,6 +7,7 @@ public class Attribute {
 	private int mHealth;
 	private int mHit;
 	private int mMagicDefence;
+	private int mMagicAttack;
 	
 	public Attribute() {
 		// TODO Auto-generated constructor stub
@@ -59,5 +60,14 @@ public class Attribute {
 	public void setMagicDefence(int mMagicDefence) {
 		this.mMagicDefence = mMagicDefence;
 	}
+
+	public int getMagicAttack() {
+		return mMagicAttack;
+	}
+
+	public void setMagicAttack(int mMagicAttack) {
+		this.mMagicAttack = mMagicAttack;
+	}
+	
 	
 }

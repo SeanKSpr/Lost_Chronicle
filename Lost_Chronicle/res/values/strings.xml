@@ -22,6 +22,7 @@
 	<string name="level_text_title">Level</string>
 	<string name="health_text_title">Health</string>
 	<string name="attack_text_title">Attack</string>
+	<string name="magic_attack_title">Magic Attack</string>
 	<string name="defence_text_title">Defence</string>
 	<string name="dodge_text_title">Dodge%</string>
 	<string name="hit_text_title">Hit%</string>

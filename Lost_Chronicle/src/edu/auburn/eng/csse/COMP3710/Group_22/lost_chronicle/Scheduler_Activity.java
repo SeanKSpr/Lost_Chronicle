@@ -41,28 +41,13 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 	@Override
 	public void respond(Event eventIn)
 	{
-		EventScheduler eventDBHelper = new EventScheduler(this);	
-		
-		FragmentManager fm = getFragmentManager();
-		Fragment fragmentHolder = fm.findFragmentById(R.id.schedulerScreen);
-		//if (fragmentHolder == null) {
-			fragmentHolder = new EventListFragment();
-			FragmentTransaction transaction = fm.beginTransaction();
-			transaction.add(R.id.schedulerScreen, fragmentHolder).addToBackStack(null).commit();
-		//}
+		EventScheduler eventDBHelper = new EventScheduler(this);		
 
 		boolean addable = true;
 		if(eventList.isEmpty())
 		{
 			eventList.add(eventIn);
 			eventDBHelper.addEvent(eventIn);
-			//FragmentManager fm = getFragmentManager();
-			fragmentHolder = fm.findFragmentById(R.id.schedulerScreen);
-			if(fragmentHolder instanceof EventListFragment)
-			{
-				EventListFragment frag = (EventListFragment) fragmentHolder;
-				frag.updateList(eventList);
-			}
 			
 		}
 		else
@@ -78,8 +63,8 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 			{
 				eventList.add(eventIn);
 				eventDBHelper.addEvent(eventIn);
-				//FragmentManager fm = getFragmentManager();
-				fragmentHolder = fm.findFragmentById(R.id.schedulerScreen);
+				FragmentManager fm = getFragmentManager();
+				Fragment fragmentHolder = fm.findFragmentById(R.id.schedulerScreen);
 				if(fragmentHolder instanceof EventListFragment)
 				{
 					EventListFragment frag = (EventListFragment) fragmentHolder;
