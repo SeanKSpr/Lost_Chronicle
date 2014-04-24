@@ -198,4 +198,5 @@ public class Companion extends Avatar implements Purchasable {
 	public void setActiveCompanion(boolean mActiveCompanion) {
 		this.mActiveCompanion = mActiveCompanion;
 	}
+	
 }

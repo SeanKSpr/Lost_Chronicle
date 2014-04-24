@@ -168,13 +168,18 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	}
 	@Override
 	public void performTransaction(int cost) {
-		//TODO get Avatar object, subtract cost from his current gold, update Avatar in database
-		
+		//get Avatar object, subtract cost from his current gold, update Avatar in database
+		AvatarDataSource avatarDBHelper = new AvatarDataSource(this);
+		Avatar avatar = avatarDBHelper.getAvatar();
+		avatar.getWallet().subtractGold(cost);
+		avatarDBHelper.updateAvatar(avatar);
 	}
 	@Override
 	public int getWallet() {
 		// TODO get Avatar object, return the amount of gold he has.
-		return 0;
+		AvatarDataSource avatarDBHelper = new AvatarDataSource(this);
+		Avatar avatar = avatarDBHelper.getAvatar();
+		return avatar.getWallet().getGold();
 	}
 	@Override
 	public Purchasable getPurchasable(int Id) {
