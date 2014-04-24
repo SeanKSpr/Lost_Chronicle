@@ -119,9 +119,9 @@ public final class R {
         public static final int attack_title_view=0x7f09001c;
         public static final int bottomtext=0x7f090039;
         public static final int button1=0x7f090016;
-        public static final int charisma_field=0x7f090030;
+        public static final int charisma_field=0x7f09002f;
         public static final int charisma_title_view=0x7f090024;
-        public static final int constitution_field=0x7f09002f;
+        public static final int constitution_field=0x7f090030;
         public static final int constitution_title_view=0x7f090022;
         public static final int continue_microtransaction_button=0x7f090034;
         public static final int crit_field=0x7f090028;
@@ -130,7 +130,7 @@ public final class R {
         public static final int defence_title_view=0x7f09001b;
         public static final int descriptiontext=0x7f09003a;
         public static final int desctext=0x7f09003b;
-        public static final int dexterity_field=0x7f09002d;
+        public static final int dexterity_field=0x7f09002e;
         public static final int dexterity_title_view=0x7f090021;
         public static final int dodge_field=0x7f090025;
         public static final int dodge_title_view=0x7f090018;
@@ -140,6 +140,7 @@ public final class R {
         public static final int editText4=0x7f090012;
         public static final int editText5=0x7f090013;
         public static final int editText6=0x7f090015;
+        public static final int event_list_TextView=0x7f090003;
         public static final int google_play_image=0x7f090035;
         public static final int health_field=0x7f09002a;
         public static final int health_title_view=0x7f09001d;
@@ -152,7 +153,6 @@ public final class R {
         public static final int item_name_text=0x7f090001;
         public static final int kanojo_info_layout=0x7f090017;
         public static final int kanojo_store=0x7f090032;
-        public static final int listView1=0x7f090003;
         public static final int magic_defence_field=0x7f090026;
         public static final int magic_defence_title_view=0x7f09001a;
         public static final int microtransaction_text=0x7f090036;
@@ -165,7 +165,7 @@ public final class R {
         public static final int spinner1=0x7f09000b;
         public static final int store_button=0x7f09003d;
         public static final int store_fragment_container=0x7f090000;
-        public static final int strength_field=0x7f09002e;
+        public static final int strength_field=0x7f09002d;
         public static final int strength_title_view=0x7f090020;
         public static final int textView1=0x7f090007;
         public static final int textView2=0x7f090008;

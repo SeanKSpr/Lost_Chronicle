@@ -20,7 +20,7 @@ public class AvatarTable {
 	
 	public static final String AVATAR_DROP = "DROP TABLE IF EXISTS " + TABLE_AVATAR;
 	
-	public static final String[] allColumns = {COLUMN_NAME, COLUMN_NAME, COLUMN_SPRITE_IMAGE_RESOURCE, COLUMN_GOLD, COLUMN_BATTLES_WON, 
+	public static final String[] allColumns = {COLUMN_NAME, COLUMN_SPRITE_IMAGE_RESOURCE, COLUMN_GOLD, COLUMN_BATTLES_WON, 
 		COLUMN_STRENGTH, COLUMN_DEXTERITY, COLUMN_CONSTITUTION, COLUMN_WISDOM, COLUMN_CHARISMA, COLUMN_INTELLECT};
 	
 	public AvatarTable() {
@@ -32,26 +32,17 @@ public class AvatarTable {
 		Stat statStruct = new Stat();
 		avatar.setName("The Lost");
 		avatar.setSpriteResource(R.drawable.profile_mc);
-		avatar.setBatlesWon(0);
-		avatar.getWallet().setGold(0);
-		statStruct.setCharisma(0);
-		statStruct.setConstitution(0);
-		statStruct.setDexterity(0);
-		statStruct.setIntellect(0);
-		statStruct.setStrength(0);
-		statStruct.setWisdom(0);
-		//TODO initialize Avatar column to default values on Database creation (in order of columns appearing)
-		//The Lost
-		//resource file name
-		//0
-		//0
-		//1
-		//1
-		//1
-		//1
-		//1
-		//1
-		return null;
+		avatar.setBatlesWon(14);
+		avatar.getWallet().setGold(600);
+		statStruct.setCharisma(14);
+		statStruct.setConstitution(26);
+		statStruct.setDexterity(10);
+		statStruct.setIntellect(6);
+		statStruct.setStrength(36);
+		statStruct.setWisdom(4);
+		avatar.setStatStruct(statStruct);
+		
+		return avatar;
 	}
 
 }

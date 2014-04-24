@@ -10,7 +10,8 @@ public class RPGActor {
 	protected long id;
 	
 	public RPGActor() {
-		// TODO Auto-generated constructor stub
+		statStruct = new Stat();
+		attributeStruct = new Attribute();
 	}
 	
 	public String getName() {
@@ -48,5 +49,8 @@ public class RPGActor {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public void calculateLevel() {
+		mLevel = (int) Math.ceil(statStruct.getStatPool() / 10);
 	}
 }

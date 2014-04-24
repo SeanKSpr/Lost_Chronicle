@@ -2,6 +2,8 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
 import java.util.ArrayList;
 
+
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -11,10 +13,17 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
 
 public class Scheduler_Activity extends FragmentActivity implements EventCommunicator{
 	private ArrayList<Event> eventList = new ArrayList<Event>();
 	private EventItemAdapter m_adapter;
+	EventScheduler  eventDBHelper;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +33,7 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 		setContentView(R.layout.activity_scheduler_screen);
 		m_adapter = new EventItemAdapter(this, R.layout.list_item, eventList);
 		setListAdapter(m_adapter);
+		
 		}
 	
 		protected void onStart() {
@@ -54,10 +64,14 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 		@Override
 		public void respond(Event eventIn)
 		{
+			EventScheduler eventDBHelper = new EventScheduler(this);		
+
 			boolean addable = true;
 			if(eventList.isEmpty())
 			{
 				eventList.add(eventIn);
+				eventDBHelper.addEvent(eventIn);
+				
 			}
 			else
 			{
@@ -71,7 +85,6 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 				if(addable)
 				{
 					eventList.add(eventIn);
-					EventScheduler eventDBHelper = new EventScheduler(this);
 					eventDBHelper.addEvent(eventIn);
 				}
 			}
@@ -85,4 +98,5 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 				transaction.add(R.id.schedulerScreen, addEventFragment).addToBackStack(null).commit();
 			}
 		}
+		
 }

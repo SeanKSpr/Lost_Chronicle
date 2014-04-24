@@ -50,7 +50,6 @@ public class KanojoInformationFragment extends Fragment {
 		super.onStart();
 		Companion currentCompanion = mCommunicator.getCurrentCompanion();
 		if (currentCompanion != null) {
-			currentCompanion.setStatStruct(new Stat());
 			Stat statStruct = currentCompanion.getStatStruct();
 			mStrength.setText(String.valueOf(statStruct.getStrength()));
 			mIntellect.setText(String.valueOf(statStruct.getIntellect()));
