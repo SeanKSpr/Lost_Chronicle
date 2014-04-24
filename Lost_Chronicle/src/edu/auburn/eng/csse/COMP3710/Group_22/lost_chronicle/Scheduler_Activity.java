@@ -13,12 +13,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class Scheduler_Activity extends FragmentActivity implements EventCommunicator{
-	ArrayList<Event> eventList = new ArrayList<Event>();
+	private ArrayList<Event> eventList = new ArrayList<Event>();
+	private EventItemAdapter m_adapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		EventScheduler eventDBHelper = new EventScheduler(this);
+		eventList = (ArrayList<Event>) eventDBHelper.getAllEvents();
 		setContentView(R.layout.activity_scheduler_screen);
+		m_adapter = new EventItemAdapter(this, R.layout.list_item, eventList);
+		setListAdapter(m_adapter);
 		}
 	
 		protected void onStart() {
@@ -66,6 +71,8 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 				if(addable)
 				{
 					eventList.add(eventIn);
+					EventScheduler eventDBHelper = new EventScheduler(this);
+					eventDBHelper.addEvent(eventIn);
 				}
 			}
 		}

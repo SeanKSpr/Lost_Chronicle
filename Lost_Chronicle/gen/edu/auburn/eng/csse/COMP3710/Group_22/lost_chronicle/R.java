@@ -114,9 +114,10 @@ public final class R {
         public static final int tome=0x7f020057;
     }
     public static final class id {
-        public static final int add_event_button=0x7f090039;
+        public static final int add_event_button=0x7f09003e;
         public static final int attack_field=0x7f090029;
         public static final int attack_title_view=0x7f09001c;
+        public static final int bottomtext=0x7f090039;
         public static final int button1=0x7f090016;
         public static final int charisma_field=0x7f090030;
         public static final int charisma_title_view=0x7f090024;
@@ -127,6 +128,8 @@ public final class R {
         public static final int crit_title_view=0x7f09001e;
         public static final int defence_field=0x7f09002b;
         public static final int defence_title_view=0x7f09001b;
+        public static final int descriptiontext=0x7f09003a;
+        public static final int desctext=0x7f09003b;
         public static final int dexterity_field=0x7f09002d;
         public static final int dexterity_title_view=0x7f090021;
         public static final int dodge_field=0x7f090025;
@@ -142,7 +145,7 @@ public final class R {
         public static final int health_title_view=0x7f09001d;
         public static final int hit_field=0x7f090027;
         public static final int hit_title_view=0x7f090019;
-        public static final int home_button=0x7f090037;
+        public static final int home_button=0x7f09003c;
         public static final int intellect_field=0x7f09002c;
         public static final int intellect_title_view=0x7f09001f;
         public static final int item_cost_text=0x7f090033;
@@ -153,13 +156,14 @@ public final class R {
         public static final int magic_defence_field=0x7f090026;
         public static final int magic_defence_title_view=0x7f09001a;
         public static final int microtransaction_text=0x7f090036;
+        public static final int middletext=0x7f090038;
         public static final int ratingBar1=0x7f09000d;
         public static final int rpg_battle_activity_button=0x7f090006;
         public static final int schedulerScreen=0x7f090002;
         public static final int scheduler_activity_button=0x7f090005;
         public static final int selection_screen_layout=0x7f090004;
         public static final int spinner1=0x7f09000b;
-        public static final int store_button=0x7f090038;
+        public static final int store_button=0x7f09003d;
         public static final int store_fragment_container=0x7f090000;
         public static final int strength_field=0x7f09002e;
         public static final int strength_title_view=0x7f090020;
@@ -170,6 +174,7 @@ public final class R {
         public static final int textView5=0x7f09000e;
         public static final int textView6=0x7f090011;
         public static final int textView7=0x7f090014;
+        public static final int toptext=0x7f090037;
         public static final int wisdom_field=0x7f090031;
         public static final int wisdom_title_view=0x7f090023;
     }
@@ -182,6 +187,7 @@ public final class R {
         public static final int fragment_kanojo_information=0x7f030005;
         public static final int fragment_kanojo_store_screen=0x7f030006;
         public static final int fragment_microtransaction_dialog=0x7f030007;
+        public static final int list_item=0x7f030008;
     }
     public static final class menu {
         public static final int action_bar=0x7f080000;

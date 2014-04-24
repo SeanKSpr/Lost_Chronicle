@@ -44,6 +44,7 @@ public class Event {
 		description = descriptionIn;
 		type = typeIn;
 		difficulty = difficultyIn;
+		on_going = 1;
 	}
 	
 	boolean timeConflicts(Event eventIn)
