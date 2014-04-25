@@ -5,7 +5,11 @@ import java.util.Random;
 
 import android.app.ActionBar;
 import android.app.Activity;
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+import android.media.MediaPlayer;
+>>>>>>> 7bf7c4adeb9cf75dc7813cf7f80545b990194302
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +21,13 @@ import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
 public class RPG_Battle extends Activity {
+<<<<<<< HEAD
 	RPG_Battle world = this;
+=======
+	//MediaPlayer player;
+>>>>>>> 7bf7c4adeb9cf75dc7813cf7f80545b990194302
 	Avatar mAvatar;
+	Jukebox music;
 	Companion mCompanion;
 	RPGEnemy mEnemy;
 	TextView mHeroHealthText, mCompanionHealthText, mEnemyHealthText;
@@ -67,6 +76,11 @@ public class RPG_Battle extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
+		if(music == null)
+		{
+			music = new Jukebox(this);
+		}
+		
 		
 		CompanionDataSource companionHelper = new CompanionDataSource(this);
 		ArrayList<Companion> allCompanions = companionHelper.getAllCompanions();
@@ -91,6 +105,7 @@ public class RPG_Battle extends Activity {
 	}
 	protected void onStart() {
 		super.onStart();
+<<<<<<< HEAD
 		mEnemyHealthText.setText(mEnemy.getCurrentHealth());
 		mHeroHealthText.setText(mAvatar.getCurrentHealth());
 		mCompanionHealthText.setText(mCompanion.getCurrentHealth());
@@ -219,12 +234,21 @@ public class RPG_Battle extends Activity {
 		mAvatar.getWallet().addGold(mEnemy.getWallet().getGold());
 		Intent intent = new Intent(RPG_Battle.this, Selection_Screen.class);
 		RPG_Battle.this.startActivity(intent);
+=======
+		//music.start();
+>>>>>>> 7bf7c4adeb9cf75dc7813cf7f80545b990194302
 	}
 	@Override
 	protected void onPause() {
 		super.onPause();
+		music.stop();
 	}
 	
+	@Override
+	protected void onResume() {
+		music.start();
+		super.onResume();
+	}
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

@@ -5,7 +5,8 @@ public class Event {
 
 	private Date start_time, end_time;
 	private String title, description, type;
-	private short on_going = 0, id;
+	private short on_going = 0;
+	private int id;
 	private float eval;
 	private float difficulty;
 
@@ -92,12 +93,12 @@ public class Event {
 		this.eval = eval;
 	}
 
-	public void setId(short i) {
+	public void setId(int i) {
 		this.id = i;
 		
 	}
 
-	public short getId() {
+	public int getId() {
 		return id;
 	}
 
