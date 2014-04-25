@@ -1,13 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="horizontal" >
+        <!-- android:text="Button" /> -->
+        <!--  android:text="Button" /> -->
+        <!--  android:src="@drawable/ic_input_add"-->
 
     <TextView
-        android:id="@+id/item_name_text"
+        android:id="@+id/companionHealthTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/avatar_button"
+        android:layout_marginBottom="22dp"
+        android:text="Small Text"
+        android:textColor="#00ff00"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/heroHealthTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/companion_button"
+        android:layout_alignLeft="@+id/avatar_button"
+        android:text="Small Text"
+        android:textColor="#00ff00"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/avatar_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/heroHealthTextView"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="19dp" />
+
+    <Button
+        android:id="@+id/companion_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/companionHealthTextView"
+        android:layout_alignRight="@+id/heroHealthTextView" />
+
+</RelativeLayout>
