@@ -93,27 +93,29 @@ public class RPGActor {
 		}
 	}
 	public void takeSpecialAttack(SpecialAttack attack) {
-		switch (attack.getAttackType()) {
-		case STRENGTH :
-			takeDamage(attack);
-			break;
-		case DEXTERITY :
-			for (int i = 0; i < attack.getNumOfShots(); i++) {
+		if (attack != null) {
+			switch (attack.getAttackType()) {
+			case STRENGTH :
 				takeDamage(attack);
+				break;
+			case DEXTERITY :
+				for (int i = 0; i < attack.getNumOfShots(); i++) {
+					takeDamage(attack);
+				}
+				break;
+			case CONSTITUTION :
+				this.attributeStruct.lowerDefence(attack.getSunderAmount());
+				break;
+			case INTELLECT :
+				takeDamage(attack);
+				break;
+			case WISDOM :
+				this.healHealth(attack.getHealAmount());
+				break;
+			case CHARISMA :
+				this.setTurnsCharmed(attack.getNumCharmTurns());
+				break;	
 			}
-			break;
-		case CONSTITUTION :
-			this.attributeStruct.lowerDefence(attack.getSunderAmount());
-			break;
-		case INTELLECT :
-			takeDamage(attack);
-			break;
-		case WISDOM :
-			this.healHealth(attack.getHealAmount());
-			break;
-		case CHARISMA :
-			this.setTurnsCharmed(attack.getNumCharmTurns());
-			break;	
 		}
 	}
 	public boolean dodgedAttack(double hitChance) {
@@ -152,25 +154,27 @@ public class RPGActor {
 		
 	}
 	private void setUpSpecialAttack(SpecialAttack specialAttack) {
-		switch (specialAttack.getAttackType()) {
-		case STRENGTH :
-			setUpHeroicStrike(specialAttack);
-			break;
-		case DEXTERITY :
-			setUpRapidShot(specialAttack);
-			break;
-		case CONSTITUTION :
-			setUpSunderArmor(specialAttack);
-			break;
-		case INTELLECT :
-			setUpArcaneBarrage(specialAttack);
-			break;
-		case WISDOM :
-			setUpLifeBloom(specialAttack);
-			break;
-		case CHARISMA :
-			setUpCharm(specialAttack);
-			break;	
+		if (specialAttack != null) {
+			switch (specialAttack.getAttackType()) {
+			case STRENGTH :
+				setUpHeroicStrike(specialAttack);
+				break;
+			case DEXTERITY :
+				setUpRapidShot(specialAttack);
+				break;
+			case CONSTITUTION :
+				setUpSunderArmor(specialAttack);
+				break;
+			case INTELLECT :
+				setUpArcaneBarrage(specialAttack);
+				break;
+			case WISDOM :
+				setUpLifeBloom(specialAttack);
+				break;
+			case CHARISMA :
+				setUpCharm(specialAttack);
+				break;	
+			}
 		}
 	}
 	
@@ -180,6 +184,7 @@ public class RPGActor {
 		SpecialAttackPercentage[] attackChanceArray = calculateSpecialAbilityChance(statDispersal);
 		Arrays.sort(attackChanceArray, new SpecAttackPercenComparator());
 		for (int i = 0; i < attackChanceArray.length; i++) {
+			specialAttack = new SpecialAttack();
 			SpecialAttackPercentage struct = attackChanceArray[i];
 			specialAttack = specialAttack.launchSpecialAttack(struct);
 			if (specialAttack != null) {
@@ -192,26 +197,26 @@ public class RPGActor {
 
 	private SpecialAttackPercentage[] calculateSpecialAbilityChance(int[] statDispersal) {
 		SpecialAttackPercentage[] specialAbilityChanceArray = new SpecialAttackPercentage[statDispersal.length];
+		Random rand = new Random();
 		for (int i = 0; i < specialAbilityChanceArray.length; i++) {
+			rand.setSeed(System.nanoTime());
+			int baseChance = Math.abs((rand.nextInt() % 100) + 1);
 			specialAbilityChanceArray[i] = new SpecialAttackPercentage(statDispersal[i], i);
-			Random rand = new Random();
-			rand.setSeed(System.currentTimeMillis());
-			int baseChance = (rand.nextInt() % 100) + 1;
 			int totalChance = baseChance + statDispersal[i];
 			specialAbilityChanceArray[i].setPercentChance(totalChance);
 		}
 		return specialAbilityChanceArray;
 	}
 
-	private int[] disperseBonusChancePool() {
+	protected int[] disperseBonusChancePool() {
 		final int BONUS_DISPERSAL_POOL = 30;
 		int statPool = this.getStatStruct().getStatPool();
-		int strPercentage =  (int) ((double) statStruct.getStrength() / statPool * BONUS_DISPERSAL_POOL);
-		int dexPercentage = (int) ((double) statStruct.getDexterity() / statPool * BONUS_DISPERSAL_POOL);
-		int conPercentage = (int) ((double) statStruct.getConstitution() / statPool * BONUS_DISPERSAL_POOL);
-		int intPercentage = (int) ((double) statStruct.getIntellect() / statPool * BONUS_DISPERSAL_POOL);
-		int wisPercentage = (int) ((double) statStruct.getWisdom() / statPool * BONUS_DISPERSAL_POOL);
-		int chaPercentage = (int) ((double) statStruct.getCharisma() / statPool * BONUS_DISPERSAL_POOL);
+		int strPercentage =  (int) Math.ceil(((double) statStruct.getStrength() / statPool * BONUS_DISPERSAL_POOL));
+		int dexPercentage = (int) Math.ceil(((double) statStruct.getDexterity() / statPool * BONUS_DISPERSAL_POOL));
+		int conPercentage = (int)  Math.ceil(((double) statStruct.getConstitution() / statPool * BONUS_DISPERSAL_POOL));
+		int intPercentage = (int)  Math.ceil(((double) statStruct.getIntellect() / statPool * BONUS_DISPERSAL_POOL));
+		int wisPercentage = (int)  Math.ceil(((double) statStruct.getWisdom() / statPool * BONUS_DISPERSAL_POOL));
+		int chaPercentage = (int)  Math.ceil(((double) statStruct.getCharisma() / statPool * BONUS_DISPERSAL_POOL));
 		int[] dispersalArray = {strPercentage, dexPercentage, conPercentage, intPercentage, wisPercentage, chaPercentage};
 		return dispersalArray;
 	}

@@ -3,7 +3,7 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 public class SpecialAttackPercentage {
 	private int abilityType;
 	private int percentChance;
-	public SpecialAttackPercentage(int type, int percentage) {
+	public SpecialAttackPercentage(int percentage, int type) {
 		abilityType = type;
 		percentChance = percentage;
 	}

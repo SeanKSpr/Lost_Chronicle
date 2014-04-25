@@ -1,6 +1,5 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
-import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
@@ -11,6 +10,37 @@ public class Companion extends Avatar implements Purchasable {
 	private int mPrice;
 	private String mType;
 	private boolean mPurchased, mActiveCompanion;
+	
+
+	@Override
+	protected int[] disperseBonusChancePool() {
+		ClassAttack type = this.convertTypeToClassType();
+		final int COMPANION_SPECIAL_CHANCE = 10;
+		int[] dispersalArray = new int[6];
+		switch(type) {
+		case STRENGTH:
+			dispersalArray[0] = COMPANION_SPECIAL_CHANCE;
+			break;
+		case DEXTERITY:
+			dispersalArray[1] = COMPANION_SPECIAL_CHANCE;
+			break;
+		case CONSTITUTION:
+			dispersalArray[2] = COMPANION_SPECIAL_CHANCE;
+			break;
+		case INTELLECT:
+			dispersalArray[3] = COMPANION_SPECIAL_CHANCE;
+			break;
+		case WISDOM:
+			dispersalArray[4] = COMPANION_SPECIAL_CHANCE;
+			break;
+		case CHARISMA:
+			dispersalArray[5] = COMPANION_SPECIAL_CHANCE;
+			break;
+			
+		}
+		return dispersalArray;
+	}
+
 	private CompanionCreator creator;
 	
 	public Companion() {
@@ -199,4 +229,28 @@ public class Companion extends Avatar implements Purchasable {
 		this.mActiveCompanion = mActiveCompanion;
 	}
 	
+	public ClassAttack convertTypeToClassType() {
+		if (this.mType.equals("Strength")) {
+			return ClassAttack.STRENGTH;
+		}
+		else if (this.mType.equals("Dexterity")) {
+			return ClassAttack.DEXTERITY;
+		}
+		else if (this.mType.equals("Constitution")) {
+			return ClassAttack.CONSTITUTION;
+		}
+		else if (this.mType.equals("Intelligence")) {
+			return ClassAttack.INTELLECT;
+		}
+		else if (this.mType.equals("Wisdom")) {
+			return ClassAttack.WISDOM;
+		}
+		else if (this.mType.equals("Charisma")) {
+			return ClassAttack.CHARISMA;
+		}
+		else {
+			Log.e("convertTypeToClassAttack", "mType doesn't match any of the pre-defined values. Check the booleans.");
+		}
+		return null;
+	}
 }

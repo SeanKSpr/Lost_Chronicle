@@ -11,12 +11,12 @@ public class RPGEnemy extends RPGActor {
 	
 	public void generateStats(Avatar avatarIn)
 	{
-		int statPool = avatarIn.getStatStruct().getStatPool();
+		int statPool = (int)(2.5 * avatarIn.getStatStruct().getStatPool());
 		wallet.setGold(statPool * 2);
 		for(int i = 0; i < statPool; i++)
 		{
-			Random rand = new Random(System.currentTimeMillis() * 113);
-			int chosenStat = rand.nextInt(6);
+			Random rand = new Random(System.nanoTime());
+			int chosenStat = Math.abs((rand.nextInt() % 6)) + 1;
 			switch (chosenStat)
 			{
 			case 1: statStruct.addCharisma(1);
@@ -35,6 +35,10 @@ public class RPGEnemy extends RPGActor {
 					
 			}
 		}
+	}
+
+	public Wallet getWallet() {
+		return wallet;
 	}
 
 }

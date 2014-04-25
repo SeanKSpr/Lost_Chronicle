@@ -71,6 +71,7 @@ public class SpecialAttack extends Attack {
 		public void setHealAmount(int healAmount) {
 			this.healAmount = healAmount;
 		}
+		
 		public SpecialAttack launchSpecialAttack(SpecialAttackPercentage attackStruct) {
 			int abilityType = attackStruct.getAbilityType();
 			int percentChance = attackStruct.getPercentChance();
