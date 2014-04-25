@@ -135,6 +135,8 @@ public class Attribute {
 		this.mCrit = mCrit;
 	}
 	
-	
+	public void lowerDefence(int amount) {
+		this.mDefence -= amount;
+	}
 	
 }
