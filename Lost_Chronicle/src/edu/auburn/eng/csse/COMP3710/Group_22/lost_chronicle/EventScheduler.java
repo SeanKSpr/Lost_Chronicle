@@ -1,5 +1,6 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,10 +40,12 @@ public class EventScheduler {
 		
 		//create ContentValues to add key "column"/value
 		ContentValues values = new ContentValues();
-		values.put(EventTable.COLUMN_ID, event.getId());
 		values.put(EventTable.COLUMN_TITLE, event.getTitle());
-		values.put(EventTable.COLUMN_START_TIME, event.getStart_time().toString());
-		values.put(EventTable.COLUMN_END_TIME, event.getEnd_time().toString());
+		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String startTime = formatter.format(event.getStart_time()); 
+		String endTime = formatter.format(event.getEnd_time()); 
+		values.put(EventTable.COLUMN_START_TIME, startTime);
+		values.put(EventTable.COLUMN_END_TIME, endTime);
 		values.put(EventTable.COLUMN_TYPE, event.getType());
 		values.put(EventTable.COLUMN_ONGOING, event.isOnGoing());
 		values.put(EventTable.COLUMN_DIFFICULTY, event.getDifficulty());
@@ -51,7 +54,7 @@ public class EventScheduler {
 		
 		//insert into table
 		database.insert(EventTable.TABLE_EVENTS, null, values);
-		eventgas = this.getEvent(0);
+		//eventgas = this.getEvent(0);
 		//close the db
 		this.close();				
 	}
@@ -73,12 +76,12 @@ public class EventScheduler {
 		
 		//build the event object
 		Event event = new Event();
-		event.setId(Short.parseShort(cursor.getString(0)));
+		//event.setId(Integer.parseInt(cursor.getString(0)));
 		event.setTitle(cursor.getString(1));
 		event.setStart_time(parseStringToDate(cursor.getString(2)));
 		event.setEnd_time(parseStringToDate(cursor.getString(3)));
 		event.setType(cursor.getString(4));
-		event.setOnGoing((short) Integer.parseInt(cursor.getString(5)));
+		event.setOnGoing(Short.parseShort(cursor.getString(5)));
 		event.setDifficulty(Float.parseFloat(cursor.getString(6)));
 		event.setEval(Float.parseFloat(cursor.getString(7)));
 		event.setDescription(cursor.getString(8));
@@ -104,14 +107,14 @@ public class EventScheduler {
 		if(cursor.moveToFirst()) {
 			do {
 				event = new Event();
-				event.setId(Short.parseShort(cursor.getString(0)));
+				event.setId(Integer.parseInt(cursor.getString(0)));
 				event.setTitle(cursor.getString(1));
 				event.setStart_time(parseStringToDate(cursor.getString(2)));
 				event.setEnd_time(parseStringToDate(cursor.getString(3)));
 				event.setType(cursor.getString(4));
-				event.setOnGoing((short) Integer.parseInt(cursor.getString(5)));
-				event.setDifficulty((short) Integer.parseInt(cursor.getString(6)));
-				event.setEval((short) Integer.parseInt(cursor.getString(7)));
+				event.setOnGoing(Short.parseShort(cursor.getString(5)));
+				event.setDifficulty(Float.parseFloat(cursor.getString(6)));
+				event.setEval(Float.parseFloat(cursor.getString(7)));
 				event.setDescription(cursor.getString(8));
 				
 				//add event to events

@@ -21,7 +21,7 @@ import android.util.Log;
 public class Database_Helper extends SQLiteOpenHelper{
 	
 	//Database version
-	public static final int DATABASE_VERSION = 1;
+	public static final int DATABASE_VERSION = 2;
 	//Database name
 	public static final String DATABASE_NAME = "lost_chronicle_db.db";
 	
