@@ -1,9 +1,23 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
-public class Jukebox {
+import android.content.Context;
+import android.media.MediaPlayer;
 
-	public Jukebox() {
-		// TODO Auto-generated constructor stub
+public class Jukebox {
+	MediaPlayer player;
+	public Jukebox(Context context) {
+		player = MediaPlayer.create(context, R.raw.theme);
+		player.setLooping(true);
+		player.start();
+	}
+	public void stop()
+	{
+		player.stop();
+	}
+	public void start()
+	{
+		player.start();
+		player.setLooping(true);
 	}
 
 }

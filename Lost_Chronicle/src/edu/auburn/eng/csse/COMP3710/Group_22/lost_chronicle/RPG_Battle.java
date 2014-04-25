@@ -5,6 +5,7 @@ import java.util.Random;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.Button;
@@ -13,7 +14,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class RPG_Battle extends Activity {
+	//MediaPlayer player;
 	Avatar mAvatar;
+	Jukebox music;
 	Companion mCompanion;
 	RPGEnemy mEnemy;
 	TextView mHeroHealthText, mCompanionHealthText;
@@ -54,6 +57,11 @@ public class RPG_Battle extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
+		if(music == null)
+		{
+			music = new Jukebox(this);
+		}
+		
 		
 		CompanionDataSource companionHelper = new CompanionDataSource(this);
 		ArrayList<Companion> allCompanions = companionHelper.getAllCompanions();
@@ -73,13 +81,20 @@ public class RPG_Battle extends Activity {
 		}
 	protected void onStart() {
 		super.onStart();
+		//music.start();
 	}
 	
 	@Override
 	protected void onPause() {
 		super.onPause();
+		music.stop();
 	}
 	
+	@Override
+	protected void onResume() {
+		music.start();
+		super.onResume();
+	}
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
