@@ -11,10 +11,18 @@
     <!-- android:src="@drawable/ic_input_add" -->
 
     <LinearLayout
+        android:id="@+id/endgame_fragment_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/enemy_side"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.60"
         android:gravity="center_vertical|left"
         android:orientation="horizontal" >
 
@@ -32,14 +40,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="left|center_vertical"
-            android:orientation="vertical" >
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/endgame_fragment_container"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
             android:orientation="vertical" >
 
         </LinearLayout>

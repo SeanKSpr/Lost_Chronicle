@@ -13,9 +13,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 public class KanojoStore extends Fragment {
-	StoreCommunicator mStoreCommunicator;
-	Purchasable chosenKanojo;
-	final KanojoStore kanojoStore = this;
+	private StoreCommunicator mStoreCommunicator;
+	private Purchasable chosenKanojo;
+	private final KanojoStore kanojoStore = this;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

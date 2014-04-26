@@ -16,7 +16,7 @@
         <activity
             android:name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Selection_Screen"
             android:label="@string/app_name" 
-            android:screenOrientation="portrait">>
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

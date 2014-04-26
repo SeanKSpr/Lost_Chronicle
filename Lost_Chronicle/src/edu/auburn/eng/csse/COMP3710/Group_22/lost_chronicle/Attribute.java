@@ -137,6 +137,9 @@ public class Attribute {
 	
 	public void lowerDefence(int amount) {
 		this.mDefence -= amount;
+		if (this.mDefence < 0) {
+			mDefence = 0;
+		}
 	}
 	
 }

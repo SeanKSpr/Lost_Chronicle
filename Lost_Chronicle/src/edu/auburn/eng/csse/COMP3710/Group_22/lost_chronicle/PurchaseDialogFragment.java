@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 public class PurchaseDialogFragment extends DialogFragment {
 	public static final String PURCHASE_DIALOG_KEY = "edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.PURCHASE_DIALOG_KEY";
 	private final PurchaseDialogFragment mDialog = this;
-	StoreCommunicator mCommunicator;
+	private StoreCommunicator mCommunicator;
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		mCommunicator = (StoreCommunicator) activity;
@@ -82,9 +81,5 @@ public class PurchaseDialogFragment extends DialogFragment {
 	@Override
 	public void dismiss() {
 		super.dismiss();
-		FragmentManager fm = this.getActivity().getFragmentManager();
-		while (fm.getBackStackEntryCount() != 0) {
-			fm.popBackStackImmediate();
-		}
 	}
 }

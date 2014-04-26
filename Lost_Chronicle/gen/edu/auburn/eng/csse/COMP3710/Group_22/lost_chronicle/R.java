@@ -139,6 +139,7 @@ public final class R {
         public static final int store=0x7f020070;
         public static final int tome=0x7f020071;
         public static final int victory=0x7f020072;
+        public static final int victory_land=0x7f020073;
     }
     public static final class id {
         public static final int add_event_button=0x7f0a0051;
@@ -177,8 +178,8 @@ public final class R {
         public static final int editText4=0x7f0a001c;
         public static final int editText5=0x7f0a001d;
         public static final int editText6=0x7f0a001f;
-        public static final int endgame_fragment_container=0x7f0a0005;
-        public static final int enemy_side=0x7f0a0002;
+        public static final int endgame_fragment_container=0x7f0a0002;
+        public static final int enemy_side=0x7f0a0003;
         public static final int gold_text_title=0x7f0a003f;
         public static final int google_play_image=0x7f0a0048;
         public static final int health_fieldA=0x7f0a003d;
@@ -201,8 +202,8 @@ public final class R {
         public static final int middletext=0x7f0a004b;
         public static final int name_title_viewA=0x7f0a003e;
         public static final int ratingBar1=0x7f0a0017;
-        public static final int row_1_enemy=0x7f0a0004;
-        public static final int row_1_enemy_health=0x7f0a0003;
+        public static final int row_1_enemy=0x7f0a0005;
+        public static final int row_1_enemy_health=0x7f0a0004;
         public static final int rpg_battle_activity_button=0x7f0a0010;
         public static final int rpg_battle_end_screen=0x7f0a0043;
         public static final int rpg_battle_main_layout=0x7f0a0001;

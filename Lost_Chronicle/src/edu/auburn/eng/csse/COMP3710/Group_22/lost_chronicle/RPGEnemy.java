@@ -6,12 +6,21 @@ public class RPGEnemy extends RPGActor {
 	Wallet wallet;
 	public RPGEnemy() {
 		wallet = new Wallet();
-		// TODO Auto-generated constructor stub
+		this.setName("Serithrasas");
 	}
 	
-	public void generateStats(Avatar avatarIn)
+	@Override
+	public void calculateLevel() {
+		mLevel = (int) Math.ceil(statStruct.getStatPool() / 3);
+	}
+
+	public void generateStats(Avatar avatarIn, Companion companionIn)
 	{
-		int statPool = (int)(1.2 * avatarIn.getStatStruct().getStatPool() + 0.5 * avatarIn.getBattlesWon());
+		int statBoostFromCompanion = 0;
+		if (companionIn != null) {
+			statBoostFromCompanion = (int) (0.9 * avatarIn.getStatStruct().getStatPool() + 0.4 * avatarIn.getBattlesWon());
+		}
+		int statPool = (int)(0.9 * avatarIn.getStatStruct().getStatPool() + 0.5 * avatarIn.getBattlesWon() + statBoostFromCompanion);
 		wallet.setGold(statPool * 2);
 		for(int i = 0; i < statPool; i++)
 		{

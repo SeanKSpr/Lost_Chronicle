@@ -14,11 +14,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class Companion_Activity extends FragmentActivity implements StoreCommunicator, KanojoInfoCommunicator {
-	TextView mView;
-	String mCurrentCompanionName;
 	private static final String KANOJO_STORE_KEY = "KanojoStore";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +105,8 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	@Override
 	public void onBackPressed() {
 		FragmentManager fm = getFragmentManager();
-		if (fm.getBackStackEntryCount() > 0) {
+		boolean infoFragmentAdded = fm.findFragmentById(R.id.store_fragment_container) instanceof KanojoInformationFragment;
+		if (fm.getBackStackEntryCount() > 0 && !infoFragmentAdded) {
 			fm.popBackStack();
 		}
 		else {
@@ -118,8 +116,7 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	
 	private void launchKanojoStore() {
 		FragmentManager fm = getFragmentManager();
-		int topOfStack = fm.getBackStackEntryCount() - 1;
-		if (fm.getBackStackEntryCount() > 0 && !fm.getBackStackEntryAt(topOfStack).getName().equals(KANOJO_STORE_KEY)) {
+		if (fm.findFragmentById(R.id.store_fragment_container) instanceof KanojoInformationFragment) {
 			KanojoStore kanojoStoreFragment = new KanojoStore();
 			FragmentTransaction transaction = fm.beginTransaction();
 			transaction.replace(R.id.store_fragment_container, kanojoStoreFragment).addToBackStack(KANOJO_STORE_KEY).commit();

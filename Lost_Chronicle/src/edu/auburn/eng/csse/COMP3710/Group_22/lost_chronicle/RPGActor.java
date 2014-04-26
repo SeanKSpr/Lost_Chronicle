@@ -11,15 +11,24 @@ public class RPGActor {
 	protected Stat statStruct;
 	protected Attribute attributeStruct;
 	protected long id;
-	private Attack mAttack;
-	private int currentHealth;
-	private int turnsCharmed;
-	private int turnsToBeHealed;
+	protected Attack mAttack;
+	protected int currentHealth;
+	protected int turnsCharmed;
+	protected int turnsToBeHealed;
+	protected int amountToBeHealed;
 	public RPGActor() {
 		statStruct = new Stat();
 		attributeStruct = new Attribute();
 	}
 	
+	public int getAmountToBeHealed() {
+		return amountToBeHealed;
+	}
+
+	public void setAmountToBeHealed(int amountToBeHealed) {
+		this.amountToBeHealed = amountToBeHealed;
+	}
+
 	public String getName() {
 		return mName;
 	}
@@ -80,9 +89,9 @@ public class RPGActor {
 		return attack;
 	}
 	
-	public void takeDamage(Attack attack) {
-		int physDmgTaken = attack.getPhysDmg() - this.attributeStruct.getDefence();
-		int magicDmgTaken = attack.getMagicDmg() - this.attributeStruct.getMagicDefence();
+	public int takeDamage(Attack attack) {
+		int physDmgTaken = Math.abs(attack.getPhysDmg() - this.attributeStruct.getDefence());
+		int magicDmgTaken = Math.abs(attack.getMagicDmg() - this.attributeStruct.getMagicDefence());
 		if (attack.isCrit()) {
 			physDmgTaken *= 2;
 			magicDmgTaken *= 2;
@@ -90,33 +99,35 @@ public class RPGActor {
 		int totalDmgTaken = physDmgTaken + magicDmgTaken;
 		if (!dodgedAttack(attack.getHitChance())) {
 			loseHealth(totalDmgTaken);
+			return totalDmgTaken;
 		}
+		return 0;
 	}
-	public void takeSpecialAttack(SpecialAttack attack) {
+	public int takeSpecialAttack(SpecialAttack attack) {
 		if (attack != null) {
 			switch (attack.getAttackType()) {
 			case STRENGTH :
-				takeDamage(attack);
-				break;
+				return takeDamage(attack);
 			case DEXTERITY :
+				int totalDamageDone = 0;
 				for (int i = 0; i < attack.getNumOfShots(); i++) {
-					takeDamage(attack);
+					 totalDamageDone += takeDamage(attack);
 				}
-				break;
+				return totalDamageDone;
 			case CONSTITUTION :
 				this.attributeStruct.lowerDefence(attack.getSunderAmount());
-				break;
+				return 0;
 			case INTELLECT :
-				takeDamage(attack);
-				break;
+				return takeDamage(attack);
 			case WISDOM :
-				this.healHealth(attack.getHealAmount());
-				break;
+				this.setAmountToBeHealed(attack.getHealAmount());
+				return attack.getHealAmount();
 			case CHARISMA :
 				this.setTurnsCharmed(attack.getNumCharmTurns());
-				break;	
+				return 0;	
 			}
 		}
+		return 0;
 	}
 	public boolean dodgedAttack(double hitChance) {
 		double dodgeChance = this.attributeStruct.getDodge();
@@ -291,11 +302,15 @@ public class RPGActor {
 	public void decrementTurnsToBeHealed() {
 		this.turnsToBeHealed--;
 	}
-	
+	public boolean isCharmed() {
+		return turnsCharmed > -1;
+	}
 	public void cleanUpAfterBattleTurn() {
-		if (this.turnsCharmed > 0)
+		if (this.turnsCharmed > -1)
 			this.decrementTurnsCharmed();
-		if (this.turnsToBeHealed > 0)
-			this.decrementTurnsToBeHealed();
+		if (this.turnsToBeHealed > 0) {
+			this.healHealth(amountToBeHealed);
+			this.decrementTurnsToBeHealed(); 
+		}
 	}
 }

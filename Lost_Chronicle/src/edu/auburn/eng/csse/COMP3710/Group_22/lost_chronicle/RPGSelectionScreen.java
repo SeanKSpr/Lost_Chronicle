@@ -9,8 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class RPGSelectionScreen extends FragmentActivity implements AvatarInfoCommunicator{
-	Button  mRPGBattleButton;
-	final RPGSelectionScreen activity = this;
+	private Button  mRPGBattleButton;
 	public RPGSelectionScreen() {
 		// TODO Auto-generated constructor stub
 	}
@@ -51,4 +50,5 @@ public class RPGSelectionScreen extends FragmentActivity implements AvatarInfoCo
 		Avatar avatar = avatarDBHelper.getAvatar();
 		return avatar;
 	}
+	
 }

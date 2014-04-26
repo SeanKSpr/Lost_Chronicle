@@ -105,13 +105,13 @@ public class SpecialAttack extends Attack {
 		public void generateNumOfShots() {
 			Random rand = new Random();
 			rand.setSeed(System.currentTimeMillis() * 23);
-			numOfShots = (rand.nextInt() % 3) + 2;
+			numOfShots = Math.abs((rand.nextInt() % 3) + 3);
 		}
 		
 		public void generateCharmTurns() {
 			Random rand = new Random();
 			rand.setSeed(System.currentTimeMillis() * 23);
-			numCharmTurns = (rand.nextInt() % 2) + 1;
+			numCharmTurns = Math.abs((rand.nextInt() % 2) + 1);
 		}
 		public int getNUM_OF_HEAL_TURNS() {
 			return NUM_OF_HEAL_TURNS;

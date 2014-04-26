@@ -9,13 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.RelativeLayout.LayoutParams;
 
 public class KanojoInformationFragment extends Fragment {
-	TextView mStrength, mIntellect, mDexterity, mConstitution, mWisdom, mCharisma;
-	TextView  mHealth, mAttack, mMagicAttack, mDefence, mMagicalDefence, mDodge, mHit, mCrit;
-	KanojoInfoCommunicator mCommunicator;
-	TextView mName;
+	private TextView mStrength, mIntellect, mDexterity, mConstitution, mWisdom, mCharisma;
+	private TextView  mHealth, mAttack, mMagicAttack, mDefence, mMagicalDefence, mDodge, mHit, mCrit;
+	private KanojoInfoCommunicator mCommunicator;
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
