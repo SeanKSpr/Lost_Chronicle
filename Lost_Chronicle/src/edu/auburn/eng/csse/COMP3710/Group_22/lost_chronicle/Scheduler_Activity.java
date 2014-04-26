@@ -1,7 +1,5 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
-import java.util.ArrayList;
-
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;

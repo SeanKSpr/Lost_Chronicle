@@ -141,10 +141,16 @@ public class RPGActor {
 	
 	public void healHealth(int healAmount) {
 		currentHealth += healAmount;
+		if (currentHealth > attributeStruct.getHealth()) {
+			currentHealth = attributeStruct.getHealth();
+		}
 	}
 	
 	public void loseHealth(int damageAmount) {
 		currentHealth -= damageAmount;
+		if (currentHealth < 0) {
+			currentHealth = 0;
+		}
 	}
 	
 	public SpecialAttack specialAttack() {

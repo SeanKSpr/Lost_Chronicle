@@ -30,6 +30,9 @@
 	<string name="crit__text_title">Critical%</string>
 	<string name="create_activity_item">New Event</string>
 	<string name="rpg_selector_label">RPG Selection Screen</string>
+	<string name="avatar_name">The Lost</string>
+	<string name="battles_won_title">Battles Won</string>
+	<string name="current_gold_title">Gold</string>
 	<string-array name="stats">
 		<item>Strength</item>
 		<item>Intellect</item>

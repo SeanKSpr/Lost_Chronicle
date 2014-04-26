@@ -11,7 +11,7 @@ public class RPGEnemy extends RPGActor {
 	
 	public void generateStats(Avatar avatarIn)
 	{
-		int statPool = (int)(2.5 * avatarIn.getStatStruct().getStatPool());
+		int statPool = (int)(1.2 * avatarIn.getStatStruct().getStatPool() + 0.5 * avatarIn.getBattlesWon());
 		wallet.setGold(statPool * 2);
 		for(int i = 0; i < statPool; i++)
 		{

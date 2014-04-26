@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.5" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.SpecialAttack" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/SpecialAttack.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="531" width="322" x="2184" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="2" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.ClassAttack" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/ClassAttack.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="250" x="2184" y="2488"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="3" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.EventScheduler" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/EventScheduler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="250" x="1922" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Scheduler_Activity" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Scheduler_Activity.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="250" x="5394" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="5" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.KanojoInfoCommunicator" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/KanojoInfoCommunicator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="250" x="1583" y="2488"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="6" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Purchasable" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Purchasable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="250" x="3779" y="2488"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="7" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.AvatarTable" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/AvatarTable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="351" width="250" x="637" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.AvatarDataSource" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/AvatarDataSource.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="250" x="3489" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.KanojoStore" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/KanojoStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="293" x="3146" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.SpecAttackPercenComparator" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/SpecAttackPercenComparator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="335" x="927" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.PurchaseDialogFragment" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/PurchaseDialogFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="250" x="2846" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.MicrotransactionDialog" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/MicrotransactionDialog.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="250" x="2546" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Jukebox" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Jukebox.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="250" x="4428" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.KanojoInformationFragment" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/KanojoInformationFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="293" x="1271" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.RPGActor" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/RPGActor.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="963" width="325" x="3199" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Database_Helper" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Database_Helper.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="250" x="3489" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Companion_Activity" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Companion_Activity.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="250" x="1894" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Attribute" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Attribute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="675" width="250" x="2909" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.EventTable" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/EventTable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="315" width="250" x="1592" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Event" 
+    project="Lost_Chronicle" file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Event.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="603" width="250" x="1604" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.AvatarInformationFragment" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/AvatarInformationFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="293" x="4718" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.RPG_Battle" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/RPG_Battle.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="477" width="250" x="4118" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Companion" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Companion.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="693" width="250" x="4407" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="24" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.EventCommunicator" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/EventCommunicator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="250" x="5222" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="25" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Selection_Screen" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Selection_Screen.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="297" width="250" x="41" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.CompanionTable" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/CompanionTable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="441" width="266" x="331" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Avatar" 
+    project="Lost_Chronicle" file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Avatar.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="250" x="4117" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Stat" 
+    project="Lost_Chronicle" file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Stat.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3319" y="1396"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Wallet" 
+    project="Lost_Chronicle" file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Wallet.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="250" x="4117" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.EventListFragment" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/EventListFragment.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="293" x="1882" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.RPGSelectionScreen" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/RPGSelectionScreen.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="250" x="4418" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="32" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.AvatarInfoCommunicator" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/AvatarInfoCommunicator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="250" x="4718" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="33" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.StoreCommunicator" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/StoreCommunicator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="250" x="2608" y="2488"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="34" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.RPGEnemy" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/RPGEnemy.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="250" x="3827" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.EventItemAdapter" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/EventItemAdapter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="257" x="1604" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.CompanionDataSource" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/CompanionDataSource.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="250" x="3760" y="37"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.SpecialAttackPercentage" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/SpecialAttackPercentage.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="250" x="1302" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Attack" 
+    project="Lost_Chronicle" file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Attack.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="250" x="2619" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.PurchasableAdapter" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/PurchasableAdapter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="298" x="3779" y="1755"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.AddEventFragment" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/AddEventFragment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="315" width="293" x="5051" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle.Companion.CompanionCreator" 
+    project="Lost_Chronicle" 
+    file="/Lost_Chronicle/src/edu/auburn/eng/csse/COMP3710/Group_22/lost_chronicle/Companion.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="250" x="4407" y="2488"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="42">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="43" name="dbHelper"/>      
+      <multiplicity id="44" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="45">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="46" name="events"/>      
+      <multiplicity id="47" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="49" name="eventgas"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="51">    
+    <bendpoint x="3769" y="1040"/>    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="52" name="dbHelper">        
+        <position height="18" width="51" x="3650" y="1712"/>      
+      </attribute>      
+      <multiplicity id="53" minimum="0" maximum="1">        
+        <position height="16" width="23" x="3548" y="1705"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="55" name="mDialog"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="58" name="microDialog"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="61" name="chosenKanojo"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="63">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <association id="64">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="65" name="mWallet"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="68" name="activity"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="70">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="71" name="mCommunicator"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="74" name="statStruct"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="76">    
+    <bendpoint x="4397" y="1040"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="77" name="mCompanion"/>      
+      <multiplicity id="78" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="79">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="80" name="mEnemy"/>      
+      <multiplicity id="81" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="82">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <association id="83">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="84" name="creator"/>      
+      <multiplicity id="85" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="86">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="87" name="eventDBHelper"/>      
+      <multiplicity id="88" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="89">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="90" name="purchasableArray"/>      
+      <multiplicity id="91" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="92">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="93" name="mAttack"/>      
+      <multiplicity id="94" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="95">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <realization id="96">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="97">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="24"/>  
+  </realization>  
+  <association id="98">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="99" name="attackType"/>      
+      <multiplicity id="100" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="101">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <generalization id="102">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="38"/>  
+  </generalization>  
+  <association id="103">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="104" name="avatarDBHelper"/>      
+      <multiplicity id="105" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="106">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="41"/>  
+  </nesting>  
+  <association id="107">    
+    <bendpoint x="1891" y="1040"/>    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="108" name="eventList"/>      
+      <multiplicity id="109" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="110">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="111" name="addEventFragment"/>      
+      <multiplicity id="112" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="113">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="114" name="wallet"/>      
+      <multiplicity id="115" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="116">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <association id="117">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="118" name="music"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="120">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="121" name="attributeStruct"/>      
+      <multiplicity id="122" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="123">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="124" name="mCommunicator"/>      
+      <multiplicity id="125" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="126">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="127" name="mCommunicator"/>      
+      <multiplicity id="128" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="129">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="130" name="mStoreCommunicator"/>      
+      <multiplicity id="131" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="132">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="133" name="kanojoStore"/>      
+      <multiplicity id="134" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="135">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="136" name="dbHelper">        
+        <position height="18" width="51" x="3556" y="1719"/>      
+      </attribute>      
+      <multiplicity id="137" minimum="0" maximum="1">        
+        <position height="16" width="23" x="3640" y="1727"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="138">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="139" name="m_adapter"/>      
+      <multiplicity id="140" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="141">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="142" name="comm"/>      
+      <multiplicity id="143" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="144">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="145" name="world"/>      
+      <multiplicity id="146" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="147">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="33"/>  
+  </realization>  
+  <association id="148">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="149" name="mAvatar"/>      
+      <multiplicity id="150" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="151">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="152" name="mCommunicator"/>      
+      <multiplicity id="153" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

@@ -41,6 +41,7 @@ public class Companion extends Avatar implements Purchasable {
 		return dispersalArray;
 	}
 
+	@SuppressWarnings("unused")
 	private CompanionCreator creator;
 	
 	public Companion() {

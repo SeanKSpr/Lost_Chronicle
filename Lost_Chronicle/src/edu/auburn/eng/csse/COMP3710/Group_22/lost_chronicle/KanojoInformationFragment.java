@@ -2,17 +2,20 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.RelativeLayout.LayoutParams;
 
 public class KanojoInformationFragment extends Fragment {
 	TextView mStrength, mIntellect, mDexterity, mConstitution, mWisdom, mCharisma;
 	TextView  mHealth, mAttack, mMagicAttack, mDefence, mMagicalDefence, mDodge, mHit, mCrit;
 	KanojoInfoCommunicator mCommunicator;
+	TextView mName;
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
@@ -66,6 +69,7 @@ public class KanojoInformationFragment extends Fragment {
 			mHit.setText(String.valueOf(attrStruct.getHit()));
 			mCrit.setText(String.valueOf(attrStruct.getCrit()));
 			mHealth.setText(String.valueOf(attrStruct.getHealth()));
+			setUpNameField(currentCompanion);
 			
 		}
 		else {
@@ -78,6 +82,19 @@ public class KanojoInformationFragment extends Fragment {
 				}
 			}
 		}
+	}
+
+	private void setUpNameField(Companion currentCompanion) {
+		TextView nameView = new TextView(this.getActivity());
+		RelativeLayout parent = (RelativeLayout) this.getActivity().findViewById(R.id.avatar_info_layout);
+		TextView sibling = (TextView) this.getActivity().findViewById(R.id.health_title_viewA);
+		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, 
+				RelativeLayout.LayoutParams.WRAP_CONTENT);
+		params.addRule(RelativeLayout.ABOVE, sibling.getId());
+		parent.addView(nameView, params);
+		nameView.setText("Name           " + currentCompanion.getName());
+		nameView.setTextSize(22);
+		nameView.setTextColor(Color.parseColor("#ffffff"));
 	}
 	
 }

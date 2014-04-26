@@ -1,47 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rpg_battle_main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_vertical|right"
     android:orientation="horizontal" >
-        <!-- android:text="Button" /> -->
-        <!--  android:text="Button" /> -->
-        <!--  android:src="@drawable/ic_input_add"-->
 
-    <TextView
-        android:id="@+id/companionHealthTextView"
+    <!-- android:text="Button" /> -->
+    <!-- android:text="Button" /> -->
+    <!-- android:src="@drawable/ic_input_add" -->
+
+    <LinearLayout
+        android:id="@+id/enemy_side"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/avatar_button"
-        android:layout_marginBottom="22dp"
-        android:text="Small Text"
-        android:textColor="#00ff00"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical|left"
+        android:orientation="horizontal" >
 
-    <TextView
-        android:id="@+id/heroHealthTextView"
+        <LinearLayout
+            android:id="@+id/row_1_enemy_health"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row_1_enemy"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/endgame_fragment_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hero_side"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/companion_button"
-        android:layout_alignLeft="@+id/avatar_button"
-        android:text="Small Text"
-        android:textColor="#00ff00"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_height="match_parent"
+        android:layout_weight="0.80"
+        android:gravity="center_vertical|right"
+        android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/avatar_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/heroHealthTextView"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="19dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/companion_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/companionHealthTextView"
-        android:layout_alignRight="@+id/heroHealthTextView" />
+            <Button
+                android:id="@+id/avatar_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />
 
-</RelativeLayout>
+            <Button
+                android:id="@+id/companion_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/heroHealthTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:text="Small Text"
+                android:textSize="16sp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#00ff00"
+                android:background="#55000000" />
+
+            <TextView
+                android:id="@+id/companionHealthTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:text="Small Text"
+                android:textSize="16sp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#00ff00"
+                android:background="#55000000" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

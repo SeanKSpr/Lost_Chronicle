@@ -5,27 +5,26 @@ import java.util.Random;
 
 import android.app.ActionBar;
 import android.app.Activity;
-<<<<<<< HEAD
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
-=======
-import android.media.MediaPlayer;
->>>>>>> 7bf7c4adeb9cf75dc7813cf7f80545b990194302
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.LinearLayout.LayoutParams;
 
 public class RPG_Battle extends Activity {
-<<<<<<< HEAD
+
 	RPG_Battle world = this;
-=======
+
 	//MediaPlayer player;
->>>>>>> 7bf7c4adeb9cf75dc7813cf7f80545b990194302
 	Avatar mAvatar;
 	Jukebox music;
 	Companion mCompanion;
@@ -48,7 +47,10 @@ public class RPG_Battle extends Activity {
 		
 		Random rand = new Random(System.currentTimeMillis() * 127);
 		int decision = rand.nextInt(15);
-		RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.activity_rpg_battle_screen, null);
+		LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.activity_rpg_battle_screen, null);
+		LinearLayout enemySide = (LinearLayout) layout.findViewById(R.id.enemy_side);
+		LinearLayout enemyRowOneHealth = (LinearLayout) enemySide.findViewById(R.id.row_1_enemy_health);
+		LinearLayout enemyRowOne = (LinearLayout) enemySide.findViewById(R.id.row_1_enemy);
 		layout.setBackgroundResource(backgrounds[decision]);
 		
 		AvatarDataSource avatarHelper = new AvatarDataSource(this);
@@ -62,20 +64,21 @@ public class RPG_Battle extends Activity {
 		mEnemyView = new ImageView(this);
 		mEnemyView.setBackgroundResource(R.drawable.kaiser_dragon);
 		
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-				RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-		params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
-		layout.addView(mEnemyView, params);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		params.gravity = Gravity.CENTER_VERTICAL|Gravity.LEFT;
+		enemyRowOne.addView(mEnemyView, params);
 		
 		mEnemyHealthText = new TextView(this);
-		RelativeLayout.LayoutParams enemyHealthParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, 
-				RelativeLayout.LayoutParams.WRAP_CONTENT);
-		enemyHealthParams.addRule(RelativeLayout.ALIGN_BOTTOM, RelativeLayout.TRUE);
-		layout.addView(mEnemyHealthText, enemyHealthParams);
+		LinearLayout.LayoutParams enemyHealthParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 
+				LinearLayout.LayoutParams.WRAP_CONTENT);
+		mEnemyHealthText.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
+		enemyRowOneHealth.addView(mEnemyHealthText, enemyHealthParams);
 		setContentView(layout);
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
-		
+		mHeroHealthText = (TextView) this.findViewById(R.id.heroHealthTextView);
+		mCompanionHealthText = (TextView) this.findViewById(R.id.companionHealthTextView);
 		if(music == null)
 		{
 			music = new Jukebox(this);
@@ -105,10 +108,20 @@ public class RPG_Battle extends Activity {
 	}
 	protected void onStart() {
 		super.onStart();
-<<<<<<< HEAD
-		mEnemyHealthText.setText(mEnemy.getCurrentHealth());
-		mHeroHealthText.setText(mAvatar.getCurrentHealth());
-		mCompanionHealthText.setText(mCompanion.getCurrentHealth());
+		mEnemyHealthText.setTextColor(Color.parseColor("#00ffa0"));
+		mEnemyHealthText.setTextSize(16);
+		mEnemyHealthText.setBackgroundColor(Color.parseColor("#55000000"));
+		mEnemyHealthText.setText(String.valueOf(mEnemy.getCurrentHealth()));
+		mHeroHealthText.setText(String.valueOf(mAvatar.getCurrentHealth()));
+		if (mCompanion != null) {
+			mCompanionHealthText.setText(String.valueOf(mCompanion.getCurrentHealth()));
+		}
+		else {
+			LinearLayout layout = (LinearLayout) this.findViewById(R.id.companionHealthTextView).getParent();
+			layout.removeView(findViewById(R.id.companionHealthTextView));
+			layout = (LinearLayout) findViewById(R.id.companion_button).getParent();
+			layout.removeView(findViewById(R.id.companion_button));
+		}
 		mAvatarButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -117,16 +130,21 @@ public class RPG_Battle extends Activity {
 					if (!AvatarIsIncapacitated()) {
 						mEnemy.takeDamage(mAvatar.attack());
 						SpecialAttack specialAttack = mAvatar.specialAttack();
-						if (specialAttack.getAttackType() == ClassAttack.WISDOM) {
-							mAvatar.takeSpecialAttack(specialAttack);
-							if (mCompanion != null) {
-								mCompanion.takeSpecialAttack(specialAttack);
+						if (specialAttack != null) {
+							if (specialAttack.getAttackType() == ClassAttack.WISDOM) {
+								mAvatar.takeSpecialAttack(specialAttack);
+								if (mCompanion != null) {
+									mCompanion.takeSpecialAttack(specialAttack);
+								}
+							}
+							else {
+								mEnemy.takeSpecialAttack(specialAttack);
 							}
 						}
 					}
-					avatarHasAttacked = true;
-					checkForEndTurn();
 				}
+				avatarHasAttacked = true;
+				checkForEndTurn();
 			}
 		});
 		
@@ -144,13 +162,15 @@ public class RPG_Battle extends Activity {
 									mAvatar.takeSpecialAttack(specialAttack);
 									mCompanion.takeSpecialAttack(specialAttack);
 								}
+								else {
+									mEnemy.takeSpecialAttack(specialAttack);
+								}
 							}
 						}
-						companionHasAttacked = true;
-						checkForEndTurn();
 					}
-					
-				}
+					companionHasAttacked = true;
+					checkForEndTurn();
+				}	
 			});
 		}
 	}
@@ -176,32 +196,40 @@ public class RPG_Battle extends Activity {
 		
 	}
 	private void performEnemyTurn() {
-		if (mEnemy.getCurrentHealth() > 0) {
-			int randomShift = 2;
-			if (mCompanion == null) {
-				randomShift = 1;
-			}
-			Random rand = new Random();
-			rand.setSeed(System.nanoTime());
-			int selectHero = Math.abs((rand.nextInt() % randomShift + 1));
-			Avatar hero;
-			hero = mAvatar;
-			if (selectHero == 2) {
-				hero = mCompanion;
-			}
-			hero.takeDamage(mEnemy.attack());
-			SpecialAttack specialAttack = mEnemy.specialAttack();
-			if (specialAttack != null) {
-				if (specialAttack.getAttackType() == ClassAttack.WISDOM) {
-					mEnemy.takeSpecialAttack(specialAttack);
+		if (!enemyIsIncapacitated()) {
+			if (mEnemy.getCurrentHealth() > 0) {
+				int randomShift = 2;
+				if (mCompanion == null) {
+					randomShift = 1;
 				}
-				else {
-					hero.takeDamage(specialAttack);
+				Random rand = new Random();
+				rand.setSeed(System.nanoTime());
+				int selectHero = Math.abs((rand.nextInt() % randomShift + 1));
+				Avatar hero;
+				hero = mAvatar;
+				if (selectHero == 2) {
+					hero = mCompanion;
+				}
+				hero.takeDamage(mEnemy.attack());
+				SpecialAttack specialAttack = mEnemy.specialAttack();
+				if (specialAttack != null) {
+					if (specialAttack.getAttackType() == ClassAttack.WISDOM) {
+						mEnemy.takeSpecialAttack(specialAttack);
+					}
+					else {
+						hero.takeDamage(specialAttack);
+					}
 				}
 			}
 		}
 		performAfterTurnCleanup();
 		
+	}
+	private boolean enemyIsIncapacitated() {
+		if (mEnemy.getTurnsCharmed() > 0) {
+			return true;
+		}
+		return false;
 	}
 	private void performAfterTurnCleanup() {
 		if (mEnemy.getCurrentHealth() <= 0) {
@@ -220,23 +248,36 @@ public class RPG_Battle extends Activity {
 		}
 		mEnemy.cleanUpAfterBattleTurn();
 		
-		mHeroHealthText.setText(mAvatar.getCurrentHealth());
-		mCompanionHealthText.setText(mCompanion.getCurrentHealth());
+		mHeroHealthText.setText(String.valueOf(mAvatar.getCurrentHealth()));
+		if (mCompanion != null) {
+			mCompanionHealthText.setText(String.valueOf(mCompanion.getCurrentHealth()));
+			mCompanionHealthText.invalidate();
+		}
+		mEnemyHealthText.setText(String.valueOf(mEnemy.getCurrentHealth()));
+		mHeroHealthText.invalidate();
+		mEnemyHealthText.invalidate();
 		
 	}
 	private void performBattleLost() {
 		mAvatar.getWallet().subtractGold(mEnemy.getWallet().getGold());
-		Intent intent = new Intent(RPG_Battle.this, Selection_Screen.class);
-		RPG_Battle.this.startActivity(intent);
-		
+		FragmentManager fm = this.getFragmentManager();
+		FragmentTransaction transaction = fm.beginTransaction();
+		Fragment fragment = new RPGBattleEndFragment();
+		Bundle args = new Bundle();
+		args.putString(RPGBattleEndFragment.BATTLE_END, "game_over");
+		fragment.setArguments(args);
+		transaction.add(R.id.endgame_fragment_container, fragment).commit();
 	}
 	private void performBattleWon() {
 		mAvatar.getWallet().addGold(mEnemy.getWallet().getGold());
-		Intent intent = new Intent(RPG_Battle.this, Selection_Screen.class);
-		RPG_Battle.this.startActivity(intent);
-=======
+		FragmentManager fm = this.getFragmentManager();
+		FragmentTransaction transaction = fm.beginTransaction();
+		Fragment fragment = new RPGBattleEndFragment();
+		Bundle args = new Bundle();
+		args.putString(RPGBattleEndFragment.BATTLE_END, "victory");
+		fragment.setArguments(args);
+		transaction.add(R.id.endgame_fragment_container, fragment).commit();
 		//music.start();
->>>>>>> 7bf7c4adeb9cf75dc7813cf7f80545b990194302
 	}
 	@Override
 	protected void onPause() {
