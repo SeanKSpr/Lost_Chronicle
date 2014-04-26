@@ -16,12 +16,18 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 public class Companion_Activity extends FragmentActivity implements StoreCommunicator, KanojoInfoCommunicator {
+
+	private Jukebox music;
 	private static final String KANOJO_STORE_KEY = "KanojoStore";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_companion_activity_screen);
 		setUpBackground();
+		if(music == null)
+		{
+			music = new Jukebox(this);
+		}
 	}
 	private void setUpBackground() {
 		Companion currentCompanion = getCurrentCompanion();
@@ -44,8 +50,14 @@ public class Companion_Activity extends FragmentActivity implements StoreCommuni
 	@Override
 	protected void onStart() {
 		super.onStart();
+		music.start(Jukebox.COMPANION_SCREEN);
 	}
 	
+	@Override
+	protected void onPause() {
+		music.stop();
+		super.onPause();
+	}
 	@Override
 	protected void onResume() {
 		super.onResume();

@@ -13,6 +13,7 @@ public class Selection_Screen extends Activity {
 
 	private Button mSchedulerButton, mRPGButton, mKanojoButton;
 	public static final String PURCHASE_KEY = "edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle_PURCHASABLE";
+	Jukebox music;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,11 +33,16 @@ public class Selection_Screen extends Activity {
 		if (theAvatar == null) {
 			avatarDBHelper.initializeTable();
 		}
+		if(music == null)
+		{
+			music = new Jukebox(this);
+		}
 	}
 	
 	@Override
 	protected void onStart() {
 		super.onStart();
+		music.start(Jukebox.SELECTION_SCREEN);
 		createButton((LinearLayout) this.findViewById(R.id.selection_screen_layout));
 		mSchedulerButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -77,6 +83,7 @@ public class Selection_Screen extends Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
+		music.stop();
 	}
 	
 	@Override

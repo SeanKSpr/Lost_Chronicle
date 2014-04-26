@@ -24,6 +24,7 @@ public class RPG_Battle extends Activity {
 	public static final String ENEMY_WALLET = "enemy wallet";
 	private final RPG_Battle world = this;
 	//MediaPlayer player;
+
 	private Avatar mAvatar;
 	private Jukebox music;
 	private Companion mCompanion;
@@ -31,7 +32,7 @@ public class RPG_Battle extends Activity {
 	private TextView mHeroHealthText, mCompanionHealthText, mEnemyHealthText;
 	private Button mAvatarButton, mCompanionButton;
 	private ImageView mEnemyView;
-	private int backgrounds[] = {R.drawable.background_bonuslvl, R.drawable.background_castle, R.drawable.background_castleroof,
+	int backgrounds[] = {R.drawable.background_bonuslvl, R.drawable.background_castle, R.drawable.background_castleroof,
 						 R.drawable.background_desertcave, R.drawable.background_icy, R.drawable.background_magicarena,
 						 R.drawable.background_magicdungeon, R.drawable.background_mine, R.drawable.background_minelvltwo,
 						 R.drawable.background_mystery, R.drawable.background_mysterytwo, R.drawable.background_roots,
@@ -263,6 +264,7 @@ public class RPG_Battle extends Activity {
 				}
 			}
 		}
+
 	}
 	
 	private void displaySpecialAttackNotification(RPGActor attacker, RPGActor receiver,
@@ -293,7 +295,6 @@ public class RPG_Battle extends Activity {
 					+ specialAttack.getNumCharmTurns() + " turns" , Toast.LENGTH_SHORT).show();
 			break;
 		}
-		
 	}
 
 	private boolean enemyIsIncapacitated() {
@@ -304,6 +305,7 @@ public class RPG_Battle extends Activity {
 	}
 	
 	private void performAfterTurnCleanup() {
+
 		if (!mBattleOver) {
 			mAvatar.cleanUpAfterBattleTurn();
 			avatarHasAttacked = false;
@@ -338,6 +340,7 @@ public class RPG_Battle extends Activity {
 		mEnemyHealthText.invalidate();
 		
 	}
+
 	
 	private void battleEnd(String battleResult) {
 		LayoutInflater inflater = getLayoutInflater();
@@ -363,10 +366,8 @@ public class RPG_Battle extends Activity {
 			args.putInt(ENEMY_WALLET, enemyWallet.getGold());
 			fragment.setArguments(args);
 			transaction.add(R.id.endgame_fragment_container, fragment, "EndGameFragment").commit();
-			
 		}
 	}
-	
 	
 	@Override
 	protected void onPause() {
@@ -376,11 +377,12 @@ public class RPG_Battle extends Activity {
 	
 	@Override
 	protected void onResume() {
-		music.start();
+		music.start(Jukebox.BATTLE_SCREEN);
 		super.onResume();
 	}
 	@Override
 	protected void onDestroy() {
+		music.stop();
 		super.onDestroy();
 	}
 	

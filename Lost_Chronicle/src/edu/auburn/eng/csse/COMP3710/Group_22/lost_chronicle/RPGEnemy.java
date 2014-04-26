@@ -3,7 +3,7 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 import java.util.Random;
 
 public class RPGEnemy extends RPGActor {
-	Wallet wallet;
+	private Wallet wallet;
 	public RPGEnemy() {
 		wallet = new Wallet();
 		this.setName("Serithrasas");
