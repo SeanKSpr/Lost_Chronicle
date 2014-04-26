@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -17,13 +16,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class RPG_Battle extends Activity {
-
+	
 	RPG_Battle world = this;
-
 	//MediaPlayer player;
 	Avatar mAvatar;
 	Jukebox music;
@@ -108,6 +105,7 @@ public class RPG_Battle extends Activity {
 	}
 	protected void onStart() {
 		super.onStart();
+
 		mEnemyHealthText.setTextColor(Color.parseColor("#00ffa0"));
 		mEnemyHealthText.setTextSize(16);
 		mEnemyHealthText.setBackgroundColor(Color.parseColor("#55000000"));

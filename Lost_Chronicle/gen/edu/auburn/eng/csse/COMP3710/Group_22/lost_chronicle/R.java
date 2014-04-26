@@ -281,6 +281,7 @@ public final class R {
         public static final int stat_text_title=0x7f060020;
         public static final int store_action_item=0x7f06000a;
         public static final int strength_text_title=0x7f06000c;
+        public static final int time_conflict_toast=0x7f060022;
         public static final int wisdom_text_title=0x7f060010;
     }
     public static final class style {

@@ -43,4 +43,5 @@
 	</string-array>
 		<string name="stat_text_title">Stats</string>
 		<string name="attribute_text_title">Attributes</string>
+		<string name="time_conflict_toast">There is a conflict with the time you have entered.</string>
 </resources>

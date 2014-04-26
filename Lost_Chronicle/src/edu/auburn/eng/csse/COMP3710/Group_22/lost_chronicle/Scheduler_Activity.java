@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class Scheduler_Activity extends FragmentActivity implements EventCommunicator{
@@ -40,8 +41,16 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 	@Override
 	public void respond(Event eventIn)
 	{
-		//EventScheduler eventDBHelper = new EventScheduler(this);		
+		if(eventIn.timeConflicts())
+		{
+			Toast.makeText(getApplicationContext(), R.string.time_conflict_toast, Toast.LENGTH_SHORT).show();
+
+		}
+		else 
+		{
 		this.onBackPressed();
+
+		//EventScheduler eventDBHelper = new EventScheduler(this);		
 		FragmentManager fm = getFragmentManager();
 		Fragment fragmentHolder = fm.findFragmentById(R.id.schedulerScreen);
 		
@@ -50,6 +59,8 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 			Log.i("notjustatag", "made it here");
 			EventListFragment frag = (EventListFragment) fragmentHolder;
 			frag.updateList(eventIn);
+			
+		}
 		}
 	}
 	

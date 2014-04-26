@@ -9,6 +9,7 @@ public class Event {
 	private int id;
 	private float eval;
 	private float difficulty;
+	boolean conflict = false;
 
 	public String getTitle() {
 		return title;
@@ -47,14 +48,26 @@ public class Event {
 		difficulty = difficultyIn;
 		on_going = 1;
 	}
-	
+	boolean timeConflicts()
+	{
+		if((start_time.before(new Date()) || end_time.before(new Date()))
+				|| (start_time.after(end_time)))
+		{
+			conflict = true;
+			return conflict;
+		}
+		return conflict;
+	}
 	boolean timeConflicts(Event eventIn)
 	{
-		if(start_time.after(eventIn.getStart_time()) && end_time.before(eventIn.getEnd_time()))
+		if((start_time.after(eventIn.getStart_time()) && end_time.before(eventIn.getEnd_time())) 
+				|| (start_time.after(new Date()) || end_time.before(new Date()))
+				|| (start_time.after(end_time)))
 		{
-			return true;
+			conflict = true;
+			return conflict;
 		}
-		return false;
+		return conflict;
 	}
 
 	public Date getStart_time() {

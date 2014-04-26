@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Toast;
 
 public class EventListFragment extends ListFragment {
 	private EventItemAdapter m_adapter;
@@ -40,16 +42,27 @@ public class EventListFragment extends ListFragment {
 		//mListView.setAdapter(m_adapter);
 	}
 	
-	public void updateList(Event eventIn)
+	public boolean updateList(Event eventIn)
 	{
 		boolean addable = true;
 		eventDBHelper = new EventScheduler(getActivity());
 		if(eventList.isEmpty())
 		{
+			if(eventIn.timeConflicts())
+			{
+				addable = false;
+			}
+			if(addable)
+			{
 			eventList.add(eventIn);
 			Log.i("notjustatag", "made it here");
 			eventDBHelper.addEvent(eventIn);
 			Log.i("notjustatag", "made it here");
+			m_adapter = new EventItemAdapter(this.getActivity(), R.layout.list_item, eventList);
+			setListAdapter(m_adapter);
+			return true;
+			}
+
 		}
 		else
 		{
@@ -66,10 +79,19 @@ public class EventListFragment extends ListFragment {
 				Log.i("notjustatag", "made it here");
 				eventList.add(eventIn);
 				eventDBHelper.addEvent(eventIn);
+				m_adapter = new EventItemAdapter(this.getActivity(), R.layout.list_item, eventList);
+				setListAdapter(m_adapter);
+				return true;
 			}
+			
 		}
-		m_adapter = new EventItemAdapter(this.getActivity(), R.layout.list_item, eventList);
-		setListAdapter(m_adapter);
+		if(!addable)
+		{
+			Toast.makeText(getActivity(), R.string.time_conflict_toast, Toast.LENGTH_SHORT).show();
+
+		}
+		return addable;
+
 	}
 
 
