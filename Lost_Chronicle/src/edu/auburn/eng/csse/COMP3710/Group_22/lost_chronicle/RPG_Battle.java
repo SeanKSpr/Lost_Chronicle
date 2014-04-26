@@ -24,6 +24,7 @@ public class RPG_Battle extends Activity {
 	//MediaPlayer player;
 	Avatar mAvatar;
 	Jukebox music;
+	boolean mBattleEnded = false;
 	Companion mCompanion;
 	RPGEnemy mEnemy;
 	TextView mHeroHealthText, mCompanionHealthText, mEnemyHealthText;
@@ -220,7 +221,7 @@ public class RPG_Battle extends Activity {
 				}
 			}
 		}
-		performAfterTurnCleanup();
+		
 		
 	}
 	private boolean enemyIsIncapacitated() {
@@ -232,10 +233,12 @@ public class RPG_Battle extends Activity {
 	private void performAfterTurnCleanup() {
 		if (mEnemy.getCurrentHealth() <= 0) {
 			performBattleWon();
+			return;
 		}
 		else if (mAvatar.getCurrentHealth() <= 0) {
 			if (mCompanion == null || mCompanion.getCurrentHealth() <= 0) {
 				performBattleLost();
+				return;
 			}
 		}
 		mAvatar.cleanUpAfterBattleTurn();
@@ -259,23 +262,35 @@ public class RPG_Battle extends Activity {
 	private void performBattleLost() {
 		mAvatar.getWallet().subtractGold(mEnemy.getWallet().getGold());
 		FragmentManager fm = this.getFragmentManager();
-		FragmentTransaction transaction = fm.beginTransaction();
-		Fragment fragment = new RPGBattleEndFragment();
-		Bundle args = new Bundle();
-		args.putString(RPGBattleEndFragment.BATTLE_END, "game_over");
-		fragment.setArguments(args);
-		transaction.add(R.id.endgame_fragment_container, fragment).commit();
+		//FragmentTransaction transaction = fm.beginTransaction();
+		Fragment fragment = fm.findFragmentById(R.id.endgame_fragment_container);
+		if(fragment == null)
+		{
+			fragment = new RPGBattleEndFragment();
+			Bundle args = new Bundle();
+			args.putString(RPGBattleEndFragment.BATTLE_END, "game_over");
+			fragment.setArguments(args);
+			fm.beginTransaction().add(R.id.endgame_fragment_container, fragment).commit();
+		}
+		//mBattleEnded = true;
+		//transaction.add(R.id.endgame_fragment_container, fragment).commit();
 	}
 	private void performBattleWon() {
 		mAvatar.getWallet().addGold(mEnemy.getWallet().getGold());
 		FragmentManager fm = this.getFragmentManager();
-		FragmentTransaction transaction = fm.beginTransaction();
-		Fragment fragment = new RPGBattleEndFragment();
-		Bundle args = new Bundle();
-		args.putString(RPGBattleEndFragment.BATTLE_END, "victory");
-		fragment.setArguments(args);
-		transaction.add(R.id.endgame_fragment_container, fragment).commit();
-		//music.start();
+		//FragmentTransaction transaction = fm.beginTransaction();
+		Fragment fragment = fm.findFragmentById(R.id.endgame_fragment_container);
+		if(fragment == null)
+		{
+			fragment = new RPGBattleEndFragment();
+			Bundle args = new Bundle();
+			args.putString(RPGBattleEndFragment.BATTLE_END, "victory");
+			fragment.setArguments(args);
+			fm.beginTransaction().add(R.id.endgame_fragment_container, fragment).commit();
+		}
+		//mBattleEnded = true;
+		//transaction.add(R.id.endgame_fragment_container, fragment).commit();
+		
 	}
 	@Override
 	protected void onPause() {
@@ -285,11 +300,12 @@ public class RPG_Battle extends Activity {
 	
 	@Override
 	protected void onResume() {
-		music.start();
+		music.start(Jukebox.BATTLE_SCREEN);
 		super.onResume();
 	}
 	@Override
 	protected void onDestroy() {
+		music.stop();
 		super.onDestroy();
 	}
 	

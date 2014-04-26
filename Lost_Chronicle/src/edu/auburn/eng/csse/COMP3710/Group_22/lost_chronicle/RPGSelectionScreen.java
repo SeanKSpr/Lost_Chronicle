@@ -11,6 +11,7 @@ import android.widget.Button;
 public class RPGSelectionScreen extends FragmentActivity implements AvatarInfoCommunicator{
 	Button  mRPGBattleButton;
 	final RPGSelectionScreen activity = this;
+	Jukebox music;
 	public RPGSelectionScreen() {
 		// TODO Auto-generated constructor stub
 	}
@@ -20,11 +21,17 @@ public class RPGSelectionScreen extends FragmentActivity implements AvatarInfoCo
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_rpg_selection_screen);
 		mRPGBattleButton = (Button) findViewById(R.id.battle_screen_button);
+		if(music == null)
+		{
+			music = new Jukebox(this);
+		}
 	}
 
 	@Override
 	protected void onStart() {
 		super.onStart();
+		music.start(Jukebox.CHARACTER_SCREEN);
+		
 		launchAvatarInformationFragment();
 		mRPGBattleButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -37,6 +44,12 @@ public class RPGSelectionScreen extends FragmentActivity implements AvatarInfoCo
 		});
 	}
 	
+	@Override
+	protected void onPause() {
+		music.stop();
+		super.onPause();
+	}
+
 	private void launchAvatarInformationFragment() {
 		FragmentManager fm = getFragmentManager();
 		Fragment fragment = fm.findFragmentById(R.id.avatar_info_fragment_container);
