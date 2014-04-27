@@ -146,7 +146,7 @@ public class AddEventFragment extends Fragment{
 	}		
 	
 	public static Date parseStringToDate(String dateDay, String dateTime) {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/M/yyyy hh:mm", Locale.US);
+		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
 		Date date = null;
 		try {
 			date = formatter.parse(dateDay + " " + dateTime);

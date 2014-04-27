@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="dd/mm/yyyy"
+            android:hint="mm/dd/yyyy"
             android:textAppearance="?android:attr/textAppearanceMedium" 
             android:focusable="false"
             android:clickable="true"/>
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
             android:ems="10"
-            android:hint="Time"
+            android:hint="24:00"
             android:clickable="true"
             android:focusable="false"
             android:inputType="time" />
@@ -131,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="dd/mm/yyyy" 
+            android:hint="mm/dd/yyyy" 
             android:textAppearance="?android:attr/textAppearanceMedium" 
             android:focusable="false"
             android:clickable="true"/>
@@ -142,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
             android:ems="10"
-            android:hint="Time"
+            android:hint="24:00"
             android:clickable="true"
             android:focusable="false"
             android:inputType="time" />

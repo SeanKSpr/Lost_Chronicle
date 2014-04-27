@@ -38,10 +38,10 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 
 	public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) 
 	{
-		if(selectedHour > 12)
-		{
-			selectedHour -= 12;
-		}
+//		if(selectedHour > 12)
+//		{
+//			selectedHour -= 12;
+//		}
 		if(activityTimeArgs.equals("start"))
     	{
 			if(selectedMinute == 0)

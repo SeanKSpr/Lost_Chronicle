@@ -6,8 +6,6 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -17,7 +15,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 	
 	public TextView dateTextView;
 	private String activityDateArgs;
-	private AddEventFragment frag;
 
 public DatePickerFragment(TextView dateView)
 {
@@ -41,11 +38,11 @@ public Dialog onCreateDialog(Bundle savedInstanceState) {
     public void onDateSet(DatePicker view, int year, int month, int day) {
     	if(activityDateArgs.equals("start"))
     	{
-    		dateTextView.setText(String.valueOf(month + 1 ) + "/" +   String.valueOf(day) + "/" + String.valueOf(year));
+    		dateTextView.setText(String.valueOf(month + 1) + "/" +   String.valueOf(day) + "/" + String.valueOf(year));
     	}
     	else if(activityDateArgs.equals("end"))
     	{
-    		dateTextView.setText(String.valueOf(month + 1 ) + "/" +   String.valueOf(day) + "/" + String.valueOf(year));    	}
+    		dateTextView.setText(String.valueOf(month + 1) + "/" +   String.valueOf(day) + "/" + String.valueOf(year));    	}
     }
 }
 

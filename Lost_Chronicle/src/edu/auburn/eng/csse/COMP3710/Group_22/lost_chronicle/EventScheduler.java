@@ -18,7 +18,6 @@ public class EventScheduler {
 	private SQLiteDatabase database;
 	private Database_Helper dbHelper;
 	private String[] allColumns = EventTable.COLUMNS;
-	private Event eventgas;
 	
 	public EventScheduler(Context context) {
 		dbHelper = new Database_Helper(context);
@@ -52,8 +51,7 @@ public class EventScheduler {
 		
 		//insert into table
 		database.insert(EventTable.TABLE_EVENTS, null, values);
-		//eventgas = this.getEvent(0);
-		//close the db
+
 		this.close();				
 	}
 
