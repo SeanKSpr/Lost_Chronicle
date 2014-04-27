@@ -10,7 +10,7 @@ public class Event {
 	private int lengthInMinutes;
 	private float eval;
 	private float difficulty;
-	boolean conflict = false;
+	
 	
 	public int getLengthInMinutes() {
 		long diffInMillies = end_time.getTime() - start_time.getTime();
@@ -59,8 +59,10 @@ public class Event {
 		difficulty = difficultyIn;
 		on_going = 1;
 	}
+	
 	public boolean timeConflicts()
 	{
+		boolean conflict = false;
 		if((start_time.before(new Date()) || end_time.before(new Date()))
 				|| (start_time.after(end_time)))
 		{
@@ -69,14 +71,15 @@ public class Event {
 		}
 		return conflict;
 	}
+	
 	public boolean timeConflicts(Event eventIn)
 	{
-		if((start_time.after(eventIn.getStart_time()) && end_time.before(eventIn.getEnd_time())) 
-				|| (start_time.after(new Date()) || end_time.before(new Date()))
-				|| (start_time.after(end_time)))
+		boolean conflict = false;
+		boolean startsAfterOtherBegan = start_time.after(eventIn.getStart_time());
+		boolean endsBeforeOtherEnds = end_time.before(eventIn.getEnd_time());
+		if(startsAfterOtherBegan && endsBeforeOtherEnds || start_time.before(new Date()) || end_time.before(new Date()) || start_time.after(end_time))
 		{
 			conflict = true;
-			return conflict;
 		}
 		return conflict;
 	}

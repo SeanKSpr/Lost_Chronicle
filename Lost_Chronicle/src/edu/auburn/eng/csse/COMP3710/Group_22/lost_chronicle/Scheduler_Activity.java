@@ -148,8 +148,11 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 		AvatarDataSource avatarDBHelper = new AvatarDataSource(this);
 		Avatar update = avatarDBHelper.getAvatar();
 		String statType = mCurrentEvent.getType();
+		float evalMultiplier = (float) (mCurrentEvent.getEval() * .25);
+		double difficultyMultiplier = mCurrentEvent.getDifficulty() * .22;
+		double hoursSpent = mCurrentEvent.getLengthInMinutes() / 60.0;
 		
-		int statIncrease = (int)Math.ceil((mCurrentEvent.getDifficulty() + mCurrentEvent.getLengthInMinutes() + mCurrentEvent.getEval()) % 60);
+		int statIncrease = (int) Math.ceil(evalMultiplier * difficultyMultiplier * hoursSpent);
 		
 		switch(statType)
 		{
