@@ -30,7 +30,12 @@ public class RPGBattleEndFragment extends Fragment {
 		String battleResult = this.getArguments().getString(BATTLE_END);
 		int gold = this.getArguments().getInt(RPG_Battle.ENEMY_WALLET);
 		setUpBackground(battleResult);
-		updateAvatarGold(gold, battleResult);
+		AvatarDataSource avatarDBHelper = new AvatarDataSource(this.getActivity());
+		Avatar avatar = avatarDBHelper.getAvatar();
+		if (battleResult.equals("victory")) {
+			incrementBattlesWon(avatar);
+		}
+		updateAvatarGold(avatar, gold, battleResult);
 		Toast.makeText(getActivity(), "Touch the screen to continue", Toast.LENGTH_LONG).show();
 		mLayout.setOnTouchListener(new View.OnTouchListener() {
 			
@@ -41,15 +46,14 @@ public class RPGBattleEndFragment extends Fragment {
 			}
 		});
 	}
-	private void updateAvatarGold(int gold, String battleResult) {
-		AvatarDataSource avatarDBHelper = new AvatarDataSource(this.getActivity());
-		Avatar avatar = avatarDBHelper.getAvatar();
+	private void updateAvatarGold(Avatar avatar, int gold, String battleResult) {
 		if (battleResult.equals("game_over")) {
 			avatar.getWallet().subtractGold(gold);
 		}
 		else {
 			avatar.getWallet().addGold(gold);
 		}
+		AvatarDataSource avatarDBHelper = new AvatarDataSource(this.getActivity());
 		avatarDBHelper.updateAvatar(avatar);
 	}
 	private void setUpBackground(String battleResult) {
@@ -65,7 +69,11 @@ public class RPGBattleEndFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
-
+	private void incrementBattlesWon(Avatar avatar) {
+		AvatarDataSource avatarDBHelper = new AvatarDataSource(this.getActivity());
+		avatar.incrementBattlesWon();
+		avatarDBHelper.updateAvatar(avatar);
+	}
 	public RPGBattleEndFragment() {
 		// TODO Auto-generated constructor stub
 	}

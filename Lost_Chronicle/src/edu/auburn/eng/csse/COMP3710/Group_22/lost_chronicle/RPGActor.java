@@ -82,9 +82,14 @@ public class RPGActor {
 	}
 	
 	public Attack attack() {
+		Random rand = new Random();
+		int physDmg = attributeStruct.getAttack();
+		int magicDmg = attributeStruct.getMagicAttack();
+		int physDmgModifier = (rand.nextInt() % physDmg) / 4 + 1;
+		int magicDmgModifier = (rand.nextInt() % magicDmg) / 4 + 1;
 		Attack attack = new Attack();
-		attack.setPhysDmg(this.attributeStruct.getAttack());
-		attack.setMagicDmg(this.attributeStruct.getMagicAttack());
+		attack.setPhysDmg(physDmg + physDmgModifier);
+		attack.setMagicDmg(magicDmg + magicDmgModifier);
 		attack.determineCritical(this.attributeStruct.getCrit());
 		return attack;
 	}
@@ -134,7 +139,7 @@ public class RPGActor {
 		dodgeChance = dodgeChance - hitChance;
 		Random rand = new Random();
 		rand.setSeed(System.currentTimeMillis() * 23);
-		int baseDodgeChance = (rand.nextInt() % 100) + 1;
+		int baseDodgeChance = Math.abs((rand.nextInt() % 100)) + 1;
 		double totalChance = baseDodgeChance + dodgeChance;
 		if (Math.abs(100 - totalChance) < 0.0000001) {
 			return true;
@@ -217,7 +222,7 @@ public class RPGActor {
 		Random rand = new Random();
 		for (int i = 0; i < specialAbilityChanceArray.length; i++) {
 			rand.setSeed(System.nanoTime());
-			int baseChance = Math.abs((rand.nextInt() % 100) + 1);
+			int baseChance = Math.abs((rand.nextInt() % 100)) + 1;
 			specialAbilityChanceArray[i] = new SpecialAttackPercentage(statDispersal[i], i);
 			int totalChance = baseChance + statDispersal[i];
 			specialAbilityChanceArray[i].setPercentChance(totalChance);
@@ -303,10 +308,10 @@ public class RPGActor {
 		this.turnsToBeHealed--;
 	}
 	public boolean isCharmed() {
-		return turnsCharmed > -1;
+		return turnsCharmed > 0;
 	}
 	public void cleanUpAfterBattleTurn() {
-		if (this.turnsCharmed > -1)
+		if (this.turnsCharmed > 0)
 			this.decrementTurnsCharmed();
 		if (this.turnsToBeHealed > 0) {
 			this.healHealth(amountToBeHealed);

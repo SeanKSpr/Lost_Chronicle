@@ -18,11 +18,11 @@ import android.widget.RatingBar;
 import android.widget.Spinner;
 
 public class AddEventFragment extends Fragment {
-	EditText mTitle, mStartDate, mStartTime, mEndDate, mEndTime, mDescription;
-	Spinner mEventType;
-	RatingBar mDifficulty;
-	EventCommunicator comm;
-	final AddEventFragment addEventFragment = this;
+	private EditText mTitle, mStartDate, mStartTime, mEndDate, mEndTime, mDescription;
+	private Spinner mEventType;
+	private RatingBar mDifficulty;
+	private EventCommunicator comm;
+	private final AddEventFragment addEventFragment = this;
 	
 
 	@Override

@@ -54,7 +54,7 @@ public class Avatar extends RPGActor {
 	public int charm() {
 		Random rand = new Random();
 		rand.setSeed(System.currentTimeMillis());
-		int numOfTurnsCharmed = (rand.nextInt() % 3) + 1;
+		int numOfTurnsCharmed = Math.abs((rand.nextInt() % 3)) + 1;
 		return numOfTurnsCharmed;
 		
 	}

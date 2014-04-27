@@ -17,17 +17,24 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 	//private ArrayList<Event> eventList = new ArrayList<Event>();
 	//private EventScheduler  eventDBHelper;
 
+	private Jukebox music;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_scheduler_screen);
+		if(music == null)
+		{
+			music = new Jukebox(this);
+		}
 	}
 	
 	protected void onStart() 
 	{
 		launchListView();
 		super.onStart();
+		music.start(Jukebox.EVENT_SCREEN);
 	}
 	
 	
@@ -124,5 +131,10 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 				return super.onOptionsItemSelected(item);
 		}
 	}
-		
+	
+	@Override
+	public void onPause() {
+		music.stop();
+		super.onPause();
+	}
 }

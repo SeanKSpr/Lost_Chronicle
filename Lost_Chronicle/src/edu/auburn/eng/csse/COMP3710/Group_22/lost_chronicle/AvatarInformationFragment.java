@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class AvatarInformationFragment extends Fragment {
-	TextView mStrength, mIntellect, mDexterity, mConstitution, mWisdom, mCharisma;
-	TextView  mHealth, mAttack, mMagicAttack, mDefence, mMagicalDefence, mDodge, mHit, mCrit;
-	TextView mCurrentGold, mBattlesWon;
+	private TextView mStrength, mIntellect, mDexterity, mConstitution, mWisdom, mCharisma;
+	private TextView  mHealth, mAttack, mMagicAttack, mDefence, mMagicalDefence, mDodge, mHit, mCrit;
+	private TextView mCurrentGold, mBattlesWon;
 	AvatarInfoCommunicator mCommunicator;
 	@Override
 	public void onAttach(Activity activity) {

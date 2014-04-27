@@ -37,7 +37,7 @@ public class MicrotransactionDialog extends DialogFragment {
 		mItemName = (TextView) dialog.findViewById(R.id.item_name_text);
 		Random rand = new Random();
 		rand.setSeed(System.currentTimeMillis() * 127);
-		int randomCost = Math.abs(rand.nextInt() % 19 + 1);
+		int randomCost = Math.abs(rand.nextInt() % 20) + 1;
 		mPrice.setText("$" + randomCost + ".00");
 		mItemName.setText(item.getPurchaseName());
 		mContinueButton = (Button) dialog.findViewById(R.id.continue_microtransaction_button);
