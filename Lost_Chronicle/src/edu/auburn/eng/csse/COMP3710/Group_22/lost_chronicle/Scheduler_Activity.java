@@ -15,7 +15,8 @@ import android.widget.Toast;
 
 public class Scheduler_Activity extends FragmentActivity implements EventCommunicator{
 	//private ArrayList<Event> eventList = new ArrayList<Event>();
-	//private EventScheduler  eventDBHelper;
+	private EventScheduler  eventDBHelper;
+	private Event mCurrentEvent;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -29,7 +30,6 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 		launchListView();
 		super.onStart();
 	}
-	
 	
 	
 	@Override
@@ -123,6 +123,64 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 			default:
 				return super.onOptionsItemSelected(item);
 		}
+	}
+
+	@Override
+	public void addRating(Event event) {
+		mCurrentEvent = event;
+		FragmentManager fm = getFragmentManager();
+		Fragment fragmentHolder = fm.findFragmentById(R.id.ratingSlot);
+		if (fragmentHolder == null) {
+			fragmentHolder = new EventCompletionFragment();
+			FragmentTransaction transaction = fm.beginTransaction();
+			transaction.add(R.id.ratingSlot, fragmentHolder).addToBackStack(null).commit();
+		}
+		
+	}
+
+	@Override
+	public void updateEvent(float rating) {
+		eventDBHelper = new EventScheduler(this);
+		mCurrentEvent.setOnGoing((short) 0);
+		mCurrentEvent.setEval(rating);
+		eventDBHelper.updateEvent(mCurrentEvent);
+		
+		AvatarDataSource avatarDBHelper = new AvatarDataSource(this);
+		Avatar update = avatarDBHelper.getAvatar();
+		String statType = mCurrentEvent.getType();
+		
+		int statIncrease = (int)Math.ceil((mCurrentEvent.getDifficulty() + mCurrentEvent.getLengthInMinutes() + mCurrentEvent.getEval()) % 60);
+		
+		switch(statType)
+		{
+		case "Strength":
+			update.statStruct.addStrength(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Strength!", Toast.LENGTH_SHORT).show();
+			break;
+		case "Dexterity":
+			update.statStruct.addDexterity(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Dexterity!", Toast.LENGTH_SHORT).show();
+			break;
+		case "Constitution":
+			update.statStruct.addConstitution(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Constitution!", Toast.LENGTH_SHORT).show();
+			break;
+		case "Charisma":
+			update.statStruct.addCharisma(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Charisma!", Toast.LENGTH_SHORT).show();
+			break;
+		case "Intellect":
+			update.statStruct.addIntellect(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Intellect!", Toast.LENGTH_SHORT).show();
+			break;
+		case "Wisdom":
+			update.statStruct.addWisdom(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Wisdom!", Toast.LENGTH_SHORT).show();
+			break;
+		}
+		
+		avatarDBHelper.updateAvatar(update);
+		
 	}
 		
 }

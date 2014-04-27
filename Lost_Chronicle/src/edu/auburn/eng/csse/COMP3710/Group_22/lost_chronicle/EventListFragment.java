@@ -1,13 +1,16 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
 import java.util.ArrayList;
+import java.util.Date;
 
+import android.app.Activity;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class EventListFragment extends ListFragment {
@@ -15,8 +18,8 @@ public class EventListFragment extends ListFragment {
 	private ArrayList<Event> eventList = new ArrayList<Event>();
 	//private ListView mListView;
 	private EventScheduler eventDBHelper;
+	private EventCommunicator comm;
 	
-
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
@@ -34,11 +37,39 @@ public class EventListFragment extends ListFragment {
 	}
 
 	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+		if(eventList.get(position).isOnGoing() == 0)
+		{
+			Toast.makeText(getActivity(), "This Event is already Completed", Toast.LENGTH_SHORT).show();
+		}
+		else
+		{
+			Date date = new Date();
+			if(eventList.get(position).getEnd_time().compareTo(date) > 0)//.compareTo(date))
+			{
+				Toast.makeText(getActivity(), "This Event is still ongoing", Toast.LENGTH_SHORT).show();
+			}
+			else
+			{
+				comm.addRating(eventList.get(position));
+			}
+		}
+	}
+
+	@Override
 	public void onActivityCreated(Bundle savedInstanceState)
 	{
 		super.onActivityCreated(savedInstanceState);
 		setListAdapter(m_adapter);
 		//mListView.setAdapter(m_adapter);
+	}
+	
+	@Override
+	public void onAttach(Activity activity)
+	{
+		super.onAttach(activity);
+		comm = (EventCommunicator)activity;
 	}
 	
 	public boolean updateList(Event eventIn)
