@@ -3,6 +3,8 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 import java.util.Arrays;
 import java.util.Random;
 
+import android.util.Log;
+
 
 public class RPGActor {
 	protected String mName;
@@ -85,11 +87,13 @@ public class RPGActor {
 		Random rand = new Random();
 		int physDmg = attributeStruct.getAttack();
 		int magicDmg = attributeStruct.getMagicAttack();
-		int physDmgModifier = (rand.nextInt() % physDmg) / 4 + 1;
-		int magicDmgModifier = (rand.nextInt() % magicDmg) / 4 + 1;
+		Log.i("physDmgModifier", "Did I fail here?");
+		double physDmgModifier = ((rand.nextInt() % (physDmg + 1)) + 1) / 3;
+		Log.i("physDmgModifier", "Did I fail here?");
+		double magicDmgModifier = ((rand.nextInt() % (magicDmg + 1)) + 1) / 3;
 		Attack attack = new Attack();
-		attack.setPhysDmg(physDmg + physDmgModifier);
-		attack.setMagicDmg(magicDmg + magicDmgModifier);
+		attack.setPhysDmg((int)(physDmg + physDmgModifier));
+		attack.setMagicDmg((int)(magicDmg + magicDmgModifier));
 		attack.determineCritical(this.attributeStruct.getCrit());
 		return attack;
 	}

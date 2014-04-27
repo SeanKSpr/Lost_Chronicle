@@ -42,10 +42,9 @@ public class Attack {
 	public void determineCritical(double critChance) {
 		Random rand = new Random();
 		rand.setSeed(System.currentTimeMillis() * 23);
-		//int baseChance = Math.abs((rand.nextInt() % 100)) + 1;CHANGE BACK TO THIS
-		int baseChance = 100;
+		int baseChance = Math.abs((rand.nextInt() % 100)) + 1;
 		double totalChance = critChance + baseChance;
-		if (Math.abs(100 - totalChance) < 0.0000001) {
+		if (100 - totalChance <= 0) {
 			isCrit = true;
 		}
 	}

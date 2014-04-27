@@ -18,9 +18,9 @@ public class RPGEnemy extends RPGActor {
 	{
 		int statBoostFromCompanion = 0;
 		if (companionIn != null) {
-			statBoostFromCompanion = (int) (avatarIn.getStatStruct().getStatPool() + 0.5 * avatarIn.getBattlesWon());
+			statBoostFromCompanion = (int) (0.8 * avatarIn.getStatStruct().getStatPool() + 0.7 * avatarIn.getBattlesWon());
 		}
-		int statPool = (int)(0.55 * avatarIn.getStatStruct().getStatPool() + 0.5 * avatarIn.getBattlesWon() + statBoostFromCompanion);
+		int statPool = (int)(0.3 * avatarIn.getStatStruct().getStatPool() + 0.75 * avatarIn.getBattlesWon() + statBoostFromCompanion);
 		wallet.setGold(statPool * 2);
 		for(int i = 0; i < statPool; i++)
 		{

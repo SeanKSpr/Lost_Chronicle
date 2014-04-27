@@ -295,7 +295,8 @@ public class RPG_Battle extends Activity {
 					if (specialAttack.getAttackType() == ClassAttack.WISDOM) {
 						specialAttackDamage = mEnemy.takeSpecialAttack(specialAttack);
 						displaySpecialAttackNotification(mEnemy, mEnemy, specialAttack, specialAttackDamage);
-					} else {
+					} 
+					else {
 						specialAttackDamage = hero.takeSpecialAttack(specialAttack);
 						displaySpecialAttackNotification(mEnemy, hero, specialAttack, specialAttackDamage);
 					}
