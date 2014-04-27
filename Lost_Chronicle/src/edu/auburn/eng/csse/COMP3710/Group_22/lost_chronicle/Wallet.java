@@ -17,8 +17,8 @@ public class Wallet {
 	
 	public void subtractGold(int gold) {
 		this.gold -= gold;
-		if (gold < 0) {
-			gold = 0;
+		if (this.gold < 0) {
+			this.gold = 0;
 		}
 	}
 }
