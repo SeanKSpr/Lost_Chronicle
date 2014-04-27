@@ -32,14 +32,14 @@ public class AvatarTable {
 		Stat statStruct = new Stat();
 		avatar.setName("The Lost");
 		avatar.setSpriteResource(R.drawable.profile_mc);
-		avatar.setBatlesWon(14);
-		avatar.getWallet().setGold(600);
-		statStruct.setCharisma(14);
-		statStruct.setConstitution(26);
-		statStruct.setDexterity(10);
-		statStruct.setIntellect(6);
-		statStruct.setStrength(36);
-		statStruct.setWisdom(4);
+		avatar.setBatlesWon(0);
+		avatar.getWallet().setGold(0);
+		statStruct.setCharisma(5);
+		statStruct.setConstitution(5);
+		statStruct.setDexterity(5);
+		statStruct.setIntellect(5);
+		statStruct.setStrength(5);
+		statStruct.setWisdom(5);
 		avatar.setStatStruct(statStruct);
 		
 		return avatar;

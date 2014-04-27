@@ -17,6 +17,7 @@ public class Selection_Screen extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.deleteDatabase("lost_chronicle_db.db");
 		setContentView(R.layout.activity_selection__screen);
 		mSchedulerButton = (Button) this.findViewById(R.id.scheduler_activity_button);
 		mRPGButton = (Button) this.findViewById(R.id.rpg_battle_activity_button);
