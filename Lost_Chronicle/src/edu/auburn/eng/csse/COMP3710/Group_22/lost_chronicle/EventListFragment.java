@@ -1,6 +1,7 @@
 package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 import android.app.Activity;
@@ -30,6 +31,7 @@ public class EventListFragment extends ListFragment {
 		eventList = eventDBHelper.getAllEvents();
 		if(eventList != null && !eventList.isEmpty())
 		{
+			Collections.reverse(eventList);
 			m_adapter = new EventItemAdapter(this.getActivity(), R.layout.list_item, eventList);
 		}
 		return v;
@@ -84,7 +86,7 @@ public class EventListFragment extends ListFragment {
 			}
 			if(addable)
 			{
-			eventList.add(eventIn);
+			eventList.add(0, eventIn);
 			Log.i("notjustatag", "made it here");
 			eventDBHelper.addEvent(eventIn);
 			Log.i("notjustatag", "made it here");
@@ -107,7 +109,7 @@ public class EventListFragment extends ListFragment {
 			if(addable)
 			{
 				Log.i("notjustatag", "made it here");
-				eventList.add(eventIn);
+				eventList.add(0, eventIn);
 				eventDBHelper.addEvent(eventIn);
 				m_adapter = new EventItemAdapter(this.getActivity(), R.layout.list_item, eventList);
 				setListAdapter(m_adapter);
