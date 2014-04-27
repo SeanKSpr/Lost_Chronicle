@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,17 +17,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-public class AddEventFragment extends Fragment {
-	private EditText mTitle, mStartDate, mStartTime, mEndDate, mEndTime, mDescription;
-	private Spinner mEventType;
-	private RatingBar mDifficulty;
-	private EventCommunicator comm;
-	
-
+public class AddEventFragment extends Fragment{
+	EditText mTitle, mStartTime, mEndTime, mDescription;
+	Spinner mEventType;
+	RatingBar mDifficulty;
+	EventCommunicator comm;
+	final AddEventFragment addEventFragment = this;
+	private TextView mStartDate, mEndDate;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//setCurrentDateOnView(); TODO
 	}
 	@Override
 	public void onAttach(Activity activity) {
@@ -37,6 +40,7 @@ public class AddEventFragment extends Fragment {
 	@Override
 	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_add_event, container, false);
+		
 		return v;
 		
 	}
@@ -45,15 +49,19 @@ public class AddEventFragment extends Fragment {
 	public void onStart() {
 		Button addButton = (Button) getView().findViewById(R.id.button1);
 		
+		mStartDate =  (EditText) getView().findViewById(R.id.startDate);
+		
+		mEndDate =  (EditText) getView().findViewById(R.id.endDate);
+		
 		mTitle = (EditText) getView().findViewById(R.id.editText1);
 		
-		mStartDate = (EditText) getView().findViewById(R.id.editText2);
+		//mStartDate = (EditText) getView().findViewById(R.id.tvStartDate);
 		
-		mStartTime = (EditText) getView().findViewById(R.id.editText3);
+		mStartTime = (EditText) getView().findViewById(R.id.startTime);
 		
-		mEndDate = (EditText) getView().findViewById(R.id.editText4);
+		//mEndDate = (EditText) getView().findViewById(R.id.tvEndDate);
 		
-		mEndTime = (EditText) getView().findViewById(R.id.editText5);
+		mEndTime = (EditText) getView().findViewById(R.id.endTime);
 		
 		mDescription = (EditText) getView().findViewById(R.id.editText6);
 		
@@ -84,10 +92,61 @@ public class AddEventFragment extends Fragment {
 				
 			}
 		});
+		mStartDate.setOnClickListener(new View.OnClickListener() {
+
+	        @Override
+	        public void onClick(View v) {
+	        	DialogFragment newFragment = new DatePickerFragment(mStartDate);
+	        	Bundle dateArgs = new Bundle();
+	        	dateArgs.putString("date", "start");
+	        	newFragment.setArguments(dateArgs);
+            	newFragment.show(getFragmentManager(), "DatePicker");
+	        }
+
+	    });
+		mEndDate.setOnClickListener(new View.OnClickListener() {
+
+	        @Override
+	        public void onClick(View v) {
+	        	DialogFragment newFragment = new DatePickerFragment(mEndDate);
+	        	Bundle dateArgs = new Bundle();
+	        	dateArgs.putString("date", "end");
+	        	newFragment.setArguments(dateArgs);
+            	newFragment.show(getFragmentManager(), "DatePicker");
+	        	
+	        }
+
+	    });
+		mStartTime.setOnClickListener(new View.OnClickListener() {
+
+	        @Override
+	        public void onClick(View v) {
+	        	DialogFragment newFragment = new TimePickerFragment(mStartTime);
+	        	Bundle timeArgs = new Bundle();
+	        	timeArgs.putString("time", "start");
+	        	newFragment.setArguments(timeArgs);
+            	newFragment.show(getFragmentManager(), "TimePicker");
+	        }
+
+	    });
+		mEndTime.setOnClickListener(new View.OnClickListener() {
+
+	        @Override
+	        public void onClick(View v) {
+	        	DialogFragment newFragment = new TimePickerFragment(mEndTime);
+	        	Bundle timeArgs = new Bundle();
+	        	timeArgs.putString("time", "end");
+	        	newFragment.setArguments(timeArgs);
+            	newFragment.show(getFragmentManager(), "TimePicker");
+	        }
+
+	    });
+
 		super.onStart();
-	}
+	}		
+	
 	public static Date parseStringToDate(String dateDay, String dateTime) {
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd hh:mm", Locale.US);
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/M/yyyy hh:mm", Locale.US);
 		Date date = null;
 		try {
 			date = formatter.parse(dateDay + " " + dateTime);
@@ -96,6 +155,10 @@ public class AddEventFragment extends Fragment {
 			e.printStackTrace();
 		}
 		return date;
+	}
+	public void setStartText(String textIn)
+	{
+		mStartDate.setText(textIn);
 	}
 }
 		
