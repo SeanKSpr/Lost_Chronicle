@@ -22,7 +22,6 @@ public class AddEventFragment extends Fragment {
 	private Spinner mEventType;
 	private RatingBar mDifficulty;
 	private EventCommunicator comm;
-	private final AddEventFragment addEventFragment = this;
 	
 
 	@Override

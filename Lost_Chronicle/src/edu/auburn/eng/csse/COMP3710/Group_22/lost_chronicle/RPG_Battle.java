@@ -2,7 +2,6 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;

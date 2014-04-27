@@ -4,7 +4,7 @@
     android:layout_height="?android:attr/listPreferredItemHeight"
 
     android:padding="6dip">
-    <!-- Item Name -->
+    <!-- Event Title -->
    <TextView
 		android:id="@+id/toptext"
 
@@ -21,7 +21,7 @@
 
 
 
-   <!-- Price Tag -->
+   <!-- Event Type -->
    <TextView
 	 	android:id="@+id/middletext"
 
@@ -36,12 +36,12 @@
    	/>
 
   
-
+    <!-- Event Time Period -->
    <TextView
 		android:id="@+id/bottomtext"
 
 	 	android:layout_width="wrap_content"
-	 	android:layout_height="26dip"
+	 	android:layout_height="40dip"
 
 		android:layout_alignParentLeft="true"
 		android:layout_below="@id/middletext"

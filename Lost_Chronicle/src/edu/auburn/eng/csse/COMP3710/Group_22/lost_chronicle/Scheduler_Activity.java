@@ -15,7 +15,8 @@ import android.widget.Toast;
 
 public class Scheduler_Activity extends FragmentActivity implements EventCommunicator{
 	//private ArrayList<Event> eventList = new ArrayList<Event>();
-	//private EventScheduler  eventDBHelper;
+	private EventScheduler  eventDBHelper;
+	private Event mCurrentEvent;
 
 	private Jukebox music;
 
@@ -36,7 +37,6 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 		super.onStart();
 		music.start(Jukebox.EVENT_SCREEN);
 	}
-	
 	
 	
 	@Override
@@ -136,5 +136,64 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 	public void onPause() {
 		music.stop();
 		super.onPause();
+	}
+
+
+	@Override
+	public void addRating(Event event) {
+		mCurrentEvent = event;
+		FragmentManager fm = getFragmentManager();
+		Fragment fragmentHolder = fm.findFragmentById(R.id.ratingSlot);
+		if (fragmentHolder == null) {
+			fragmentHolder = new EventCompletionFragment();
+			FragmentTransaction transaction = fm.beginTransaction();
+			transaction.add(R.id.ratingSlot, fragmentHolder).addToBackStack(null).commit();
+		}
+		
+	}
+
+	@Override
+	public void updateEvent(float rating) {
+		eventDBHelper = new EventScheduler(this);
+		mCurrentEvent.setOnGoing((short) 0);
+		mCurrentEvent.setEval(rating);
+		eventDBHelper.updateEvent(mCurrentEvent);
+		
+		AvatarDataSource avatarDBHelper = new AvatarDataSource(this);
+		Avatar update = avatarDBHelper.getAvatar();
+		String statType = mCurrentEvent.getType();
+		float evalMultiplier = (float) (mCurrentEvent.getEval() * .25);
+		double difficultyMultiplier = mCurrentEvent.getDifficulty() * .22;
+		double hoursSpent = mCurrentEvent.getLengthInMinutes() / 60.0;
+		
+		int statIncrease = (int) Math.ceil(evalMultiplier * difficultyMultiplier * hoursSpent);
+		
+		
+		if (statType.equals("Strength")) {
+			update.statStruct.addStrength(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Strength!", Toast.LENGTH_SHORT).show();
+		}
+		if (statType.equals("Dexterity")) {
+			update.statStruct.addDexterity(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Dexterity!", Toast.LENGTH_SHORT).show();
+		}
+		if (statType.equals("Constitution")) {
+			update.statStruct.addConstitution(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Constitution!", Toast.LENGTH_SHORT).show();
+		}
+		if (statType.equals("Charisma")) {
+			update.statStruct.addCharisma(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Charisma!", Toast.LENGTH_SHORT).show();
+		}
+		if (statType.equals("Intellect")) {
+			update.statStruct.addIntellect(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Intellect!", Toast.LENGTH_SHORT).show();
+		}
+		if (statType.equals("Wisdom")) {
+			update.statStruct.addWisdom(statIncrease);
+			Toast.makeText(this, "You Earned " + statIncrease + " Wisdom!", Toast.LENGTH_SHORT).show();
+		}
+		avatarDBHelper.updateAvatar(update);
+		
 	}
 }
