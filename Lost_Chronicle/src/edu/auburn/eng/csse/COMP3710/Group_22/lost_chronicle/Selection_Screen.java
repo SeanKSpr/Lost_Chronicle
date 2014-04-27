@@ -21,7 +21,7 @@ public class Selection_Screen extends Activity {
 		setContentView(R.layout.activity_selection__screen);
 		mSchedulerButton = (Button) this.findViewById(R.id.scheduler_activity_button);
 		mRPGButton = (Button) this.findViewById(R.id.rpg_battle_activity_button);
-		
+		//this.deleteDatabase("lost_chronicle_db.db");
 		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
 		Companion aCompanion = companionDBHelper.getCompanion(1);
 		if (aCompanion == null) {
