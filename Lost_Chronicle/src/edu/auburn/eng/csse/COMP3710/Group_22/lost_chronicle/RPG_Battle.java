@@ -276,7 +276,7 @@ public class RPG_Battle extends Activity {
 		if (!enemyIsIncapacitated()) {
 			if (mEnemy.getCurrentHealth() > 0) {
 				int randomShift = 2;
-				if (mCompanion == null) {
+				if (mCompanion == null || mCompanion.getCurrentHealth() == 0) {
 					randomShift = 1;
 				}
 				Random rand = new Random();
@@ -284,7 +284,7 @@ public class RPG_Battle extends Activity {
 				int selectHero = Math.abs((rand.nextInt() % randomShift)) + 1;
 				Avatar hero;
 				hero = mAvatar;
-				if (selectHero == 2) {
+				if (selectHero == 2 || mAvatar.getCurrentHealth() == 0) {
 					hero = mCompanion;
 				}
 				makeAttackToast(enemyAttackToast, String.valueOf("Serithrasas deals " + hero.takeDamage(mEnemy.attack()))
