@@ -48,10 +48,10 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 	@Override
 	public void respond(Event eventIn)
 	{
-		if(eventIn.timeConflicts())
+		String conflictType = eventIn.timeConflicts();
+		if(conflictType != null)
 		{
-			Toast.makeText(getApplicationContext(), R.string.time_conflict_toast, Toast.LENGTH_SHORT).show();
-
+			Toast.makeText(getApplicationContext(), conflictType, Toast.LENGTH_SHORT).show();
 		}
 		else 
 		{

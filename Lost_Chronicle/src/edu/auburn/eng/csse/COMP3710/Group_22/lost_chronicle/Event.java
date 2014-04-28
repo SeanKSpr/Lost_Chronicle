@@ -60,26 +60,44 @@ public class Event {
 		on_going = 1;
 	}
 	
-	public boolean timeConflicts()
+	public String timeConflicts()
 	{
-		boolean conflict = false;
-		if((start_time.before(new Date()) || end_time.before(new Date()))
-				|| (start_time.after(end_time)))
+		String conflict = null;
+		if(start_time.before(new Date()))
 		{
-			conflict = true;
-			return conflict;
+			conflict = "Events cannot be scheduled in the past.";
+		}
+		else if(end_time.before(new Date()))
+		{
+			conflict = "Events cannot be scheduled in the past.";
+		}
+		else if(start_time.after(end_time))
+		{
+			conflict = "An event cannot end before it began";
 		}
 		return conflict;
 	}
 	
-	public boolean timeConflicts(Event eventIn)
+	public String timeConflicts(Event eventIn)
 	{
-		boolean conflict = false;
+		String conflict = null;
 		boolean startsAfterOtherBegan = start_time.after(eventIn.getStart_time());
 		boolean endsBeforeOtherEnds = end_time.before(eventIn.getEnd_time());
-		if(startsAfterOtherBegan && endsBeforeOtherEnds || start_time.before(new Date()) || end_time.before(new Date()) || start_time.after(end_time))
+		if(startsAfterOtherBegan && endsBeforeOtherEnds)
 		{
-			conflict = true;
+			conflict = "You cannot schedule concurrent events";
+		}
+		else if(start_time.before(new Date()))
+		{
+			conflict = "Events cannot be scheduled in the past.";
+		}
+		else if(end_time.before(new Date()))
+		{
+			conflict = "Events cannot be scheduled in the past.";
+		}
+		else if(start_time.after(end_time))
+		{
+			conflict = "An event cannot end before it began";
 		}
 		return conflict;
 	}

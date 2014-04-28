@@ -116,9 +116,12 @@ public class EventListFragment extends ListFragment {
 	{
 		boolean addable = true;
 		eventDBHelper = new EventScheduler(getActivity());
+		String conflictType = null;
+		
 		if(eventList.isEmpty())
 		{
-			if(eventIn.timeConflicts())
+			conflictType = eventIn.timeConflicts();
+			if(conflictType != null)
 			{
 				addable = false;
 			}
@@ -139,8 +142,10 @@ public class EventListFragment extends ListFragment {
 			for(Event event : eventList)
 			{
 				Log.i("notjustatag", "made it here");
-				if(eventIn.timeConflicts(event))
+				String tempConflictType = eventIn.timeConflicts(event);
+				if(tempConflictType != null)
 				{
+					conflictType = tempConflictType;
 					addable = false;
 				}
 			}
@@ -157,8 +162,7 @@ public class EventListFragment extends ListFragment {
 		}
 		if(!addable)
 		{
-			Toast.makeText(getActivity(), R.string.time_conflict_toast, Toast.LENGTH_SHORT).show();
-
+			Toast.makeText(getActivity(), conflictType, Toast.LENGTH_SHORT).show();
 		}
 		return addable;
 
