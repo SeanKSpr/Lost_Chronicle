@@ -132,8 +132,11 @@ public class EventScheduler {
 		//create ContentValues to add key "column"/value
 		ContentValues  values = new ContentValues();
 		values.put(EventTable.COLUMN_TITLE, event.getTitle());
-		values.put(EventTable.COLUMN_START_TIME, event.getStart_time().toString());
-		values.put(EventTable.COLUMN_END_TIME, event.getEnd_time().toString());
+		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String startTime = formatter.format(event.getStart_time()); 
+		String endTime = formatter.format(event.getEnd_time()); 
+		values.put(EventTable.COLUMN_START_TIME, startTime);
+		values.put(EventTable.COLUMN_END_TIME, endTime);
 		values.put(EventTable.COLUMN_TYPE, event.getType());
 		values.put(EventTable.COLUMN_ONGOING, event.isOnGoing());
 		values.put(EventTable.COLUMN_DIFFICULTY, event.getDifficulty());
