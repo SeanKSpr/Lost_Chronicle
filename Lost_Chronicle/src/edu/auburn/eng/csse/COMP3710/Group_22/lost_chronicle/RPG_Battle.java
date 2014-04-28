@@ -220,11 +220,11 @@ public class RPG_Battle extends Activity {
 		mEnemyHealthText.setTextColor(Color.parseColor("#00ffa0"));
 		mEnemyHealthText.setTextSize(16);
 		mEnemyHealthText.setBackgroundColor(Color.parseColor("#55000000"));
-		mEnemyHealthText.setText(String.valueOf(mEnemy.getCurrentHealth()));
-		mHeroHealthText.setText(String.valueOf(mAvatar.getCurrentHealth()));
+		mEnemyHealthText.setText(String.valueOf(mEnemy.getCurrentHealth() + "/" + mEnemy.attributeStruct.getHealth()));
+		mHeroHealthText.setText(String.valueOf(mAvatar.getCurrentHealth() + "/" + mAvatar.attributeStruct.getHealth()));
 		if (mCompanion != null) {
 			mCompanionHealthText.setText(String.valueOf(mCompanion
-					.getCurrentHealth()));
+					.getCurrentHealth() + "/" + mCompanion.attributeStruct.getHealth()));
 		}
 	}
 
@@ -366,13 +366,13 @@ public class RPG_Battle extends Activity {
 	}
 
 	private void updateRPGActorHealthViews() {
-		mHeroHealthText.setText(String.valueOf(mAvatar.getCurrentHealth()));
+		mHeroHealthText.setText(String.valueOf(mAvatar.getCurrentHealth() + "/" + mAvatar.getAttributeStruct().getHealth()));
 		if (mCompanion != null) {
 			mCompanionHealthText.setText(String.valueOf(mCompanion
-					.getCurrentHealth()));
+					.getCurrentHealth() + "/" + mCompanion.getAttributeStruct().getHealth()));
 			mCompanionHealthText.invalidate();
 		}
-		mEnemyHealthText.setText(String.valueOf(mEnemy.getCurrentHealth()));
+		mEnemyHealthText.setText(String.valueOf(mEnemy.getCurrentHealth() + "/" + mEnemy.getAttributeStruct().getHealth()));
 		mHeroHealthText.invalidate();
 		mEnemyHealthText.invalidate();
 
