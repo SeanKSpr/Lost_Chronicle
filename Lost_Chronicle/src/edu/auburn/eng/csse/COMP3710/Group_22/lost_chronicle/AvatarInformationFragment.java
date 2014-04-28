@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class AvatarInformationFragment extends Fragment {
 	private TextView mStrength, mIntellect, mDexterity, mConstitution, mWisdom, mCharisma;
 	private TextView  mHealth, mAttack, mMagicAttack, mDefence, mMagicalDefence, mDodge, mHit, mCrit;
-	private TextView mCurrentGold, mBattlesWon;
+	private TextView mCurrentGold, mBattlesWon, mLevel;
 	AvatarInfoCommunicator mCommunicator;
 	@Override
 	public void onAttach(Activity activity) {
@@ -44,6 +44,7 @@ public class AvatarInformationFragment extends Fragment {
 		mCrit = (TextView) v.findViewById(R.id.crit_fieldA);
 		mCurrentGold = (TextView) v.findViewById(R.id.current_gold_field);
 		mBattlesWon = (TextView) v.findViewById(R.id.battles_won_field);
+		mLevel = (TextView) v.findViewById(R.id.avatar_level_field);
 		return v;
 	}
 
@@ -70,6 +71,7 @@ public class AvatarInformationFragment extends Fragment {
 			mHealth.setText(String.valueOf(attrStruct.getHealth()));
 			mCurrentGold.setText(String.valueOf(avatar.getWallet().getGold()));
 			mBattlesWon.setText(String.valueOf(avatar.getBattlesWon()));
+			mLevel.setText(String.valueOf(avatar.getLevel()));
 		}
 	}
 	

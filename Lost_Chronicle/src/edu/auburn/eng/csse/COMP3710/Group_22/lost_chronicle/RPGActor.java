@@ -3,8 +3,6 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 import java.util.Arrays;
 import java.util.Random;
 
-import android.util.Log;
-
 
 public class RPGActor {
 	protected String mName;
