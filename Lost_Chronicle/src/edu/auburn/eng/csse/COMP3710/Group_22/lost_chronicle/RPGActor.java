@@ -87,9 +87,7 @@ public class RPGActor {
 		Random rand = new Random();
 		int physDmg = attributeStruct.getAttack();
 		int magicDmg = attributeStruct.getMagicAttack();
-		Log.i("physDmgModifier", "Did I fail here?");
 		double physDmgModifier = ((rand.nextInt() % (physDmg + 1)) + 1) / 3;
-		Log.i("physDmgModifier", "Did I fail here?");
 		double magicDmgModifier = ((rand.nextInt() % (magicDmg + 1)) + 1) / 3;
 		Attack attack = new Attack();
 		attack.setPhysDmg((int)(physDmg + physDmgModifier));
