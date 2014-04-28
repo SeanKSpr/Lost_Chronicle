@@ -21,7 +21,7 @@ public class PurchaseDialogFragment extends DialogFragment {
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		final Purchasable item = this.getArguments().getParcelable(Selection_Screen.PURCHASE_KEY);
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		builder.setMessage("Select a purchase type");
+		builder.setMessage("Select a purchase type for " + item.getPurchaseName());
 		builder.setCancelable(true);
 		builder.setPositiveButton("Pay in gold: " + item.getPrice() + "G", new DialogInterface.OnClickListener() {
 			
