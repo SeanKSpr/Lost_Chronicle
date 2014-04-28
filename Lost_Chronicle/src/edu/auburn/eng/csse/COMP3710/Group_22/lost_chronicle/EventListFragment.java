@@ -76,7 +76,6 @@ public class EventListFragment extends ListFragment {
 	        @Override
 	        public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
 	                final int arg2, long arg3) {
-	            Toast.makeText(getActivity(), "On long click listener", Toast.LENGTH_LONG).show();
 	            new AlertDialog.Builder(getActivity())
 	            .setTitle("Delete entry")
 	            .setMessage("Are you sure you want to delete this entry?")
