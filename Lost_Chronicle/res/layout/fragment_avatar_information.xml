@@ -17,18 +17,6 @@
         android:textColor="#00ffa0" />
 
     <TextView
-        android:id="@+id/stat_title_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/strength_fieldA"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="16dp"
-        android:background="#55000000"
-        android:text="@string/stat_text_title"
-        android:textColor="#ffffff"
-        android:textSize="18sp" />
-
-    <TextView
         android:id="@+id/attribute_title_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -374,5 +362,36 @@
         android:background="#55000000"
         android:text="ujj"
         android:textColor="#00ffa0" />
+
+    <TextView
+        android:id="@+id/stat_title_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/strength_fieldA"
+        android:layout_alignParentLeft="true"
+        android:background="#55000000"
+        android:text="@string/stat_text_title"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/avatar_level_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/stat_title_view"
+        android:layout_alignParentLeft="true"
+        android:background="#55000000"
+        android:text="@string/avatar_level"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/avatar_level_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/strength_fieldA"
+        android:layout_alignTop="@+id/avatar_level_text_title"
+        android:background="#80000000"
+        android:textColor="#f0f0f0" />
 
 </RelativeLayout>

@@ -155,6 +155,7 @@ public class RPG_Battle extends Activity {
 					}
 				}
 				avatarHasAttacked = true;
+				updateRPGActorHealthViews();
 				checkForEndTurn();
 			}
 
@@ -192,6 +193,7 @@ public class RPG_Battle extends Activity {
 						}
 					}
 					companionHasAttacked = true;
+					updateRPGActorHealthViews();
 					checkForEndTurn();
 				}
 
