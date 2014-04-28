@@ -5,12 +5,16 @@ import java.util.Collections;
 import java.util.Date;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListFragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -58,6 +62,8 @@ public class EventListFragment extends ListFragment {
 			}
 		}
 	}
+	
+	
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState)
@@ -65,6 +71,39 @@ public class EventListFragment extends ListFragment {
 		super.onActivityCreated(savedInstanceState);
 		setListAdapter(m_adapter);
 		//mListView.setAdapter(m_adapter);
+		getListView().setOnItemLongClickListener(new OnItemLongClickListener() {
+
+	        @Override
+	        public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+	                final int arg2, long arg3) {
+	            Toast.makeText(getActivity(), "On long click listener", Toast.LENGTH_LONG).show();
+	            new AlertDialog.Builder(getActivity())
+	            .setTitle("Delete entry")
+	            .setMessage("Are you sure you want to delete this entry?")
+	            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface dialog, int which) { 
+	                	EventScheduler eventDBHelper = new EventScheduler(getActivity());
+	                	Event deletedEvent = eventList.get(arg2);
+	                	int id = deletedEvent.getId();
+						eventDBHelper.deleteEvent(id);
+						//eventDBHelper.close();
+						eventList.remove(arg2);
+						//m_adapter = new EventItemAdapter(getActivity(), R.layout.list_item, eventList);
+						m_adapter.remove(deletedEvent);
+
+
+	                }
+	             })
+	            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+	                public void onClick(DialogInterface dialog, int which) { 
+	                    	                
+	                }
+	             })
+	            .setIcon(android.R.drawable.ic_dialog_alert)
+	             .show();
+	            return true;
+	        }
+		});
 	}
 	
 	@Override

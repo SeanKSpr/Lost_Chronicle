@@ -154,19 +154,27 @@ public class EventScheduler {
 	}
 	
 	//Deleting a single entry
-	public void deleteEvent(Event event) {
+	public void deleteEvent(int id) {
 		
 		//get reference to writable db
 		this.open();
 		
 		//delete
-		database.delete(EventTable.TABLE_EVENTS, EventTable.COLUMN_ID + " = ?", 
-				new String[] {String.valueOf(event.getId()) });
+		try
+		{
+			database.delete(EventTable.TABLE_EVENTS, EventTable.COLUMN_ID + "=" + String.valueOf(id), 
+			null);
+		}
+		catch(Exception e)
+	    {
+	        e.printStackTrace();
+	    }
+	    finally
+	    {
+	        database.close();
+	    }
 		
-		//close db
-		this.close();
-		
-		Log.d("deleteEvent", event.toString());
+		//Log.d("deleteEvent", id.toString());
 		
 	}
 	public static Date parseStringToDate(String dateIn) {
