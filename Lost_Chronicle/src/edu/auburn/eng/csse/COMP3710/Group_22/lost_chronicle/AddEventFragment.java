@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AddEventFragment extends Fragment{
 	EditText mTitle, mStartTime, mEndTime, mDescription;
@@ -73,21 +74,55 @@ public class AddEventFragment extends Fragment{
 			@Override
 			public void onClick(View v)
 			{
+				boolean addable = true;
 				String title = mTitle.getText().toString();
+				if(title.compareTo("") == 0)
+				{
+					addable = false;
+					Toast.makeText(getActivity(), "You must enter a title", Toast.LENGTH_SHORT).show();
+				}
 				String startDate = mStartDate.getText().toString();
+				if(startDate.compareTo("") == 0)
+				{
+					addable = false;
+					Toast.makeText(getActivity(), "You must enter a start date", Toast.LENGTH_SHORT).show();
+				}
 				String startTime = mStartTime.getText().toString();
+				if(startTime.compareTo("") == 0)
+				{
+					addable = false;
+					Toast.makeText(getActivity(), "You must enter a start time", Toast.LENGTH_SHORT).show();
+				}
 				String endDate = mEndDate.getText().toString();
+				if(endDate.compareTo("") == 0)
+				{
+					addable = false;
+					Toast.makeText(getActivity(), "You must enter an end date", Toast.LENGTH_SHORT).show();
+				}
 				String endTime = mEndTime.getText().toString();
+				if(endTime.compareTo("") == 0)
+				{
+					addable = false;
+					Toast.makeText(getActivity(), "You must enter an end time", Toast.LENGTH_SHORT).show();
+				}
 				String description = mDescription.getText().toString();
+				if(description.compareTo("") == 0)
+				{
+					addable = false;
+					Toast.makeText(getActivity(), "You must enter a description", Toast.LENGTH_SHORT).show();
+				}
 				String type = mEventType.getSelectedItem().toString();
 				float difficulty  = mDifficulty.getRating();
 				Date startingDate, endingDate;
 				startingDate = new Date();
 				endingDate = new Date();
-				startingDate = parseStringToDate(startDate, startTime);
-				endingDate = parseStringToDate(endDate, endTime);
-				Event newEvent = new Event(startingDate, endingDate, title, type, description, difficulty);
-				comm.respond(newEvent);
+				if(addable)
+				{
+					startingDate = parseStringToDate(startDate, startTime);
+					endingDate = parseStringToDate(endDate, endTime);
+					Event newEvent = new Event(startingDate, endingDate, title, type, description, difficulty);
+					comm.respond(newEvent);
+				}
 				
 				
 			}

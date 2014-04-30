@@ -3,6 +3,8 @@ package edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle;
 import java.util.ArrayList;
 
 import android.app.Fragment;
+import android.content.res.Resources;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -45,8 +47,11 @@ public class PurchasableAdapter extends BaseAdapter {
 	public View getView(int position, View view, ViewGroup parent) {
 		ImageView iview;
 		if (view == null) {
+			Resources r = Resources.getSystem();
+			float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60, r.getDisplayMetrics());
+			
 			iview = new ImageView(mFragment.getActivity());
-			iview.setLayoutParams(new GridView.LayoutParams(150,150));
+			iview.setLayoutParams(new GridView.LayoutParams((int) px, (int) px));
 			iview.setScaleType(ImageView.ScaleType.CENTER_CROP);
 			iview.setPadding(2, 2, 2, 2);
 		} 

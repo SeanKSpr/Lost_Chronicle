@@ -54,47 +54,63 @@ public class RPG_Battle extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		avatarAttackToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
 		companionAttackToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
 		enemyAttackToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
+		
 		AvatarDataSource avatarHelper = new AvatarDataSource(this);
 		mAvatar = avatarHelper.getAvatar();
+		
 		mBattleOver = false;
+		
 		LayoutInflater inflater = getLayoutInflater();
-		Random rand = new Random(System.currentTimeMillis() * 127);
-		int decision = Math.abs(rand.nextInt(backgrounds.length));
 		LinearLayout layout = (LinearLayout) inflater.inflate(
 				R.layout.activity_rpg_battle_screen, null);
-		layout.setBackgroundResource(backgrounds[decision]);
+		Random rand = new Random(System.currentTimeMillis() * 127);
+		int backgroundChoice = Math.abs(rand.nextInt(backgrounds.length));
+		layout.setBackgroundResource(backgrounds[backgroundChoice]);
+		
 		setUpEnemy();
 		setUpEnemyView(layout);
+		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
-		if (music == null) {
+		
+		if (music == null)
+		{
 			music = new Jukebox(this);
 		}
+		
 		setCurrentCompanion();
+		
 		mHeroHealthText = (TextView) this.findViewById(R.id.heroHealthTextView);
-		mCompanionHealthText = (TextView) this
-				.findViewById(R.id.companionHealthTextView);
+		mCompanionHealthText = (TextView) this.findViewById(R.id.companionHealthTextView);
 		mAvatarButton = (Button) this.findViewById(R.id.avatar_button);
 		mAvatarButton.setBackgroundResource(R.drawable.sprite_mc);
-		if (mCompanion != null) {
+		
+		if (mCompanion != null) 
+		{
 			mCompanionButton = (Button) this
 					.findViewById(R.id.companion_button);
 			mCompanionButton.setBackgroundResource((int) mCompanion
 					.getSpriteReource());
-		} else {
+		} 
+		else 
+		{
 			companionHasAttacked = true;
 		}
-		if (savedInstanceState != null) {
+		
+		if (savedInstanceState != null) 
+		{
 			avatarHasAttacked = savedInstanceState.getBoolean(AVATAR_TURN_KEY);
 			companionHasAttacked = savedInstanceState
 					.getBoolean(COMPANION_TURN_KEY);
 			mAvatar.setCurrentHealth(savedInstanceState
 					.getInt(AVATAR_HEALTH_KEY));
 			mEnemy.setCurrentHealth(savedInstanceState.getInt(ENEMY_HEALTH_KEY));
-			if (mCompanion != null) {
+			if (mCompanion != null) 
+			{
 				mCompanion.setCurrentHealth(savedInstanceState
 						.getInt(COMPANION_HEALTH_KEY));
 			}
