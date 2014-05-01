@@ -13,7 +13,7 @@ import android.widget.TextView;
 @SuppressLint("ValidFragment")
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 	
-	public TextView dateTextView;
+	private  TextView dateTextView;
 	private String activityDateArgs;
 
 public DatePickerFragment(TextView dateView)

@@ -14,7 +14,7 @@ import android.widget.TimePicker;
 @SuppressLint("ValidFragment")
 public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
 	
-	public TextView timeTextView;
+	private  TextView timeTextView;
 	private String activityTimeArgs;
 	
 	public TimePickerFragment(TextView timeView)

@@ -13,14 +13,13 @@ public class Selection_Screen extends Activity {
 
 	private Button mSchedulerButton, mRPGButton, mKanojoButton;
 	public static final String PURCHASE_KEY = "edu.auburn.eng.csse.COMP3710.Group_22.lost_chronicle_PURCHASABLE";
-	Jukebox music;
+	private Jukebox music;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_selection__screen);
 		mSchedulerButton = (Button) this.findViewById(R.id.scheduler_activity_button);
 		mRPGButton = (Button) this.findViewById(R.id.rpg_battle_activity_button);
-		//this.deleteDatabase("lost_chronicle_db.db");
 		CompanionDataSource companionDBHelper = new CompanionDataSource(this);
 		Companion aCompanion = companionDBHelper.getCompanion(1);
 		if (aCompanion == null) {

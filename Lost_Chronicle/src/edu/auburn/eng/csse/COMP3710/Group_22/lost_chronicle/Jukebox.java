@@ -7,12 +7,10 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 
 public class Jukebox {
-	int songs[] = {R.raw.battle_five, R.raw.battle_four, R.raw.battle_one, R.raw.battle_three, R.raw.battle_two,
-				   R.raw.character_screen_music, R.raw.companion_music, R.raw.selection_screen, R.raw.theme};
-	MediaPlayer player;
-	Context currentContext;
-	static final int SELECTION_SCREEN = 1, CHARACTER_SCREEN = 2, COMPANION_SCREEN = 3, EVENT_SCREEN = 4;
-	static final int BATTLE_SCREEN = 5;
+	private MediaPlayer player;
+	private Context currentContext;
+	public static final int SELECTION_SCREEN = 1, CHARACTER_SCREEN = 2, COMPANION_SCREEN = 3, EVENT_SCREEN = 4;
+	public static final int BATTLE_SCREEN = 5;
 	public Jukebox(Context context) {
 		currentContext = context;
 		

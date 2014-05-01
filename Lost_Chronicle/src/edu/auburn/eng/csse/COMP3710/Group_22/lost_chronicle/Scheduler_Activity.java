@@ -14,10 +14,8 @@ import android.widget.Toast;
 
 
 public class Scheduler_Activity extends FragmentActivity implements EventCommunicator{
-	//private ArrayList<Event> eventList = new ArrayList<Event>();
 	private EventScheduler  eventDBHelper;
 	private Event mCurrentEvent;
-
 	private Jukebox music;
 
 	@Override

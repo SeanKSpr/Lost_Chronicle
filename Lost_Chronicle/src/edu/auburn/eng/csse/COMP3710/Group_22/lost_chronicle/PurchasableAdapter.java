@@ -14,8 +14,6 @@ import android.widget.ImageView;
 public class PurchasableAdapter extends BaseAdapter {
 	private Fragment mFragment;
 	private ArrayList<Purchasable> purchasableArray;
-	//Needs to be generated from database. Companion_Activity will create an ArrayList of Companions and pass them to this class.
-	//The Adapter will assign the list of companions to it's list of Purchasables and then populate the gridview.
 	private void setList(ArrayList<Purchasable> list) {
 		purchasableArray = list;
 	}
