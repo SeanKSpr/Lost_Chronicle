@@ -21,11 +21,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddEventFragment extends Fragment{
-	EditText mTitle, mStartTime, mEndTime, mDescription;
-	Spinner mEventType;
-	RatingBar mDifficulty;
-	EventCommunicator comm;
-	final AddEventFragment addEventFragment = this;
+	private EditText mTitle, mStartTime, mEndTime, mDescription;
+	private Spinner mEventType;
+	private RatingBar mDifficulty;
+	private EventCommunicator comm;
 	private TextView mStartDate, mEndDate;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

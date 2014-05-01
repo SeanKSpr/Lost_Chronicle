@@ -21,7 +21,6 @@ import android.widget.Toast;
 public class EventListFragment extends ListFragment {
 	private EventItemAdapter m_adapter;
 	private ArrayList<Event> eventList = new ArrayList<Event>();
-	//private ListView mListView;
 	private EventScheduler eventDBHelper;
 	private EventCommunicator comm;
 	
@@ -30,7 +29,6 @@ public class EventListFragment extends ListFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
 	{
 		View v = inflater.inflate(R.layout.fragment_event_list, container, false);
-		//mListView = (ListView) v.findViewById(R.id.list);
 		EventScheduler eventDBHelper = new EventScheduler(getActivity());
 		eventList = eventDBHelper.getAllEvents();
 		if(eventList != null && !eventList.isEmpty())

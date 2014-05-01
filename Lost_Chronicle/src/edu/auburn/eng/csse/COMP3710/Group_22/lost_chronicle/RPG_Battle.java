@@ -38,7 +38,7 @@ public class RPG_Battle extends Activity {
 	private TextView mHeroHealthText, mCompanionHealthText, mEnemyHealthText;
 	private Button mAvatarButton, mCompanionButton;
 	private ImageView mEnemyView;
-	int backgrounds[] = { R.drawable.background_bonuslvl,
+	private int backgrounds[] = { R.drawable.background_bonuslvl,
 			R.drawable.background_castle, R.drawable.background_castleroof,
 			R.drawable.background_desertcave, R.drawable.background_icy,
 			R.drawable.background_magicarena,

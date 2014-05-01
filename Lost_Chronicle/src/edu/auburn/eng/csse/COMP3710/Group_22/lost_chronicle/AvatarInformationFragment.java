@@ -12,7 +12,7 @@ public class AvatarInformationFragment extends Fragment {
 	private TextView mStrength, mIntellect, mDexterity, mConstitution, mWisdom, mCharisma;
 	private TextView  mHealth, mAttack, mMagicAttack, mDefence, mMagicalDefence, mDodge, mHit, mCrit;
 	private TextView mCurrentGold, mBattlesWon, mLevel;
-	AvatarInfoCommunicator mCommunicator;
+	private AvatarInfoCommunicator mCommunicator;
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
