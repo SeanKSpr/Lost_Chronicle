@@ -238,11 +238,11 @@ public class RPG_Battle extends Activity {
 		mEnemyHealthText.setTextColor(Color.parseColor("#00ffa0"));
 		mEnemyHealthText.setTextSize(16);
 		mEnemyHealthText.setBackgroundColor(Color.parseColor("#55000000"));
-		mEnemyHealthText.setText(String.valueOf(mEnemy.getCurrentHealth() + "/" + mEnemy.attributeStruct.getHealth()));
-		mHeroHealthText.setText(String.valueOf(mAvatar.getCurrentHealth() + "/" + mAvatar.attributeStruct.getHealth()));
+		mEnemyHealthText.setText(String.valueOf(mEnemy.getCurrentHealth() + "/" + mEnemy.Attributes.getHealth()));
+		mHeroHealthText.setText(String.valueOf(mAvatar.getCurrentHealth() + "/" + mAvatar.Attributes.getHealth()));
 		if (mCompanion != null) {
 			mCompanionHealthText.setText(String.valueOf(mCompanion
-					.getCurrentHealth() + "/" + mCompanion.attributeStruct.getHealth()));
+					.getCurrentHealth() + "/" + mCompanion.Attributes.getHealth()));
 		}
 	}
 

@@ -168,27 +168,27 @@ public class Scheduler_Activity extends FragmentActivity implements EventCommuni
 		
 		
 		if (statType.equals("Strength")) {
-			update.statStruct.addStrength(statIncrease);
+			update.Stats.addStrength(statIncrease);
 			Toast.makeText(this, "You Earned " + statIncrease + " Strength!", Toast.LENGTH_SHORT).show();
 		}
 		if (statType.equals("Dexterity")) {
-			update.statStruct.addDexterity(statIncrease);
+			update.Stats.addDexterity(statIncrease);
 			Toast.makeText(this, "You Earned " + statIncrease + " Dexterity!", Toast.LENGTH_SHORT).show();
 		}
 		if (statType.equals("Constitution")) {
-			update.statStruct.addConstitution(statIncrease);
+			update.Stats.addConstitution(statIncrease);
 			Toast.makeText(this, "You Earned " + statIncrease + " Constitution!", Toast.LENGTH_SHORT).show();
 		}
 		if (statType.equals("Charisma")) {
-			update.statStruct.addCharisma(statIncrease);
+			update.Stats.addCharisma(statIncrease);
 			Toast.makeText(this, "You Earned " + statIncrease + " Charisma!", Toast.LENGTH_SHORT).show();
 		}
 		if (statType.equals("Intellect")) {
-			update.statStruct.addIntellect(statIncrease);
+			update.Stats.addIntellect(statIncrease);
 			Toast.makeText(this, "You Earned " + statIncrease + " Intellect!", Toast.LENGTH_SHORT).show();
 		}
 		if (statType.equals("Wisdom")) {
-			update.statStruct.addWisdom(statIncrease);
+			update.Stats.addWisdom(statIncrease);
 			Toast.makeText(this, "You Earned " + statIncrease + " Wisdom!", Toast.LENGTH_SHORT).show();
 		}
 		avatarDBHelper.updateAvatar(update);

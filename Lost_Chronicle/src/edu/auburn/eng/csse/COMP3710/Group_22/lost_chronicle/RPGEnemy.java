@@ -11,7 +11,7 @@ public class RPGEnemy extends RPGActor {
 	
 	@Override
 	public void calculateLevel() {
-		mLevel = (int) Math.ceil(statStruct.getStatPool() / 3);
+		mLevel = (int) Math.ceil(Stats.getStatPool() / 3);
 	}
 
 	public void generateStats(Avatar avatarIn, Companion companionIn)
@@ -28,17 +28,17 @@ public class RPGEnemy extends RPGActor {
 			int chosenStat = Math.abs((rand.nextInt() % 6)) + 1;
 			switch (chosenStat)
 			{
-			case 1: statStruct.addCharisma(1);
+			case 1: Stats.addCharisma(1);
 				break;
-			case 2: statStruct.addConstitution(1);
+			case 2: Stats.addConstitution(1);
 				break;
-			case 3: statStruct.addDexterity(1);
+			case 3: Stats.addDexterity(1);
 				break;
-			case 4: statStruct.addIntellect(1);
+			case 4: Stats.addIntellect(1);
 				break;
-			case 5: statStruct.addStrength(1);
+			case 5: Stats.addStrength(1);
 				break;
-			case 6: statStruct.addWisdom(1);
+			case 6: Stats.addWisdom(1);
 				break;
 		    default:
 					

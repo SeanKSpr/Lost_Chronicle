@@ -10,36 +10,6 @@ public class Companion extends Avatar implements Purchasable {
 	private int mPrice;
 	private String mType;
 	private boolean mPurchased, mActiveCompanion;
-	
-
-	@Override
-	protected int[] disperseBonusChancePool() {
-		ClassAttack type = this.convertTypeToClassType();
-		final int COMPANION_SPECIAL_CHANCE = 10;
-		int[] dispersalArray = new int[6];
-		switch(type) {
-		case STRENGTH:
-			dispersalArray[0] = COMPANION_SPECIAL_CHANCE;
-			break;
-		case DEXTERITY:
-			dispersalArray[1] = COMPANION_SPECIAL_CHANCE;
-			break;
-		case CONSTITUTION:
-			dispersalArray[2] = COMPANION_SPECIAL_CHANCE;
-			break;
-		case INTELLECT:
-			dispersalArray[3] = COMPANION_SPECIAL_CHANCE;
-			break;
-		case WISDOM:
-			dispersalArray[4] = COMPANION_SPECIAL_CHANCE;
-			break;
-		case CHARISMA:
-			dispersalArray[5] = COMPANION_SPECIAL_CHANCE;
-			break;
-			
-		}
-		return dispersalArray;
-	}
 
 	@SuppressWarnings("unused")
 	private CompanionCreator creator;

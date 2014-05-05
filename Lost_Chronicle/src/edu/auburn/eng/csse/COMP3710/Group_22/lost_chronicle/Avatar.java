@@ -26,18 +26,18 @@ public class Avatar extends RPGActor {
 	}
 	
 	public int arcaneBarrage() {
-		int magicDmg = this.attributeStruct.getMagicAttack();
-		int intellect = this.statStruct.getIntellect();
-		int wisdom = this.statStruct.getWisdom();
+		int magicDmg = this.Attributes.getMagicAttack();
+		int intellect = this.Stats.getIntellect();
+		int wisdom = this.Stats.getWisdom();
 		
 		return (int)(magicDmg * 1.5 + intellect * 1.5 + wisdom * 1.5);
 	}
 	
 	public int lifebloom() {
-		int magicHeal = this.attributeStruct.getMagicAttack();
-		int magicDefence = this.attributeStruct.getMagicDefence();
-		int intellect = this.statStruct.getIntellect();
-		int wisdom = this.statStruct.getWisdom();
+		int magicHeal = this.Attributes.getMagicAttack();
+		int magicDefence = this.Attributes.getMagicDefence();
+		int intellect = this.Stats.getIntellect();
+		int wisdom = this.Stats.getWisdom();
 		magicHeal = (int) (magicHeal * 1.5 + magicDefence * 2 + intellect * 1.2 + wisdom * 1.2);
 		return magicHeal;
 		
@@ -45,8 +45,8 @@ public class Avatar extends RPGActor {
 	
 	public int sunderArmor() {
 		int sunderAmount = 0;
-		int defence = this.attributeStruct.getDefence();
-		int magicalDefence = this.attributeStruct.getMagicDefence();
+		int defence = this.Attributes.getDefence();
+		int magicalDefence = this.Attributes.getMagicDefence();
 		sunderAmount = defence + magicalDefence;
 		return sunderAmount;
 	}
@@ -60,7 +60,7 @@ public class Avatar extends RPGActor {
 	}
 	
 	public int heroicStrike() {
-		int attack = this.attributeStruct.getAttack();
+		int attack = this.Attributes.getAttack();
 		return (int)(2.5 * attack);
 		
 	}
